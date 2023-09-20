@@ -1,0 +1,15 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+trimmedReads/*
+trimmedQC/*
+test_trimming/*
+starAligned/*
+rObjects/*
+results/*
+rawQC/*
+featureCounts/Mayo*
+.snakemake
+refs/transcript_quant/*
+refs/original_binab_with_errors.R
