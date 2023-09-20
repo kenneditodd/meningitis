@@ -1,0 +1,44 @@
+Mayo ID	PathDx	LBD	Braak 	Thal	TDP-43	ClinicalDx	Family History	Disease Duration	Age at Death	Sex	Meninges (Men)	Parietal (Par)	AD subtype	Brain wt	DOB	DOD	Race	APOE	MAPT
+Mayo 01	acute contusions/SAH/DAI (PPND kindred)		0	0		NCI (trauma) (PPND family; noncarrier)	Yes		33	M	yes	yes		1480	3/21/76	3/19/10	Caucasian		
+Mayo 02	arteriopathy/encephalitis/CAA		2	0		CNS vasculitis/encephalitis	Yes		51	M	yes	yes		1160	7/7/59	1/18/11	Caucasian		
+Mayo 03	idiopathic microvasculopathy with dystrophic calcification (MERRF?)		0	0		myoclonus	Yes		56	M	yes	yes		1260	9/12/59	8/16/15	Caucasian		
+Mayo 04	AD (posterior)/TLBD (clinical FTD)	TLBD	6	5	0	FTD	No	4	58	M	yes	yes	Typical	1100	8/7/47	6/14/06	Hispanic	E3E4	H1H2
+Mayo 05	PSP/SC		1	4	0	PSP	No	3	65	M	yes	yes		1300	12/2/43	5/30/09	Caucasian	E2E3	H1H1
+Mayo 06	CBD/AGD/TSA		1	0	1	PSP	No	4	65	M	yes	yes		1240	11/8/48	8/19/14	Caucasian	E3E3	H1H1
+Mayo 07	AD (HpSp)		6	5	0	FTD	No	8	69	M	yes	yes	HpSp	1120	6/9/44	12/19/13	Caucasian	E3E3	
+Mayo 08	VaD(vascular PSP)/IOH/calcific & obliterative vasculopathy		0	0		PSP	No		69	M	yes	yes		820		11/11/08	Caucasian		
+Mayo 09	AD/DLBD	DLBD	5	5	0	DLB	Yes	9	70	M	yes	yes	Typical	1420	12/15/35	2/11/06	Caucasian	E3E4	H1H2
+Mayo 10	PSP (PNLA)/PSD/ASCVD		2	0	0	PSP	No	14	71	M	yes	yes		940	12/4/43	2/23/15	Eastern Indian	E3E3	H1H1
+Mayo 11	AD/CAA/Crib		6	5	0	FTD v AD	No	4	72	F	yes	yes	Typical	1080	3/28/40	7/1/12	Caucasian		
+Mayo 12	metabolic/CAA		2	0	0	PD? Cirrhosis	No		75	F	yes	yes		1080	9/9/35	6/6/11	Caucasian		
+Mayo 13	PSP, atypical (PNLA?)/hydrocephalus		2	0	0	PSP	No	4	76	M	yes	yes		1180	10/24/33	9/20/10	Caucasian	E2E3	H1H1
+Mayo 14	AD, early		4	4	0	AD	No	5	77	F	yes	yes	typical	1000	12/8/33	12/6/11	Caucasian		
+Mayo 15	PSP, atypical (PNLA)/SC		2	3	0	PSP-P vs PAGF	No	14	78	M	yes	yes		1200	9/10/32	5/2/11	Caucasian	E3E3	H1H1
+Mayo 16	VaD (pure vascular dementia)		2	1	0	VaD	No		78	F	yes	yes		1060	3/20/27	6/23/05	Caucasian	E2E3	
+Mayo 17	CBD/AGD/acute MI's		3	0	0	PSP (Richardson syndrome)	No	6	84	F	yes	yes		1060	1/25/27	11/30/11	Caucasian	E3E3	H1H1
+Mayo 18	AD		6	5	0	AD	No		87	F	yes	yes	Typical	1260	1/28/25	12/24/11	Caucasian		
+Mayo 19	Normal mitochondrial/VaD		0	0	0	CJD	No		55	F	yes	yes		1050	4/27/44	3/25/98	Caucasian	E3E4	H1H1
+Mayo 20	Normal (Hx of dystonia)		1	0	0	torsion dystonia (s/p DBS)	No		61	M	yes	yes		1360	12/31/54	3/4/16	Caucasian		
+Mayo 21	acute hemorrhagic CVAs (embolic)		1	0		MSA	No		64	F	yes	yes		1040	2/10/50	3/6/14	Caucasian		
+Mayo 22	SC (NFT only)		4	3	0	AD	No		75	M	yes	yes		1380		2/2/05	Caucasian	E3E3	
+Mayo 23	PA (bilateral DBS for ET)		3	4	0	ET (s/p DBS)	No		75	M	yes	yes		1180	1/24/33	1/10/09	Caucasian	E3E4	
+Mayo 24	SC		3			DLB	No		77	M	yes	yes			4/6/28	7/5/05	Caucasian	E3E3	
+Mayo 25	Normal brain & spinal cord (acute MI's)		2	0		MSA	No		77	M	yes	yes		1000	9/30/38	10/15/15	Caucasian		
+Mayo 26	AD/abscess/meningitis (APP V717F)		6	5	0	AD (familial)	Yes		58	M	yes	yes	Typical	1300	4/8/45	4/22/03	Caucasian	E3E3	H1H1
+Mayo 27	AD/abscess/meningitis		5	5	0	AD	No	9	77	F	yes	yes	Typical	1220		3/28/07	Caucasian	e3e4	H1H1
+Mayo 28	PSP, atypical (PNLA)/chronic meningitis		2	0	0	PDD	Yes	19	76	M	yes	yes		1040	2/19/33	8/9/09	Caucasian	E3E3	H1H2
+Mayo 29	CNS vasculopathy (Susac)/OA/LGN/deafness		0	1		DLB?	Yes		70	M	yes	yes		1160	9/15/39	2/18/10	Caucasian	E2E3	
+Mayo 30	AD/meningitis (bacterial?)/subdural/herniation		6	5	0	AD	No	6	87	F	yes	yes	Limbic	920	11/24/22	7/24/10	Caucasian	e3e3	
+Mayo 31	PSP, atypical (PNLA)/meningitis		2	0	0	PSP	No	8	78	M	yes	yes		1920	6/7/32	7/4/10	Caucasian	E3E3	H1H1
+Mayo 32	post-op CVA/ependymitis/chronic meningitis		0	0		s/p Nsrg choroid plexus cyst	No		36	M	No frozen tissue	No frozen tissue		1470	2/27/36	9/17/12	Caucasian		
+Mayo 33	Meningoencephalitis/CAA		2	1		CJD	No		72	F	yes	yes		1120	9/27/40	11/8/12	Caucasian		
+Mayo 34	carcinomatous meningitis and ventriculitis (poss CTE)		2	0		metastatic melanoma	No		51	M	yes	yes		1560	8/19/61	1/25/13	Caucasian		
+Mayo 35	Cerebritis/meningitis/VaD/aneurysm		3	0		CVA (aneurysm)	No		78	F	yes	yes		1060	6/5/35	7/18/13	Caucasian		
+Mayo 36	PSP/SC/plasma cell meningitis/(s/p VPS)		1	1	0	PSP v NPH (s/p VPS)	No	7	65	M	yes	yes		1360	9/8/47	8/30/13	Caucasian	E3E4	H1H1
+Mayo 37	PSP/chronic meningoencephalitis & ventriculitis/acute infarcts 		0	0	0	PSP	Yes	6	71	M	yes	yes		1220	11/17/41	10/29/13	Caucasian	E3E3	H1H1
+Mayo 38	AD (HpSp)/bacterial meningitis		6	5	0	CBD	No		69	M	yes	yes	Typical (v HpSp)	750	6/29/44	4/6/14	Caucasian	E4E4	
+Mayo 39	VaD (massive CVAs acute and chronic)		0	0		MSA v MS/CMT	Yes		57	M	yes	yes		1320	8/3/56	3/15/14	Caucasian		
+Mayo 40	CBD/purulent meningitis		2	0	0	CBD	Yes	8	65	M	yes	yes		1280	9/30/37	12/9/14	Caucasian	E3E3	H1H1
+Mayo 41	AD/ALB/focal meningitis	ALB	6	5	0	AD (behavioral)	Yes	8	70	M	yes	yes		1000	5/8/45	7/1/15	Caucasian	E3E4	
+Mayo 42	Meningoencephalitis (NAIM)		0	0		CJD	No		76	F	yes	yes		1100	11/14/21	10/8/98	Caucasian	E3E4	H1H1
+Mayo 43	CBD/AGD		1	0	1	PSP	Yes	8	87	F	yes	yes		1180	8/5/29	4/6/99	Caucasian	E3E3	H1H2
