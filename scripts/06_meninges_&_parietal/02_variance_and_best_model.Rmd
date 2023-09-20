@@ -1,0 +1,296 @@
+---
+title: "Meninge & Parietal Tissue"
+subtitle: "Variance"
+author: "Kennedi Todd"
+date: "09/14/2023"
+output:
+  html_document:
+    theme: cerulean
+    toc: true
+    toc_float: true
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Setup
+## Working directory
+```{r working_directory}
+knitr::opts_knit$set(root.dir = ".")
+```
+
+## Libraries
+```{r libraries}
+library(corrplot)          # corrplot()
+library(dplyr)             # %>%
+library(edgeR)             # load DGEList object
+library(ggcorrplot)        # ggcorrplot()
+library(gplots)            # heatmap.2()
+library(limma)             # voomWithQualityWeights()
+library(mvIC)              # mvForwardStepwise()
+library(variancePartition) # fitExtractVarPartModel()
+```
+
+## User defined variables
+```{r set_variables}
+folder <- "both_tissues"
+groups <- c("control","meningitis")
+group_colors <- c("orange","cornflowerblue")
+ann <- "../../refs/chm13v2.0_RefSeq_Liftoff_v5.1.gff3"
+```
+
+## Save functions
+These functions with help simultaneously save plots as a png, pdf, and tiff 
+file.
+```{r save_functions}
+saveToPDF <- function(...) {
+    d = dev.copy(pdf,...)
+    dev.off(d)
+}
+```
+
+## Load data
+```{r load_data}
+dge.filtered.norm <- readRDS(paste0("../../rObjects/",folder,"_DGEList_filtered_normalized.rds"))
+```
+
+# Cell Markers
+## Extract metadata
+```{r}
+# get meta
+meta <- as.data.frame(dge.filtered.norm$samples)
+
+# keep variables with all fields known
+variables <- c("tissue",
+               "group",
+               "sex",
+               "lib.size",
+               "braak",
+               "thal",
+               "age_at_death",
+               "brain_wt",
+               "race",
+               "RIN",
+               "star_unique_mapped")
+meta <- meta %>% select(all_of(variables))
+
+# log2 transform lib.size
+meta$lib.size <- log2(meta$lib.size)
+colnames(meta)[4] <- "log2.lib.size"
+
+# check and change classes
+meta$tissue <- factor(meta$tissue)
+meta$braak <- factor(meta$braak)
+meta$thal <- factor(meta$thal)
+meta$race <- factor(meta$race)
+meta$RIN <- as.numeric(meta$RIN)
+meta$star_unique_mapped <- as.numeric(gsub("%","",meta$star_unique_mapped))
+sapply(meta, class)
+```
+
+## Markers
+- Astrocytes: GFAP, GJA1, CLU, AQP4
+- B cells & Plasma Cells: CD19, MS4A1, CD79A, IGHA, SDC1
+- Choroid: TTR
+- Endothelial: FLT1, PECAM1, VWF \
+- Fibroblasts: COL1A1, COL1A2, LUM, DCN \
+- Macrophages/Microglia: MRC1, MKI67, C1QB \
+- Mast cells: KIT, FCER1A \
+- Monocytes/DCs/Neutrophils: ITGAX, CD14, CD209A, S100A9 \
+- Neurons: GAD1, GAD2, SNAP25, SYT1, MEG3
+- NPCs: SOX2, NES
+- NK cells: NKG7
+- Oligodendrocytes: MBP
+- OPCs: OLIG1, TNR
+- Pericytes & SMCs: MYH11, ACTA2, VTN \
+- RBCs - HBB, HBA1, HBA2 \
+- Schwann cells: MPZ \
+- T cells: CD3E, CD3D, CD8A \
+```{r}
+# choose cell type markers
+markers <- c("GFAP", "CD19", "TTR", "VWF", "COL1A2", "MRC1", "KIT", "ITGAX", "SNAP25",
+             "NES","NKG7", "MBP", "TNR", "MYH11", "HBB", "MPZ","CD3E")
+length(markers)
+
+# check if all markers are in annotation (could have alternative name)
+markers[!markers %in% rownames(dge.filtered.norm)]
+
+# get counts
+cpm <- round(as.data.frame(cpm(dge.filtered.norm$counts, log = TRUE)), digits = 2)
+
+# filter counts by marker
+cpm <- cpm[rownames(cpm) %in% markers,]
+
+# switch cols and rows
+cpm <- t(cpm)
+
+# add to meta
+all.equal(rownames(meta), rownames(cpm))
+meta <- cbind(meta, cpm)
+```
+
+# Correlation
+## Spearman correlation
+- Spearman's correlation can be used to analyzed categorical data, as well as continuous data, because it uses ranks instead of assumptions of normality ().
+plotCorrMatrix(cor(info))
+MRC1, MKI67, C1QB
+```{r CCA_heatmap}
+# formula
+form <- ~0 + tissue + group + sex + log2.lib.size + braak + thal + 
+  age_at_death + brain_wt + race + RIN + star_unique_mapped + NES + MPZ + TNR + 
+  KIT + COL1A2 + MRC1 + HBB + CD3E + VWF + MYH11 + CD19 + ITGAX + GFAP + TTR + 
+  MBP + NKG7 + SNAP25
+
+# correlation plot
+model.matrix(form, data = meta) %>% 
+  cor(method = "spearman") %>% 
+  ggcorrplot(show.diag = FALSE, type = "lower", lab = TRUE, lab_size = 2)
+
+# save
+path <- paste0("../../results/", folder, "/variance/spearman_correlation_heatmap")
+saveToPDF(paste0(path, ".pdf"), width = 12, height = 12)
+```
+
+## CCA heatmap
+```{r}
+c <- canCorPairs(form, meta)
+
+corrplot(c,
+         type = "lower",
+         is.corr = FALSE,
+         order = "hclust",
+         col = colorRampPalette(c("blue4", "deepskyblue", "white"))(100),
+         addCoef.col = TRUE,
+         method = "shade",
+         tl.col = "black",
+         tl.cex = 0.8,
+         number.cex = 0.7,
+         diag = TRUE)
+
+# save
+path <- paste0("../../results/", folder, "/variance/canonical_correlation_analysis_heatmap")
+saveToPDF(paste0(path, ".pdf"), width = 12, height = 12)
+```
+
+# Variance partition
+## Variance model
+```{r variance_partition, message=FALSE, eval=FALSE}
+# variables to choose from
+geneExpr <- as.matrix(dge.filtered.norm$counts)
+colnames(meta)
+
+# age is usually a continuous so model it as a fixed effect "age"
+# group is categorical, so model them as random effects "(1|group)"
+form <- ~ (1|group) + (1|sex) + (1|braak) + (1|thal) + age_at_death + brain_wt + 
+  RIN + MPZ + TNR + KIT + COL1A2 + HBB + CD3E + VWF + MYH11 + CD19 + ITGAX + GFAP + TTR + NKG7 + SNAP25
+
+varPart <- fitExtractVarPartModel(geneExpr, form, meta)
+vp <- sortCols(varPart)
+saveRDS(vp, paste0("../../rObjects/", folder, "_var_par.rds"))
+```
+
+## Violins
+```{r variance_violins, eval=FALSE}
+# plot
+plotVarPart(vp)
+
+# save
+path <- paste0("../../results/", folder, "/variance/variance_violins")
+saveToPDF(paste0(path, ".pdf"), width = 12, height = 6)
+```
+
+## Percent bars
+```{r variance_percent_bars}
+# plot
+plotPercentBars(vp[1:10,])
+
+# save
+path <- paste0("../../results/", folder, "/variance/variance_gene_percent_bars")
+saveToPDF(paste0(path, ".pdf"), width = 8, height = 8)
+```
+
+## Group var
+```{r variance_group}
+# sort genes based on variance explained by group
+varPart.df <- as.data.frame(vp)
+order.varPart.df <- varPart.df[order(varPart.df$group, decreasing = TRUE),]
+head(order.varPart.df["group"], 10)
+```
+
+## Sex var
+```{r variance_group}
+# sort genes based on variance explained by group
+order.varPart.df <- varPart.df[order(varPart.df$sex, decreasing = TRUE),]
+head(order.varPart.df["sex"], 10)
+```
+
+## Lib size var
+```{r variance_group}
+# sort genes based on variance explained by group
+order.varPart.df <- varPart.df[order(varPart.df$log2_library_size, decreasing = TRUE),]
+head(order.varPart.df["log2_library_size"], 10)
+```
+
+## Thal var
+```{r variance_group}
+# sort genes based on variance explained by group
+order.varPart.df <- varPart.df[order(varPart.df$thal, decreasing = TRUE),]
+head(order.varPart.df["thal"], 10)
+```
+
+## ACTA2 var
+```{r variance_group}
+# sort genes based on variance explained by group
+order.varPart.df <- varPart.df[order(varPart.df$ACTA2, decreasing = TRUE),]
+head(order.varPart.df["ACTA2"], 10)
+```
+
+## SNAP25 var
+```{r variance_group}
+# sort genes based on variance explained by group
+order.varPart.df <- varPart.df[order(varPart.df$SNAP25, decreasing = TRUE),]
+head(order.varPart.df["SNAP25"], 10)
+```
+
+# Finding best model
+variancePartition::voomWithDreamWeights() is the same as limma::voom(), except that it allows random effects in the formula. limma::voomWithQualityWeights() includes observational and sample specific quality weights whereas voomWithDreamWeights only includes observational quality weights.
+
+## Forward stepwise regression
+```{r}
+# get matrix of expression data
+v <- voomWithDreamWeights(counts = dge.filtered.norm$counts,
+                          formula = (~ 0 + group + sex),
+                          data = dge.filtered.norm$samples,
+                          BPPARAM = BiocParallel::SnowParam(cores),
+                          plot = FALSE)
+counts <- v$E
+
+# set base formula
+base <- ~ (1 | group) + (1 | sex)
+
+# variable we wish to test
+variables <- c("log2_library_size",
+               "(1|braak)",
+               "(1|thal)",
+               "age_at_death",
+               "brain_wt",
+               "RIN",
+               "MPZ","TNR","KIT","COL1A2","HBB","CD3E","VWF","MYH11",
+               "CD19","ITGAX","GFAP","TTR","NKG7","SNAP25")
+
+# multivariate forward stepwise regression evaluated by multivariate BIC
+bestModel <- mvForwardStepwise(exprObj = counts,
+                               baseFormula = base,
+                               data = meta,
+                               variables = variables)
+```
+
+# Save
+```{r}
+all.equal(rownames(meta), rownames(dge.filtered.norm$samples))
+dge.filtered.norm$samples <- cbind(dge.filtered.norm$samples, meta)
+saveRDS(dge.filtered.norm, paste0("../../rObjects/",folder, "_DGEList_cell_markers.rds"))
+```
+
+```{r}
+sessionInfo()
+```

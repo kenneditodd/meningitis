@@ -1,0 +1,1267 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 20
+Job stats:
+job               count
+--------------  -------
+align_XX_reads       14
+align_XY_reads       28
+all                   1
+gene_count_XX        14
+gene_count_XY        28
+total                85
+
+Select jobs to execute...
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_06_P_S12_L1_R1_trim.fastq.gz, trimmedReads/Mayo_06_P_S12_L1_R2_trim.fastq.gz, trimmedReads/Mayo_06_P_S12_L2_R1_trim.fastq.gz, trimmedReads/Mayo_06_P_S12_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_06_P_S12_XY.Aligned.sortedByCoord.out.bam
+    jobid: 356
+    reason: Missing output files: starAligned/Mayo_06_P_S12_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_06_P_S12
+    resources: mem_mb=11850, mem_mib=11302, disk_mb=11850, disk_mib=11302, tmpdir=<TBD>
+
+Submitted job 356 with external jobid 'Submitted batch job 187583'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_42_P_S77_L1_R1_trim.fastq.gz, trimmedReads/Mayo_42_P_S77_L1_R2_trim.fastq.gz, trimmedReads/Mayo_42_P_S77_L2_R1_trim.fastq.gz, trimmedReads/Mayo_42_P_S77_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_42_P_S77_XX.Aligned.sortedByCoord.out.bam
+    jobid: 349
+    reason: Missing output files: starAligned/Mayo_42_P_S77_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_42_P_S77
+    resources: mem_mb=7112, mem_mib=6783, disk_mb=7112, disk_mib=6783, tmpdir=<TBD>
+
+Submitted job 349 with external jobid 'Submitted batch job 187584'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_18_P_S32_L1_R1_trim.fastq.gz, trimmedReads/Mayo_18_P_S32_L1_R2_trim.fastq.gz, trimmedReads/Mayo_18_P_S32_L2_R1_trim.fastq.gz, trimmedReads/Mayo_18_P_S32_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_18_P_S32_XX.Aligned.sortedByCoord.out.bam
+    jobid: 342
+    reason: Missing output files: starAligned/Mayo_18_P_S32_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_18_P_S32
+    resources: mem_mb=3430, mem_mib=3272, disk_mb=3430, disk_mib=3272, tmpdir=<TBD>
+
+Submitted job 342 with external jobid 'Submitted batch job 187585'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_40_P_S66_L1_R1_trim.fastq.gz, trimmedReads/Mayo_40_P_S66_L1_R2_trim.fastq.gz, trimmedReads/Mayo_40_P_S66_L2_R1_trim.fastq.gz, trimmedReads/Mayo_40_P_S66_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_40_P_S66_XY.Aligned.sortedByCoord.out.bam
+    jobid: 377
+    reason: Missing output files: starAligned/Mayo_40_P_S66_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_40_P_S66
+    resources: mem_mb=12529, mem_mib=11949, disk_mb=12529, disk_mib=11949, tmpdir=<TBD>
+
+Submitted job 377 with external jobid 'Submitted batch job 187586'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_29_P_S45_L1_R1_trim.fastq.gz, trimmedReads/Mayo_29_P_S45_L1_R2_trim.fastq.gz, trimmedReads/Mayo_29_P_S45_L2_R1_trim.fastq.gz, trimmedReads/Mayo_29_P_S45_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_29_P_S45_XY.Aligned.sortedByCoord.out.bam
+    jobid: 370
+    reason: Missing output files: starAligned/Mayo_29_P_S45_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_29_P_S45
+    resources: mem_mb=33309, mem_mib=31766, disk_mb=33309, disk_mib=31766, tmpdir=<TBD>
+
+Submitted job 370 with external jobid 'Submitted batch job 187587'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_20_P_S9_L1_R1_trim.fastq.gz, trimmedReads/Mayo_20_P_S9_L1_R2_trim.fastq.gz, trimmedReads/Mayo_20_P_S9_L2_R1_trim.fastq.gz, trimmedReads/Mayo_20_P_S9_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_20_P_S9_XY.Aligned.sortedByCoord.out.bam
+    jobid: 363
+    reason: Missing output files: starAligned/Mayo_20_P_S9_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_20_P_S9
+    resources: mem_mb=10860, mem_mib=10357, disk_mb=10860, disk_mib=10357, tmpdir=<TBD>
+
+Submitted job 363 with external jobid 'Submitted batch job 187588'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_03_P_S2_L1_R1_trim.fastq.gz, trimmedReads/Mayo_03_P_S2_L1_R2_trim.fastq.gz, trimmedReads/Mayo_03_P_S2_L2_R1_trim.fastq.gz, trimmedReads/Mayo_03_P_S2_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_03_P_S2_XY.Aligned.sortedByCoord.out.bam
+    jobid: 353
+    reason: Missing output files: starAligned/Mayo_03_P_S2_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_03_P_S2
+    resources: mem_mb=21783, mem_mib=20774, disk_mb=21783, disk_mib=20774, tmpdir=<TBD>
+
+Submitted job 353 with external jobid 'Submitted batch job 187589'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_30_P_S27_L1_R1_trim.fastq.gz, trimmedReads/Mayo_30_P_S27_L1_R2_trim.fastq.gz, trimmedReads/Mayo_30_P_S27_L2_R1_trim.fastq.gz, trimmedReads/Mayo_30_P_S27_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_30_P_S27_XX.Aligned.sortedByCoord.out.bam
+    jobid: 346
+    reason: Missing output files: starAligned/Mayo_30_P_S27_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_30_P_S27
+    resources: mem_mb=10590, mem_mib=10100, disk_mb=10590, disk_mib=10100, tmpdir=<TBD>
+
+Submitted job 346 with external jobid 'Submitted batch job 187590'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_14_P_S19_L1_R1_trim.fastq.gz, trimmedReads/Mayo_14_P_S19_L1_R2_trim.fastq.gz, trimmedReads/Mayo_14_P_S19_L2_R1_trim.fastq.gz, trimmedReads/Mayo_14_P_S19_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_14_P_S19_XX.Aligned.sortedByCoord.out.bam
+    jobid: 339
+    reason: Missing output files: starAligned/Mayo_14_P_S19_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_14_P_S19
+    resources: mem_mb=13865, mem_mib=13223, disk_mb=13865, disk_mib=13223, tmpdir=<TBD>
+
+Submitted job 339 with external jobid 'Submitted batch job 187591'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_37_P_S67_L1_R1_trim.fastq.gz, trimmedReads/Mayo_37_P_S67_L1_R2_trim.fastq.gz, trimmedReads/Mayo_37_P_S67_L2_R1_trim.fastq.gz, trimmedReads/Mayo_37_P_S67_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_37_P_S67_XY.Aligned.sortedByCoord.out.bam
+    jobid: 374
+    reason: Missing output files: starAligned/Mayo_37_P_S67_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_37_P_S67
+    resources: mem_mb=6569, mem_mib=6265, disk_mb=6569, disk_mib=6265, tmpdir=<TBD>
+
+Submitted job 374 with external jobid 'Submitted batch job 187592'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_25_P_S78_L1_R1_trim.fastq.gz, trimmedReads/Mayo_25_P_S78_L1_R2_trim.fastq.gz, trimmedReads/Mayo_25_P_S78_L2_R1_trim.fastq.gz, trimmedReads/Mayo_25_P_S78_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_25_P_S78_XY.Aligned.sortedByCoord.out.bam
+    jobid: 367
+    reason: Missing output files: starAligned/Mayo_25_P_S78_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_25_P_S78
+    resources: mem_mb=7494, mem_mib=7147, disk_mb=7494, disk_mib=7147, tmpdir=<TBD>
+
+Submitted job 367 with external jobid 'Submitted batch job 187593'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_13_P_S48_L1_R1_trim.fastq.gz, trimmedReads/Mayo_13_P_S48_L1_R2_trim.fastq.gz, trimmedReads/Mayo_13_P_S48_L2_R1_trim.fastq.gz, trimmedReads/Mayo_13_P_S48_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_13_P_S48_XY.Aligned.sortedByCoord.out.bam
+    jobid: 361
+    reason: Missing output files: starAligned/Mayo_13_P_S48_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_13_P_S48
+    resources: mem_mb=13780, mem_mib=13142, disk_mb=13780, disk_mib=13142, tmpdir=<TBD>
+
+Submitted job 361 with external jobid 'Submitted batch job 187594'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_04_P_S30_L1_R1_trim.fastq.gz, trimmedReads/Mayo_04_P_S30_L1_R2_trim.fastq.gz, trimmedReads/Mayo_04_P_S30_L2_R1_trim.fastq.gz, trimmedReads/Mayo_04_P_S30_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_04_P_S30_XY.Aligned.sortedByCoord.out.bam
+    jobid: 354
+    reason: Missing output files: starAligned/Mayo_04_P_S30_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_04_P_S30
+    resources: mem_mb=23775, mem_mib=22674, disk_mb=23775, disk_mib=22674, tmpdir=<TBD>
+
+Submitted job 354 with external jobid 'Submitted batch job 187595'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_33_P_S16_L1_R1_trim.fastq.gz, trimmedReads/Mayo_33_P_S16_L1_R2_trim.fastq.gz, trimmedReads/Mayo_33_P_S16_L2_R1_trim.fastq.gz, trimmedReads/Mayo_33_P_S16_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_33_P_S16_XX.Aligned.sortedByCoord.out.bam
+    jobid: 347
+    reason: Missing output files: starAligned/Mayo_33_P_S16_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_33_P_S16
+    resources: mem_mb=16453, mem_mib=15691, disk_mb=16453, disk_mib=15691, tmpdir=<TBD>
+
+Submitted job 347 with external jobid 'Submitted batch job 187596'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_16_P_S4_L1_R1_trim.fastq.gz, trimmedReads/Mayo_16_P_S4_L1_R2_trim.fastq.gz, trimmedReads/Mayo_16_P_S4_L2_R1_trim.fastq.gz, trimmedReads/Mayo_16_P_S4_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_16_P_S4_XX.Aligned.sortedByCoord.out.bam
+    jobid: 340
+    reason: Missing output files: starAligned/Mayo_16_P_S4_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_16_P_S4
+    resources: mem_mb=14831, mem_mib=14144, disk_mb=14831, disk_mib=14144, tmpdir=<TBD>
+
+Submitted job 340 with external jobid 'Submitted batch job 187597'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_38_P_S53_L1_R1_trim.fastq.gz, trimmedReads/Mayo_38_P_S53_L1_R2_trim.fastq.gz, trimmedReads/Mayo_38_P_S53_L2_R1_trim.fastq.gz, trimmedReads/Mayo_38_P_S53_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_38_P_S53_XY.Aligned.sortedByCoord.out.bam
+    jobid: 375
+    reason: Missing output files: starAligned/Mayo_38_P_S53_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_38_P_S53
+    resources: mem_mb=22261, mem_mib=21230, disk_mb=22261, disk_mib=21230, tmpdir=<TBD>
+
+Submitted job 375 with external jobid 'Submitted batch job 187598'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_26_P_S83_L1_R1_trim.fastq.gz, trimmedReads/Mayo_26_P_S83_L1_R2_trim.fastq.gz, trimmedReads/Mayo_26_P_S83_L2_R1_trim.fastq.gz, trimmedReads/Mayo_26_P_S83_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_26_P_S83_XY.Aligned.sortedByCoord.out.bam
+    jobid: 368
+    reason: Missing output files: starAligned/Mayo_26_P_S83_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_26_P_S83
+    resources: mem_mb=8806, mem_mib=8399, disk_mb=8806, disk_mib=8399, tmpdir=<TBD>
+
+Submitted job 368 with external jobid 'Submitted batch job 187599'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_05_P_S6_L1_R1_trim.fastq.gz, trimmedReads/Mayo_05_P_S6_L1_R2_trim.fastq.gz, trimmedReads/Mayo_05_P_S6_L2_R1_trim.fastq.gz, trimmedReads/Mayo_05_P_S6_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_05_P_S6_XY.Aligned.sortedByCoord.out.bam
+    jobid: 355
+    reason: Missing output files: starAligned/Mayo_05_P_S6_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_05_P_S6
+    resources: mem_mb=23371, mem_mib=22289, disk_mb=23371, disk_mib=22289, tmpdir=<TBD>
+
+Submitted job 355 with external jobid 'Submitted batch job 187600'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_35_P_S14_L1_R1_trim.fastq.gz, trimmedReads/Mayo_35_P_S14_L1_R2_trim.fastq.gz, trimmedReads/Mayo_35_P_S14_L2_R1_trim.fastq.gz, trimmedReads/Mayo_35_P_S14_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_35_P_S14_XX.Aligned.sortedByCoord.out.bam
+    jobid: 348
+    reason: Missing output files: starAligned/Mayo_35_P_S14_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_35_P_S14
+    resources: mem_mb=6194, mem_mib=5908, disk_mb=6194, disk_mib=5908, tmpdir=<TBD>
+
+Submitted job 348 with external jobid 'Submitted batch job 187601'.
+
+[Tue Aug 29 12:29:52 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_17_P_S81_L1_R1_trim.fastq.gz, trimmedReads/Mayo_17_P_S81_L1_R2_trim.fastq.gz, trimmedReads/Mayo_17_P_S81_L2_R1_trim.fastq.gz, trimmedReads/Mayo_17_P_S81_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_17_P_S81_XX.Aligned.sortedByCoord.out.bam
+    jobid: 341
+    reason: Missing output files: starAligned/Mayo_17_P_S81_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_17_P_S81
+    resources: mem_mb=18877, mem_mib=18003, disk_mb=18877, disk_mib=18003, tmpdir=<TBD>
+
+Submitted job 341 with external jobid 'Submitted batch job 187602'.
+[Tue Aug 29 12:39:45 2023]
+Finished job 342.
+1 of 85 steps (1%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:39:45 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_28_P_S56_L1_R1_trim.fastq.gz, trimmedReads/Mayo_28_P_S56_L1_R2_trim.fastq.gz, trimmedReads/Mayo_28_P_S56_L2_R1_trim.fastq.gz, trimmedReads/Mayo_28_P_S56_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_28_P_S56_XY.Aligned.sortedByCoord.out.bam
+    jobid: 369
+    reason: Missing output files: starAligned/Mayo_28_P_S56_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_28_P_S56
+    resources: mem_mb=10197, mem_mib=9725, disk_mb=10197, disk_mib=9725, tmpdir=<TBD>
+
+Submitted job 369 with external jobid 'Submitted batch job 187614'.
+[Tue Aug 29 12:41:02 2023]
+Finished job 374.
+2 of 85 steps (2%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:41:02 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_15_P_S39_L1_R1_trim.fastq.gz, trimmedReads/Mayo_15_P_S39_L1_R2_trim.fastq.gz, trimmedReads/Mayo_15_P_S39_L2_R1_trim.fastq.gz, trimmedReads/Mayo_15_P_S39_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_15_P_S39_XY.Aligned.sortedByCoord.out.bam
+    jobid: 362
+    reason: Missing output files: starAligned/Mayo_15_P_S39_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_15_P_S39
+    resources: mem_mb=43168, mem_mib=41169, disk_mb=43168, disk_mib=41169, tmpdir=<TBD>
+
+Submitted job 362 with external jobid 'Submitted batch job 187617'.
+[Tue Aug 29 12:41:13 2023]
+Finished job 356.
+3 of 85 steps (4%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:41:13 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_18_P_S32_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_18_P_S32_sex_specific_XX_gene.counts
+    jobid: 468
+    reason: Missing output files: featureCounts/Mayo_18_P_S32_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_18_P_S32_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_18_P_S32
+    resources: mem_mb=5300, mem_mib=5055, disk_mb=5300, disk_mib=5055, tmpdir=<TBD>
+
+Submitted job 468 with external jobid 'Submitted batch job 187619'.
+[Tue Aug 29 12:41:14 2023]
+Finished job 349.
+4 of 85 steps (5%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:41:14 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_06_P_S12_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_06_P_S12_sex_specific_XY_gene.counts
+    jobid: 482
+    reason: Missing output files: featureCounts/Mayo_06_P_S12_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_06_P_S12_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_06_P_S12
+    resources: mem_mb=11702, mem_mib=11160, disk_mb=11702, disk_mib=11160, tmpdir=<TBD>
+
+Submitted job 482 with external jobid 'Submitted batch job 187620'.
+[Tue Aug 29 12:41:26 2023]
+Finished job 348.
+5 of 85 steps (6%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:41:26 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_35_P_S14_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_35_P_S14_sex_specific_XX_gene.counts
+    jobid: 474
+    reason: Missing output files: featureCounts/Mayo_35_P_S14_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_35_P_S14_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_35_P_S14
+    resources: mem_mb=7028, mem_mib=6703, disk_mb=7028, disk_mib=6703, tmpdir=<TBD>
+
+Submitted job 474 with external jobid 'Submitted batch job 187623'.
+[Tue Aug 29 12:42:32 2023]
+Finished job 368.
+6 of 85 steps (7%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:42:32 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_42_P_S77_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_42_P_S77_sex_specific_XX_gene.counts
+    jobid: 475
+    reason: Missing output files: featureCounts/Mayo_42_P_S77_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_42_P_S77_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_42_P_S77
+    resources: mem_mb=7811, mem_mib=7450, disk_mb=7811, disk_mib=7450, tmpdir=<TBD>
+
+Submitted job 475 with external jobid 'Submitted batch job 187624'.
+[Tue Aug 29 12:42:43 2023]
+Finished job 468.
+7 of 85 steps (8%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:42:43 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_07_P_S80_L1_R1_trim.fastq.gz, trimmedReads/Mayo_07_P_S80_L1_R2_trim.fastq.gz, trimmedReads/Mayo_07_P_S80_L2_R1_trim.fastq.gz, trimmedReads/Mayo_07_P_S80_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_07_P_S80_XY.Aligned.sortedByCoord.out.bam
+    jobid: 357
+    reason: Missing output files: starAligned/Mayo_07_P_S80_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_07_P_S80
+    resources: mem_mb=18378, mem_mib=17527, disk_mb=18378, disk_mib=17527, tmpdir=<TBD>
+
+Submitted job 357 with external jobid 'Submitted batch job 187625'.
+[Tue Aug 29 12:42:54 2023]
+Finished job 474.
+8 of 85 steps (9%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:42:54 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_43_P_S17_L1_R1_trim.fastq.gz, trimmedReads/Mayo_43_P_S17_L1_R2_trim.fastq.gz, trimmedReads/Mayo_43_P_S17_L2_R1_trim.fastq.gz, trimmedReads/Mayo_43_P_S17_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_43_P_S17_XX.Aligned.sortedByCoord.out.bam
+    jobid: 350
+    reason: Missing output files: starAligned/Mayo_43_P_S17_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_43_P_S17
+    resources: mem_mb=21561, mem_mib=20563, disk_mb=21561, disk_mib=20563, tmpdir=<TBD>
+
+Submitted job 350 with external jobid 'Submitted batch job 187626'.
+[Tue Aug 29 12:43:15 2023]
+Finished job 482.
+9 of 85 steps (11%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:43:15 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_19_P_S35_L1_R1_trim.fastq.gz, trimmedReads/Mayo_19_P_S35_L1_R2_trim.fastq.gz, trimmedReads/Mayo_19_P_S35_L2_R1_trim.fastq.gz, trimmedReads/Mayo_19_P_S35_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_19_P_S35_XX.Aligned.sortedByCoord.out.bam
+    jobid: 343
+    reason: Missing output files: starAligned/Mayo_19_P_S35_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_19_P_S35
+    resources: mem_mb=7260, mem_mib=6924, disk_mb=7260, disk_mib=6924, tmpdir=<TBD>
+
+Submitted job 343 with external jobid 'Submitted batch job 187628'.
+[Tue Aug 29 12:43:38 2023]
+Finished job 346.
+10 of 85 steps (12%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:43:38 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_41_P_S44_L1_R1_trim.fastq.gz, trimmedReads/Mayo_41_P_S44_L1_R2_trim.fastq.gz, trimmedReads/Mayo_41_P_S44_L2_R1_trim.fastq.gz, trimmedReads/Mayo_41_P_S44_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_41_P_S44_XY.Aligned.sortedByCoord.out.bam
+    jobid: 378
+    reason: Missing output files: starAligned/Mayo_41_P_S44_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_41_P_S44
+    resources: mem_mb=11954, mem_mib=11401, disk_mb=11954, disk_mib=11401, tmpdir=<TBD>
+
+Submitted job 378 with external jobid 'Submitted batch job 187629'.
+[Tue Aug 29 12:43:38 2023]
+Finished job 367.
+11 of 85 steps (13%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:43:38 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_31_P_S37_L1_R1_trim.fastq.gz, trimmedReads/Mayo_31_P_S37_L1_R2_trim.fastq.gz, trimmedReads/Mayo_31_P_S37_L2_R1_trim.fastq.gz, trimmedReads/Mayo_31_P_S37_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_31_P_S37_XY.Aligned.sortedByCoord.out.bam
+    jobid: 371
+    reason: Missing output files: starAligned/Mayo_31_P_S37_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_31_P_S37
+    resources: mem_mb=17721, mem_mib=16901, disk_mb=17721, disk_mib=16901, tmpdir=<TBD>
+
+Submitted job 371 with external jobid 'Submitted batch job 187630'.
+[Tue Aug 29 12:43:38 2023]
+Finished job 475.
+12 of 85 steps (14%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:43:38 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_22_P_S29_L1_R1_trim.fastq.gz, trimmedReads/Mayo_22_P_S29_L1_R2_trim.fastq.gz, trimmedReads/Mayo_22_P_S29_L2_R1_trim.fastq.gz, trimmedReads/Mayo_22_P_S29_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_22_P_S29_XY.Aligned.sortedByCoord.out.bam
+    jobid: 364
+    reason: Missing output files: starAligned/Mayo_22_P_S29_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_22_P_S29
+    resources: mem_mb=13126, mem_mib=12518, disk_mb=13126, disk_mib=12518, tmpdir=<TBD>
+
+Submitted job 364 with external jobid 'Submitted batch job 187631'.
+[Tue Aug 29 12:44:45 2023]
+Finished job 339.
+13 of 85 steps (15%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:44:45 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_08_P_S63_L1_R1_trim.fastq.gz, trimmedReads/Mayo_08_P_S63_L1_R2_trim.fastq.gz, trimmedReads/Mayo_08_P_S63_L2_R1_trim.fastq.gz, trimmedReads/Mayo_08_P_S63_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_08_P_S63_XY.Aligned.sortedByCoord.out.bam
+    jobid: 358
+    reason: Missing output files: starAligned/Mayo_08_P_S63_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_08_P_S63
+    resources: mem_mb=4030, mem_mib=3844, disk_mb=4030, disk_mib=3844, tmpdir=<TBD>
+
+Submitted job 358 with external jobid 'Submitted batch job 187632'.
+[Tue Aug 29 12:44:54 2023]
+Finished job 363.
+14 of 85 steps (16%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:44:54 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_20_P_S9_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_20_P_S9_sex_specific_XY_gene.counts
+    jobid: 489
+    reason: Missing output files: featureCounts/Mayo_20_P_S9_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_20_P_S9_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_20_P_S9
+    resources: mem_mb=11812, mem_mib=11265, disk_mb=11812, disk_mib=11265, tmpdir=<TBD>
+
+Submitted job 489 with external jobid 'Submitted batch job 187633'.
+[Tue Aug 29 12:45:06 2023]
+Finished job 341.
+15 of 85 steps (18%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:45:07 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_01_P_S55_L1_R1_trim.fastq.gz, trimmedReads/Mayo_01_P_S55_L1_R2_trim.fastq.gz, trimmedReads/Mayo_01_P_S55_L2_R1_trim.fastq.gz, trimmedReads/Mayo_01_P_S55_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_01_P_S55_XY.Aligned.sortedByCoord.out.bam
+    jobid: 351
+    reason: Missing output files: starAligned/Mayo_01_P_S55_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_01_P_S55
+    resources: mem_mb=10828, mem_mib=10327, disk_mb=10828, disk_mib=10327, tmpdir=<TBD>
+
+Submitted job 351 with external jobid 'Submitted batch job 187634'.
+[Tue Aug 29 12:45:16 2023]
+Finished job 377.
+16 of 85 steps (19%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:45:17 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_40_P_S66_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_40_P_S66_sex_specific_XY_gene.counts
+    jobid: 503
+    reason: Missing output files: featureCounts/Mayo_40_P_S66_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_40_P_S66_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_40_P_S66
+    resources: mem_mb=12313, mem_mib=11743, disk_mb=12313, disk_mib=11743, tmpdir=<TBD>
+
+Submitted job 503 with external jobid 'Submitted batch job 187636'.
+[Tue Aug 29 12:45:39 2023]
+Finished job 489.
+17 of 85 steps (20%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:45:39 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_02_P_S84_L1_R1_trim.fastq.gz, trimmedReads/Mayo_02_P_S84_L1_R2_trim.fastq.gz, trimmedReads/Mayo_02_P_S84_L2_R1_trim.fastq.gz, trimmedReads/Mayo_02_P_S84_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_02_P_S84_XY.Aligned.sortedByCoord.out.bam
+    jobid: 352
+    reason: Missing output files: starAligned/Mayo_02_P_S84_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_02_P_S84
+    resources: mem_mb=13414, mem_mib=12793, disk_mb=13414, disk_mib=12793, tmpdir=<TBD>
+
+Submitted job 352 with external jobid 'Submitted batch job 187637'.
+[Tue Aug 29 12:45:39 2023]
+Finished job 361.
+18 of 85 steps (21%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:45:40 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_27_P_S38_L1_R1_trim.fastq.gz, trimmedReads/Mayo_27_P_S38_L1_R2_trim.fastq.gz, trimmedReads/Mayo_27_P_S38_L2_R1_trim.fastq.gz, trimmedReads/Mayo_27_P_S38_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_27_P_S38_XX.Aligned.sortedByCoord.out.bam
+    jobid: 345
+    reason: Missing output files: starAligned/Mayo_27_P_S38_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_27_P_S38
+    resources: mem_mb=16723, mem_mib=15949, disk_mb=16723, disk_mib=15949, tmpdir=<TBD>
+
+Submitted job 345 with external jobid 'Submitted batch job 187638'.
+[Tue Aug 29 12:46:23 2023]
+Finished job 503.
+19 of 85 steps (22%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:46:23 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_12_P_S20_L1_R1_trim.fastq.gz, trimmedReads/Mayo_12_P_S20_L1_R2_trim.fastq.gz, trimmedReads/Mayo_12_P_S20_L2_R1_trim.fastq.gz, trimmedReads/Mayo_12_P_S20_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_12_P_S20_XX.Aligned.sortedByCoord.out.bam
+    jobid: 338
+    reason: Missing output files: starAligned/Mayo_12_P_S20_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_12_P_S20
+    resources: mem_mb=21352, mem_mib=20363, disk_mb=21352, disk_mib=20363, tmpdir=<TBD>
+
+Submitted job 338 with external jobid 'Submitted batch job 187644'.
+[Tue Aug 29 12:46:46 2023]
+Finished job 340.
+20 of 85 steps (24%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:46:46 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_16_P_S4_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_16_P_S4_sex_specific_XX_gene.counts
+    jobid: 466
+    reason: Missing output files: featureCounts/Mayo_16_P_S4_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_16_P_S4_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_16_P_S4
+    resources: mem_mb=14270, mem_mib=13609, disk_mb=14270, disk_mib=13609, tmpdir=<TBD>
+
+Submitted job 466 with external jobid 'Submitted batch job 187646'.
+[Tue Aug 29 12:47:30 2023]
+Finished job 466.
+21 of 85 steps (25%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:47:30 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_36_P_S50_L1_R1_trim.fastq.gz, trimmedReads/Mayo_36_P_S50_L1_R2_trim.fastq.gz, trimmedReads/Mayo_36_P_S50_L2_R1_trim.fastq.gz, trimmedReads/Mayo_36_P_S50_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_36_P_S50_XY.Aligned.sortedByCoord.out.bam
+    jobid: 373
+    reason: Missing output files: starAligned/Mayo_36_P_S50_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_36_P_S50
+    resources: mem_mb=11973, mem_mib=11419, disk_mb=11973, disk_mib=11419, tmpdir=<TBD>
+
+Submitted job 373 with external jobid 'Submitted batch job 187647'.
+[Tue Aug 29 12:47:52 2023]
+Finished job 347.
+22 of 85 steps (26%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:47:52 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_33_P_S16_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_33_P_S16_sex_specific_XX_gene.counts
+    jobid: 473
+    reason: Missing output files: featureCounts/Mayo_33_P_S16_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_33_P_S16_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_33_P_S16
+    resources: mem_mb=15363, mem_mib=14652, disk_mb=15363, disk_mib=14652, tmpdir=<TBD>
+
+Submitted job 473 with external jobid 'Submitted batch job 187649'.
+[Tue Aug 29 12:48:46 2023]
+Finished job 369.
+23 of 85 steps (27%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:48:46 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_09_P_S65_L1_R1_trim.fastq.gz, trimmedReads/Mayo_09_P_S65_L1_R2_trim.fastq.gz, trimmedReads/Mayo_09_P_S65_L2_R1_trim.fastq.gz, trimmedReads/Mayo_09_P_S65_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_09_P_S65_XY.Aligned.sortedByCoord.out.bam
+    jobid: 359
+    reason: Missing output files: starAligned/Mayo_09_P_S65_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_09_P_S65
+    resources: mem_mb=32708, mem_mib=31193, disk_mb=32708, disk_mib=31193, tmpdir=<TBD>
+
+Submitted job 359 with external jobid 'Submitted batch job 187650'.
+[Tue Aug 29 12:48:58 2023]
+Finished job 375.
+24 of 85 steps (28%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:48:58 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_34_P_S25_L1_R1_trim.fastq.gz, trimmedReads/Mayo_34_P_S25_L1_R2_trim.fastq.gz, trimmedReads/Mayo_34_P_S25_L2_R1_trim.fastq.gz, trimmedReads/Mayo_34_P_S25_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_34_P_S25_XY.Aligned.sortedByCoord.out.bam
+    jobid: 372
+    reason: Missing output files: starAligned/Mayo_34_P_S25_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_34_P_S25
+    resources: mem_mb=17551, mem_mib=16738, disk_mb=17551, disk_mib=16738, tmpdir=<TBD>
+
+Submitted job 372 with external jobid 'Submitted batch job 187651'.
+[Tue Aug 29 12:48:58 2023]
+Finished job 473.
+25 of 85 steps (29%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:48:58 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_21_P_S54_L1_R1_trim.fastq.gz, trimmedReads/Mayo_21_P_S54_L1_R2_trim.fastq.gz, trimmedReads/Mayo_21_P_S54_L2_R1_trim.fastq.gz, trimmedReads/Mayo_21_P_S54_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_21_P_S54_XX.Aligned.sortedByCoord.out.bam
+    jobid: 344
+    reason: Missing output files: starAligned/Mayo_21_P_S54_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_21_P_S54
+    resources: mem_mb=17125, mem_mib=16332, disk_mb=17125, disk_mib=16332, tmpdir=<TBD>
+
+Submitted job 344 with external jobid 'Submitted batch job 187652'.
+[Tue Aug 29 12:49:19 2023]
+Finished job 343.
+26 of 85 steps (31%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:49:19 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_14_P_S19_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_14_P_S19_sex_specific_XX_gene.counts
+    jobid: 465
+    reason: Missing output files: featureCounts/Mayo_14_P_S19_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_14_P_S19_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_14_P_S19
+    resources: mem_mb=12874, mem_mib=12278, disk_mb=12874, disk_mib=12278, tmpdir=<TBD>
+
+Submitted job 465 with external jobid 'Submitted batch job 187653'.
+[Tue Aug 29 12:49:20 2023]
+Finished job 353.
+27 of 85 steps (32%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:49:20 2023]
+rule align_XX_reads:
+    input: trimmedReads/Mayo_11_P_S21_L1_R1_trim.fastq.gz, trimmedReads/Mayo_11_P_S21_L1_R2_trim.fastq.gz, trimmedReads/Mayo_11_P_S21_L2_R1_trim.fastq.gz, trimmedReads/Mayo_11_P_S21_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_11_P_S21_XX.Aligned.sortedByCoord.out.bam
+    jobid: 337
+    reason: Missing output files: starAligned/Mayo_11_P_S21_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_11_P_S21
+    resources: mem_mb=8312, mem_mib=7927, disk_mb=8312, disk_mib=7927, tmpdir=<TBD>
+
+Submitted job 337 with external jobid 'Submitted batch job 187654'.
+[Tue Aug 29 12:49:42 2023]
+Finished job 354.
+28 of 85 steps (33%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:49:42 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_04_P_S30_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_04_P_S30_sex_specific_XY_gene.counts
+    jobid: 480
+    reason: Missing output files: featureCounts/Mayo_04_P_S30_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_04_P_S30_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_04_P_S30
+    resources: mem_mb=20575, mem_mib=19622, disk_mb=20575, disk_mib=19622, tmpdir=<TBD>
+
+Submitted job 480 with external jobid 'Submitted batch job 187656'.
+[Tue Aug 29 12:49:53 2023]
+Finished job 358.
+29 of 85 steps (34%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:49:53 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_10_P_S11_L1_R1_trim.fastq.gz, trimmedReads/Mayo_10_P_S11_L1_R2_trim.fastq.gz, trimmedReads/Mayo_10_P_S11_L2_R1_trim.fastq.gz, trimmedReads/Mayo_10_P_S11_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_10_P_S11_XY.Aligned.sortedByCoord.out.bam
+    jobid: 360
+    reason: Missing output files: starAligned/Mayo_10_P_S11_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_10_P_S11
+    resources: mem_mb=23530, mem_mib=22440, disk_mb=23530, disk_mib=22440, tmpdir=<TBD>
+
+Submitted job 360 with external jobid 'Submitted batch job 187658'.
+[Tue Aug 29 12:50:26 2023]
+Finished job 480.
+30 of 85 steps (35%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:50:26 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_17_P_S81_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_17_P_S81_sex_specific_XX_gene.counts
+    jobid: 467
+    reason: Missing output files: featureCounts/Mayo_17_P_S81_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_17_P_S81_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_17_P_S81
+    resources: mem_mb=17666, mem_mib=16848, disk_mb=17666, disk_mib=16848, tmpdir=<TBD>
+
+Submitted job 467 with external jobid 'Submitted batch job 187659'.
+[Tue Aug 29 12:50:36 2023]
+Finished job 465.
+31 of 85 steps (36%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:50:36 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_37_P_S67_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_37_P_S67_sex_specific_XY_gene.counts
+    jobid: 500
+    reason: Missing output files: featureCounts/Mayo_37_P_S67_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_37_P_S67_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_37_P_S67
+    resources: mem_mb=7371, mem_mib=7030, disk_mb=7371, disk_mib=7030, tmpdir=<TBD>
+
+Submitted job 500 with external jobid 'Submitted batch job 187662'.
+[Tue Aug 29 12:50:48 2023]
+Finished job 355.
+32 of 85 steps (38%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:50:48 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_08_P_S63_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_08_P_S63_sex_specific_XY_gene.counts
+    jobid: 484
+    reason: Missing output files: featureCounts/Mayo_08_P_S63_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_08_P_S63_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_08_P_S63
+    resources: mem_mb=5145, mem_mib=4907, disk_mb=5145, disk_mib=4907, tmpdir=<TBD>
+
+Submitted job 484 with external jobid 'Submitted batch job 187663'.
+[Tue Aug 29 12:51:09 2023]
+Finished job 500.
+33 of 85 steps (39%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:51:09 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_25_P_S78_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_25_P_S78_sex_specific_XY_gene.counts
+    jobid: 493
+    reason: Missing output files: featureCounts/Mayo_25_P_S78_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_25_P_S78_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_25_P_S78
+    resources: mem_mb=8583, mem_mib=8186, disk_mb=8583, disk_mib=8186, tmpdir=<TBD>
+
+Submitted job 493 with external jobid 'Submitted batch job 187664'.
+[Tue Aug 29 12:51:10 2023]
+Finished job 484.
+34 of 85 steps (40%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:51:10 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_03_P_S2_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_03_P_S2_sex_specific_XY_gene.counts
+    jobid: 479
+    reason: Missing output files: featureCounts/Mayo_03_P_S2_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_03_P_S2_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_03_P_S2
+    resources: mem_mb=19047, mem_mib=18165, disk_mb=19047, disk_mib=18165, tmpdir=<TBD>
+
+Submitted job 479 with external jobid 'Submitted batch job 187665'.
+[Tue Aug 29 12:51:32 2023]
+Finished job 493.
+35 of 85 steps (41%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:51:32 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_28_P_S56_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_28_P_S56_sex_specific_XY_gene.counts
+    jobid: 495
+    reason: Missing output files: featureCounts/Mayo_28_P_S56_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_28_P_S56_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_28_P_S56
+    resources: mem_mb=10465, mem_mib=9981, disk_mb=10465, disk_mib=9981, tmpdir=<TBD>
+
+Submitted job 495 with external jobid 'Submitted batch job 187666'.
+[Tue Aug 29 12:51:43 2023]
+Finished job 467.
+36 of 85 steps (42%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:51:43 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_19_P_S35_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_19_P_S35_sex_specific_XX_gene.counts
+    jobid: 469
+    reason: Missing output files: featureCounts/Mayo_19_P_S35_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_19_P_S35_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_19_P_S35
+    resources: mem_mb=8192, mem_mib=7813, disk_mb=8192, disk_mib=7813, tmpdir=<TBD>
+
+Submitted job 469 with external jobid 'Submitted batch job 187667'.
+[Tue Aug 29 12:51:43 2023]
+Finished job 479.
+37 of 85 steps (44%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:51:43 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_23_P_S68_L1_R1_trim.fastq.gz, trimmedReads/Mayo_23_P_S68_L1_R2_trim.fastq.gz, trimmedReads/Mayo_23_P_S68_L2_R1_trim.fastq.gz, trimmedReads/Mayo_23_P_S68_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_23_P_S68_XY.Aligned.sortedByCoord.out.bam
+    jobid: 365
+    reason: Missing output files: starAligned/Mayo_23_P_S68_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_23_P_S68
+    resources: mem_mb=31770, mem_mib=30299, disk_mb=31770, disk_mib=30299, tmpdir=<TBD>
+
+Submitted job 365 with external jobid 'Submitted batch job 187668'.
+[Tue Aug 29 12:52:16 2023]
+Finished job 495.
+38 of 85 steps (45%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:52:16 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_30_P_S27_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_30_P_S27_sex_specific_XX_gene.counts
+    jobid: 472
+    reason: Missing output files: featureCounts/Mayo_30_P_S27_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_30_P_S27_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_30_P_S27
+    resources: mem_mb=11457, mem_mib=10927, disk_mb=11457, disk_mib=10927, tmpdir=<TBD>
+
+Submitted job 472 with external jobid 'Submitted batch job 187669'.
+[Tue Aug 29 12:52:39 2023]
+Finished job 469.
+39 of 85 steps (46%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:52:39 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_13_P_S48_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_13_P_S48_sex_specific_XY_gene.counts
+    jobid: 487
+    reason: Missing output files: featureCounts/Mayo_13_P_S48_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_13_P_S48_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_13_P_S48
+    resources: mem_mb=12999, mem_mib=12397, disk_mb=12999, disk_mib=12397, tmpdir=<TBD>
+
+Submitted job 487 with external jobid 'Submitted batch job 187672'.
+[Tue Aug 29 12:53:11 2023]
+Finished job 472.
+40 of 85 steps (47%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:53:11 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_24_P_S64_L1_R1_trim.fastq.gz, trimmedReads/Mayo_24_P_S64_L1_R2_trim.fastq.gz, trimmedReads/Mayo_24_P_S64_L2_R1_trim.fastq.gz, trimmedReads/Mayo_24_P_S64_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_24_P_S64_XY.Aligned.sortedByCoord.out.bam
+    jobid: 366
+    reason: Missing output files: starAligned/Mayo_24_P_S64_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_24_P_S64
+    resources: mem_mb=2931, mem_mib=2796, disk_mb=2931, disk_mib=2796, tmpdir=<TBD>
+
+Submitted job 366 with external jobid 'Submitted batch job 187674'.
+[Tue Aug 29 12:53:44 2023]
+Finished job 364.
+41 of 85 steps (48%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:53:44 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_26_P_S83_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_26_P_S83_sex_specific_XY_gene.counts
+    jobid: 494
+    reason: Missing output files: featureCounts/Mayo_26_P_S83_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_26_P_S83_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_26_P_S83
+    resources: mem_mb=9075, mem_mib=8655, disk_mb=9075, disk_mib=8655, tmpdir=<TBD>
+
+Submitted job 494 with external jobid 'Submitted batch job 187676'.
+[Tue Aug 29 12:53:45 2023]
+Finished job 487.
+42 of 85 steps (49%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:53:45 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_38_P_S53_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_38_P_S53_sex_specific_XY_gene.counts
+    jobid: 501
+    reason: Missing output files: featureCounts/Mayo_38_P_S53_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_38_P_S53_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_38_P_S53
+    resources: mem_mb=19748, mem_mib=18834, disk_mb=19748, disk_mib=18834, tmpdir=<TBD>
+
+Submitted job 501 with external jobid 'Submitted batch job 187677'.
+[Tue Aug 29 12:54:17 2023]
+Finished job 494.
+43 of 85 steps (51%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:54:17 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_22_P_S29_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_22_P_S29_sex_specific_XY_gene.counts
+    jobid: 490
+    reason: Missing output files: featureCounts/Mayo_22_P_S29_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_22_P_S29_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_22_P_S29
+    resources: mem_mb=12626, mem_mib=12042, disk_mb=12626, disk_mib=12042, tmpdir=<TBD>
+
+Submitted job 490 with external jobid 'Submitted batch job 187679'.
+[Tue Aug 29 12:54:40 2023]
+Finished job 501.
+44 of 85 steps (52%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:54:40 2023]
+rule align_XY_reads:
+    input: trimmedReads/Mayo_39_P_S3_L1_R1_trim.fastq.gz, trimmedReads/Mayo_39_P_S3_L1_R2_trim.fastq.gz, trimmedReads/Mayo_39_P_S3_L2_R1_trim.fastq.gz, trimmedReads/Mayo_39_P_S3_L2_R2_trim.fastq.gz, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_STAR_default
+    output: starAligned/Mayo_39_P_S3_XY.Aligned.sortedByCoord.out.bam
+    jobid: 376
+    reason: Missing output files: starAligned/Mayo_39_P_S3_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_39_P_S3
+    resources: mem_mb=10478, mem_mib=9993, disk_mb=10478, disk_mib=9993, tmpdir=<TBD>
+
+Submitted job 376 with external jobid 'Submitted batch job 187681'.
+[Tue Aug 29 12:54:50 2023]
+Finished job 371.
+45 of 85 steps (53%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:54:50 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_05_P_S6_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_05_P_S6_sex_specific_XY_gene.counts
+    jobid: 481
+    reason: Missing output files: featureCounts/Mayo_05_P_S6_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_05_P_S6_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_05_P_S6
+    resources: mem_mb=19295, mem_mib=18402, disk_mb=19295, disk_mib=18402, tmpdir=<TBD>
+
+Submitted job 481 with external jobid 'Submitted batch job 187682'.
+[Tue Aug 29 12:55:01 2023]
+Finished job 490.
+46 of 85 steps (54%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:55:01 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_31_P_S37_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_31_P_S37_sex_specific_XY_gene.counts
+    jobid: 497
+    reason: Missing output files: featureCounts/Mayo_31_P_S37_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_31_P_S37_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_31_P_S37
+    resources: mem_mb=15352, mem_mib=14641, disk_mb=15352, disk_mib=14641, tmpdir=<TBD>
+
+Submitted job 497 with external jobid 'Submitted batch job 187684'.
+[Tue Aug 29 12:55:13 2023]
+Finished job 351.
+47 of 85 steps (55%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:55:13 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_01_P_S55_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_01_P_S55_sex_specific_XY_gene.counts
+    jobid: 477
+    reason: Missing output files: featureCounts/Mayo_01_P_S55_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_01_P_S55_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_01_P_S55
+    resources: mem_mb=10934, mem_mib=10428, disk_mb=10934, disk_mib=10428, tmpdir=<TBD>
+
+Submitted job 477 with external jobid 'Submitted batch job 187685'.
+[Tue Aug 29 12:55:35 2023]
+Finished job 497.
+48 of 85 steps (56%) done
+[Tue Aug 29 12:55:35 2023]
+Finished job 378.
+49 of 85 steps (58%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:55:35 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_41_P_S44_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_41_P_S44_sex_specific_XY_gene.counts
+    jobid: 504
+    reason: Missing output files: featureCounts/Mayo_41_P_S44_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_41_P_S44_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_41_P_S44
+    resources: mem_mb=12227, mem_mib=11661, disk_mb=12227, disk_mib=11661, tmpdir=<TBD>
+
+Submitted job 504 with external jobid 'Submitted batch job 187687'.
+[Tue Aug 29 12:55:46 2023]
+Finished job 350.
+50 of 85 steps (59%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:55:46 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_43_P_S17_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_43_P_S17_sex_specific_XX_gene.counts
+    jobid: 476
+    reason: Missing output files: featureCounts/Mayo_43_P_S17_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_43_P_S17_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_43_P_S17
+    resources: mem_mb=18363, mem_mib=17513, disk_mb=18363, disk_mib=17513, tmpdir=<TBD>
+
+Submitted job 476 with external jobid 'Submitted batch job 187688'.
+[Tue Aug 29 12:55:47 2023]
+Finished job 477.
+51 of 85 steps (60%) done
+[Tue Aug 29 12:55:58 2023]
+Finished job 373.
+52 of 85 steps (61%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:55:58 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_36_P_S50_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_36_P_S50_sex_specific_XY_gene.counts
+    jobid: 499
+    reason: Missing output files: featureCounts/Mayo_36_P_S50_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_36_P_S50_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_36_P_S50
+    resources: mem_mb=11933, mem_mib=11381, disk_mb=11933, disk_mib=11381, tmpdir=<TBD>
+
+Submitted job 499 with external jobid 'Submitted batch job 187689'.
+[Tue Aug 29 12:56:08 2023]
+Finished job 504.
+53 of 85 steps (62%) done
+[Tue Aug 29 12:56:08 2023]
+Finished job 481.
+54 of 85 steps (64%) done
+[Tue Aug 29 12:56:08 2023]
+Finished job 370.
+55 of 85 steps (65%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:56:08 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_29_P_S45_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_29_P_S45_sex_specific_XY_gene.counts
+    jobid: 496
+    reason: Missing output files: featureCounts/Mayo_29_P_S45_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_29_P_S45_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_29_P_S45
+    resources: mem_mb=26974, mem_mib=25725, disk_mb=26974, disk_mib=25725, tmpdir=<TBD>
+
+Submitted job 496 with external jobid 'Submitted batch job 187690'.
+[Tue Aug 29 12:56:20 2023]
+Finished job 499.
+56 of 85 steps (66%) done
+[Tue Aug 29 12:56:30 2023]
+Finished job 476.
+57 of 85 steps (67%) done
+[Tue Aug 29 12:56:41 2023]
+Finished job 352.
+58 of 85 steps (68%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:56:41 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_02_P_S84_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_02_P_S84_sex_specific_XY_gene.counts
+    jobid: 478
+    reason: Missing output files: featureCounts/Mayo_02_P_S84_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_02_P_S84_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_02_P_S84
+    resources: mem_mb=12734, mem_mib=12145, disk_mb=12734, disk_mib=12145, tmpdir=<TBD>
+
+Submitted job 478 with external jobid 'Submitted batch job 187693'.
+[Tue Aug 29 12:57:14 2023]
+Finished job 478.
+59 of 85 steps (69%) done
+[Tue Aug 29 12:57:25 2023]
+Finished job 496.
+60 of 85 steps (71%) done
+[Tue Aug 29 12:57:47 2023]
+Finished job 366.
+61 of 85 steps (72%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:57:47 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_24_P_S64_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_24_P_S64_sex_specific_XY_gene.counts
+    jobid: 492
+    reason: Missing output files: featureCounts/Mayo_24_P_S64_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_24_P_S64_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_24_P_S64
+    resources: mem_mb=4355, mem_mib=4154, disk_mb=4355, disk_mib=4154, tmpdir=<TBD>
+
+Submitted job 492 with external jobid 'Submitted batch job 187697'.
+[Tue Aug 29 12:58:09 2023]
+Finished job 492.
+62 of 85 steps (73%) done
+[Tue Aug 29 12:58:09 2023]
+Finished job 345.
+63 of 85 steps (74%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:58:09 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_27_P_S38_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_27_P_S38_sex_specific_XX_gene.counts
+    jobid: 471
+    reason: Missing output files: featureCounts/Mayo_27_P_S38_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_27_P_S38_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_27_P_S38
+    resources: mem_mb=15698, mem_mib=14971, disk_mb=15698, disk_mib=14971, tmpdir=<TBD>
+
+Submitted job 471 with external jobid 'Submitted batch job 187699'.
+[Tue Aug 29 12:58:09 2023]
+Finished job 337.
+64 of 85 steps (75%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:58:09 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_11_P_S21_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_11_P_S21_sex_specific_XX_gene.counts
+    jobid: 463
+    reason: Missing output files: featureCounts/Mayo_11_P_S21_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_11_P_S21_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_11_P_S21
+    resources: mem_mb=8998, mem_mib=8582, disk_mb=8998, disk_mib=8582, tmpdir=<TBD>
+
+Submitted job 463 with external jobid 'Submitted batch job 187700'.
+[Tue Aug 29 12:58:32 2023]
+Finished job 463.
+65 of 85 steps (76%) done
+[Tue Aug 29 12:58:42 2023]
+Finished job 471.
+66 of 85 steps (78%) done
+[Tue Aug 29 12:59:03 2023]
+Finished job 372.
+67 of 85 steps (79%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:59:03 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_34_P_S25_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_34_P_S25_sex_specific_XY_gene.counts
+    jobid: 498
+    reason: Missing output files: featureCounts/Mayo_34_P_S25_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_34_P_S25_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_34_P_S25
+    resources: mem_mb=15331, mem_mib=14621, disk_mb=15331, disk_mib=14621, tmpdir=<TBD>
+
+Submitted job 498 with external jobid 'Submitted batch job 187703'.
+[Tue Aug 29 12:59:33 2023]
+Finished job 498.
+68 of 85 steps (80%) done
+[Tue Aug 29 12:59:53 2023]
+Finished job 344.
+69 of 85 steps (81%) done
+Select jobs to execute...
+
+[Tue Aug 29 12:59:53 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_21_P_S54_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_21_P_S54_sex_specific_XX_gene.counts
+    jobid: 470
+    reason: Missing output files: featureCounts/Mayo_21_P_S54_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_21_P_S54_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_21_P_S54
+    resources: mem_mb=16355, mem_mib=15598, disk_mb=16355, disk_mib=15598, tmpdir=<TBD>
+
+Submitted job 470 with external jobid 'Submitted batch job 187705'.
+[Tue Aug 29 13:00:23 2023]
+Finished job 470.
+70 of 85 steps (82%) done
+[Tue Aug 29 13:00:43 2023]
+Finished job 357.
+71 of 85 steps (84%) done
+Select jobs to execute...
+
+[Tue Aug 29 13:00:43 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_07_P_S80_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_07_P_S80_sex_specific_XY_gene.counts
+    jobid: 483
+    reason: Missing output files: featureCounts/Mayo_07_P_S80_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_07_P_S80_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_07_P_S80
+    resources: mem_mb=16827, mem_mib=16048, disk_mb=16827, disk_mib=16048, tmpdir=<TBD>
+
+Submitted job 483 with external jobid 'Submitted batch job 187707'.
+[Tue Aug 29 13:01:13 2023]
+Finished job 483.
+72 of 85 steps (85%) done
+[Tue Aug 29 13:03:13 2023]
+Finished job 360.
+73 of 85 steps (86%) done
+Select jobs to execute...
+
+[Tue Aug 29 13:03:13 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_10_P_S11_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_10_P_S11_sex_specific_XY_gene.counts
+    jobid: 486
+    reason: Missing output files: featureCounts/Mayo_10_P_S11_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_10_P_S11_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_10_P_S11
+    resources: mem_mb=19319, mem_mib=18425, disk_mb=19319, disk_mib=18425, tmpdir=<TBD>
+
+Submitted job 486 with external jobid 'Submitted batch job 187712'.
+[Tue Aug 29 13:03:43 2023]
+Finished job 486.
+74 of 85 steps (87%) done
+[Tue Aug 29 13:04:33 2023]
+Finished job 376.
+75 of 85 steps (88%) done
+Select jobs to execute...
+
+[Tue Aug 29 13:04:33 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_39_P_S3_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_39_P_S3_sex_specific_XY_gene.counts
+    jobid: 502
+    reason: Missing output files: featureCounts/Mayo_39_P_S3_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_39_P_S3_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_39_P_S3
+    resources: mem_mb=10181, mem_mib=9710, disk_mb=10181, disk_mib=9710, tmpdir=<TBD>
+
+Submitted job 502 with external jobid 'Submitted batch job 187715'.
+[Tue Aug 29 13:05:03 2023]
+Finished job 502.
+76 of 85 steps (89%) done
+[Tue Aug 29 13:05:53 2023]
+Finished job 338.
+77 of 85 steps (91%) done
+Select jobs to execute...
+
+[Tue Aug 29 13:05:53 2023]
+rule gene_count_XX:
+    input: starAligned/Mayo_12_P_S20_XX.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_12_P_S20_sex_specific_XX_gene.counts
+    jobid: 464
+    reason: Missing output files: featureCounts/Mayo_12_P_S20_sex_specific_XX_gene.counts; Input files updated by another job: starAligned/Mayo_12_P_S20_XX.Aligned.sortedByCoord.out.bam
+    wildcards: female_sample=Mayo_12_P_S20
+    resources: mem_mb=19159, mem_mib=18272, disk_mb=19159, disk_mib=18272, tmpdir=<TBD>
+
+Submitted job 464 with external jobid 'Submitted batch job 187720'.
+[Tue Aug 29 13:06:03 2023]
+Finished job 362.
+78 of 85 steps (92%) done
+Select jobs to execute...
+
+[Tue Aug 29 13:06:03 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_15_P_S39_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_15_P_S39_sex_specific_XY_gene.counts
+    jobid: 488
+    reason: Missing output files: featureCounts/Mayo_15_P_S39_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_15_P_S39_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_15_P_S39
+    resources: mem_mb=34613, mem_mib=33010, disk_mb=34613, disk_mib=33010, tmpdir=<TBD>
+
+Submitted job 488 with external jobid 'Submitted batch job 187721'.
+[Tue Aug 29 13:06:23 2023]
+Finished job 464.
+79 of 85 steps (93%) done
+[Tue Aug 29 13:06:53 2023]
+Finished job 488.
+80 of 85 steps (94%) done
+[Tue Aug 29 13:07:43 2023]
+Finished job 359.
+81 of 85 steps (95%) done
+Select jobs to execute...
+
+[Tue Aug 29 13:07:43 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_09_P_S65_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_09_P_S65_sex_specific_XY_gene.counts
+    jobid: 485
+    reason: Missing output files: featureCounts/Mayo_09_P_S65_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_09_P_S65_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_09_P_S65
+    resources: mem_mb=27048, mem_mib=25795, disk_mb=27048, disk_mib=25795, tmpdir=<TBD>
+
+Submitted job 485 with external jobid 'Submitted batch job 187725'.
+[Tue Aug 29 13:08:24 2023]
+Finished job 485.
+82 of 85 steps (96%) done
+[Tue Aug 29 13:11:54 2023]
+Finished job 365.
+83 of 85 steps (98%) done
+Select jobs to execute...
+
+[Tue Aug 29 13:11:54 2023]
+rule gene_count_XY:
+    input: starAligned/Mayo_23_P_S68_XY.Aligned.sortedByCoord.out.bam, /research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/chm13v2.0_RefSeq_Liftoff_v5.1.gff3
+    output: featureCounts/Mayo_23_P_S68_sex_specific_XY_gene.counts
+    jobid: 491
+    reason: Missing output files: featureCounts/Mayo_23_P_S68_sex_specific_XY_gene.counts; Input files updated by another job: starAligned/Mayo_23_P_S68_XY.Aligned.sortedByCoord.out.bam
+    wildcards: male_sample=Mayo_23_P_S68
+    resources: mem_mb=29468, mem_mib=28103, disk_mb=29468, disk_mib=28103, tmpdir=<TBD>
+
+Submitted job 491 with external jobid 'Submitted batch job 187730'.
+[Tue Aug 29 13:12:34 2023]
+Finished job 491.
+84 of 85 steps (99%) done
+Select jobs to execute...
+
+[Tue Aug 29 13:12:34 2023]
+localrule all:
+    input: rawQC/Mayo_01_M_S36_L001_R1_001_fastqc.html, rawQC/Mayo_01_P_S55_L001_R1_001_fastqc.html, rawQC/Mayo_02_M_S43_L001_R1_001_fastqc.html, rawQC/Mayo_02_P_S84_L001_R1_001_fastqc.html, rawQC/Mayo_03_M_S5_L001_R1_001_fastqc.html, rawQC/Mayo_03_P_S2_L001_R1_001_fastqc.html, rawQC/Mayo_04_M_S41_L001_R1_001_fastqc.html, rawQC/Mayo_04_P_S30_L001_R1_001_fastqc.html, rawQC/Mayo_05_M_S60_L001_R1_001_fastqc.html, rawQC/Mayo_05_P_S6_L001_R1_001_fastqc.html, rawQC/Mayo_06_M_S26_L001_R1_001_fastqc.html, rawQC/Mayo_06_P_S12_L001_R1_001_fastqc.html, rawQC/Mayo_07_M_S79_L001_R1_001_fastqc.html, rawQC/Mayo_07_P_S80_L001_R1_001_fastqc.html, rawQC/Mayo_08_M_S57_L001_R1_001_fastqc.html, rawQC/Mayo_08_P_S63_L001_R1_001_fastqc.html, rawQC/Mayo_09_M_S52_L001_R1_001_fastqc.html, rawQC/Mayo_09_P_S65_L001_R1_001_fastqc.html, rawQC/Mayo_10_M_S58_L001_R1_001_fastqc.html, rawQC/Mayo_10_P_S11_L001_R1_001_fastqc.html, rawQC/Mayo_11_M_S42_L001_R1_001_fastqc.html, rawQC/Mayo_11_P_S21_L001_R1_001_fastqc.html, rawQC/Mayo_12_M_S33_L001_R1_001_fastqc.html, rawQC/Mayo_12_P_S20_L001_R1_001_fastqc.html, rawQC/Mayo_13_M_S24_L001_R1_001_fastqc.html, rawQC/Mayo_13_P_S48_L001_R1_001_fastqc.html, rawQC/Mayo_14_M_S49_L001_R1_001_fastqc.html, rawQC/Mayo_14_P_S19_L001_R1_001_fastqc.html, rawQC/Mayo_15_M_S7_L001_R1_001_fastqc.html, rawQC/Mayo_15_P_S39_L001_R1_001_fastqc.html, rawQC/Mayo_16_M_S40_L001_R1_001_fastqc.html, rawQC/Mayo_16_P_S4_L001_R1_001_fastqc.html, rawQC/Mayo_17_M_S46_L001_R1_001_fastqc.html, rawQC/Mayo_17_P_S81_L001_R1_001_fastqc.html, rawQC/Mayo_18_M_S47_L001_R1_001_fastqc.html, rawQC/Mayo_18_P_S32_L001_R1_001_fastqc.html, rawQC/Mayo_19_M_S74_L001_R1_001_fastqc.html, rawQC/Mayo_19_P_S35_L001_R1_001_fastqc.html, rawQC/Mayo_20_M_S23_L001_R1_001_fastqc.html, rawQC/Mayo_20_P_S9_L001_R1_001_fastqc.html, rawQC/Mayo_21_M_S76_L001_R1_001_fastqc.html, rawQC/Mayo_21_P_S54_L001_R1_001_fastqc.html, rawQC/Mayo_22_M_S10_L001_R1_001_fastqc.html, rawQC/Mayo_22_P_S29_L001_R1_001_fastqc.html, rawQC/Mayo_23_M_S62_L001_R1_001_fastqc.html, rawQC/Mayo_23_P_S68_L001_R1_001_fastqc.html, rawQC/Mayo_24_M_S73_L001_R1_001_fastqc.html, rawQC/Mayo_24_P_S64_L001_R1_001_fastqc.html, rawQC/Mayo_25_M_S34_L001_R1_001_fastqc.html, rawQC/Mayo_25_P_S78_L001_R1_001_fastqc.html, rawQC/Mayo_26_M_S82_L001_R1_001_fastqc.html, rawQC/Mayo_26_P_S83_L001_R1_001_fastqc.html, rawQC/Mayo_27_M_S71_L001_R1_001_fastqc.html, rawQC/Mayo_27_P_S38_L001_R1_001_fastqc.html, rawQC/Mayo_28_M_S13_L001_R1_001_fastqc.html, rawQC/Mayo_28_P_S56_L001_R1_001_fastqc.html, rawQC/Mayo_29_M_S61_L001_R1_001_fastqc.html, rawQC/Mayo_29_P_S45_L001_R1_001_fastqc.html, rawQC/Mayo_30_M_S28_L001_R1_001_fastqc.html, rawQC/Mayo_30_P_S27_L001_R1_001_fastqc.html, rawQC/Mayo_31_M_S72_L001_R1_001_fastqc.html, rawQC/Mayo_31_P_S37_L001_R1_001_fastqc.html, rawQC/Mayo_33_M_S22_L001_R1_001_fastqc.html, rawQC/Mayo_33_P_S16_L001_R1_001_fastqc.html, rawQC/Mayo_34_M_S69_L001_R1_001_fastqc.html, rawQC/Mayo_34_P_S25_L001_R1_001_fastqc.html, rawQC/Mayo_35_M_S59_L001_R1_001_fastqc.html, rawQC/Mayo_35_P_S14_L001_R1_001_fastqc.html, rawQC/Mayo_36_M_S15_L001_R1_001_fastqc.html, rawQC/Mayo_36_P_S50_L001_R1_001_fastqc.html, rawQC/Mayo_37_M_S51_L001_R1_001_fastqc.html, rawQC/Mayo_37_P_S67_L001_R1_001_fastqc.html, rawQC/Mayo_38_M_S75_L001_R1_001_fastqc.html, rawQC/Mayo_38_P_S53_L001_R1_001_fastqc.html, rawQC/Mayo_39_M_S8_L001_R1_001_fastqc.html, rawQC/Mayo_39_P_S3_L001_R1_001_fastqc.html, rawQC/Mayo_40_M_S18_L001_R1_001_fastqc.html, rawQC/Mayo_40_P_S66_L001_R1_001_fastqc.html, rawQC/Mayo_41_M_S1_L001_R1_001_fastqc.html, rawQC/Mayo_41_P_S44_L001_R1_001_fastqc.html, rawQC/Mayo_42_M_S70_L001_R1_001_fastqc.html, rawQC/Mayo_42_P_S77_L001_R1_001_fastqc.html, rawQC/Mayo_43_M_S31_L001_R1_001_fastqc.html, rawQC/Mayo_43_P_S17_L001_R1_001_fastqc.html, rawQC/Mayo_01_M_S36_L001_R2_001_fastqc.html, rawQC/Mayo_01_P_S55_L001_R2_001_fastqc.html, rawQC/Mayo_02_M_S43_L001_R2_001_fastqc.html, rawQC/Mayo_02_P_S84_L001_R2_001_fastqc.html, rawQC/Mayo_03_M_S5_L001_R2_001_fastqc.html, rawQC/Mayo_03_P_S2_L001_R2_001_fastqc.html, rawQC/Mayo_04_M_S41_L001_R2_001_fastqc.html, rawQC/Mayo_04_P_S30_L001_R2_001_fastqc.html, rawQC/Mayo_05_M_S60_L001_R2_001_fastqc.html, rawQC/Mayo_05_P_S6_L001_R2_001_fastqc.html, rawQC/Mayo_06_M_S26_L001_R2_001_fastqc.html, rawQC/Mayo_06_P_S12_L001_R2_001_fastqc.html, rawQC/Mayo_07_M_S79_L001_R2_001_fastqc.html, rawQC/Mayo_07_P_S80_L001_R2_001_fastqc.html, rawQC/Mayo_08_M_S57_L001_R2_001_fastqc.html, rawQC/Mayo_08_P_S63_L001_R2_001_fastqc.html, rawQC/Mayo_09_M_S52_L001_R2_001_fastqc.html, rawQC/Mayo_09_P_S65_L001_R2_001_fastqc.html, rawQC/Mayo_10_M_S58_L001_R2_001_fastqc.html, rawQC/Mayo_10_P_S11_L001_R2_001_fastqc.html, rawQC/Mayo_11_M_S42_L001_R2_001_fastqc.html, rawQC/Mayo_11_P_S21_L001_R2_001_fastqc.html, rawQC/Mayo_12_M_S33_L001_R2_001_fastqc.html, rawQC/Mayo_12_P_S20_L001_R2_001_fastqc.html, rawQC/Mayo_13_M_S24_L001_R2_001_fastqc.html, rawQC/Mayo_13_P_S48_L001_R2_001_fastqc.html, rawQC/Mayo_14_M_S49_L001_R2_001_fastqc.html, rawQC/Mayo_14_P_S19_L001_R2_001_fastqc.html, rawQC/Mayo_15_M_S7_L001_R2_001_fastqc.html, rawQC/Mayo_15_P_S39_L001_R2_001_fastqc.html, rawQC/Mayo_16_M_S40_L001_R2_001_fastqc.html, rawQC/Mayo_16_P_S4_L001_R2_001_fastqc.html, rawQC/Mayo_17_M_S46_L001_R2_001_fastqc.html, rawQC/Mayo_17_P_S81_L001_R2_001_fastqc.html, rawQC/Mayo_18_M_S47_L001_R2_001_fastqc.html, rawQC/Mayo_18_P_S32_L001_R2_001_fastqc.html, rawQC/Mayo_19_M_S74_L001_R2_001_fastqc.html, rawQC/Mayo_19_P_S35_L001_R2_001_fastqc.html, rawQC/Mayo_20_M_S23_L001_R2_001_fastqc.html, rawQC/Mayo_20_P_S9_L001_R2_001_fastqc.html, rawQC/Mayo_21_M_S76_L001_R2_001_fastqc.html, rawQC/Mayo_21_P_S54_L001_R2_001_fastqc.html, rawQC/Mayo_22_M_S10_L001_R2_001_fastqc.html, rawQC/Mayo_22_P_S29_L001_R2_001_fastqc.html, rawQC/Mayo_23_M_S62_L001_R2_001_fastqc.html, rawQC/Mayo_23_P_S68_L001_R2_001_fastqc.html, rawQC/Mayo_24_M_S73_L001_R2_001_fastqc.html, rawQC/Mayo_24_P_S64_L001_R2_001_fastqc.html, rawQC/Mayo_25_M_S34_L001_R2_001_fastqc.html, rawQC/Mayo_25_P_S78_L001_R2_001_fastqc.html, rawQC/Mayo_26_M_S82_L001_R2_001_fastqc.html, rawQC/Mayo_26_P_S83_L001_R2_001_fastqc.html, rawQC/Mayo_27_M_S71_L001_R2_001_fastqc.html, rawQC/Mayo_27_P_S38_L001_R2_001_fastqc.html, rawQC/Mayo_28_M_S13_L001_R2_001_fastqc.html, rawQC/Mayo_28_P_S56_L001_R2_001_fastqc.html, rawQC/Mayo_29_M_S61_L001_R2_001_fastqc.html, rawQC/Mayo_29_P_S45_L001_R2_001_fastqc.html, rawQC/Mayo_30_M_S28_L001_R2_001_fastqc.html, rawQC/Mayo_30_P_S27_L001_R2_001_fastqc.html, rawQC/Mayo_31_M_S72_L001_R2_001_fastqc.html, rawQC/Mayo_31_P_S37_L001_R2_001_fastqc.html, rawQC/Mayo_33_M_S22_L001_R2_001_fastqc.html, rawQC/Mayo_33_P_S16_L001_R2_001_fastqc.html, rawQC/Mayo_34_M_S69_L001_R2_001_fastqc.html, rawQC/Mayo_34_P_S25_L001_R2_001_fastqc.html, rawQC/Mayo_35_M_S59_L001_R2_001_fastqc.html, rawQC/Mayo_35_P_S14_L001_R2_001_fastqc.html, rawQC/Mayo_36_M_S15_L001_R2_001_fastqc.html, rawQC/Mayo_36_P_S50_L001_R2_001_fastqc.html, rawQC/Mayo_37_M_S51_L001_R2_001_fastqc.html, rawQC/Mayo_37_P_S67_L001_R2_001_fastqc.html, rawQC/Mayo_38_M_S75_L001_R2_001_fastqc.html, rawQC/Mayo_38_P_S53_L001_R2_001_fastqc.html, rawQC/Mayo_39_M_S8_L001_R2_001_fastqc.html, rawQC/Mayo_39_P_S3_L001_R2_001_fastqc.html, rawQC/Mayo_40_M_S18_L001_R2_001_fastqc.html, rawQC/Mayo_40_P_S66_L001_R2_001_fastqc.html, rawQC/Mayo_41_M_S1_L001_R2_001_fastqc.html, rawQC/Mayo_41_P_S44_L001_R2_001_fastqc.html, rawQC/Mayo_42_M_S70_L001_R2_001_fastqc.html, rawQC/Mayo_42_P_S77_L001_R2_001_fastqc.html, rawQC/Mayo_43_M_S31_L001_R2_001_fastqc.html, rawQC/Mayo_43_P_S17_L001_R2_001_fastqc.html, rawQC/Mayo_01_M_S36_L002_R1_001_fastqc.html, rawQC/Mayo_01_P_S55_L002_R1_001_fastqc.html, rawQC/Mayo_02_M_S43_L002_R1_001_fastqc.html, rawQC/Mayo_02_P_S84_L002_R1_001_fastqc.html, rawQC/Mayo_03_M_S5_L002_R1_001_fastqc.html, rawQC/Mayo_03_P_S2_L002_R1_001_fastqc.html, rawQC/Mayo_04_M_S41_L002_R1_001_fastqc.html, rawQC/Mayo_04_P_S30_L002_R1_001_fastqc.html, rawQC/Mayo_05_M_S60_L002_R1_001_fastqc.html, rawQC/Mayo_05_P_S6_L002_R1_001_fastqc.html, rawQC/Mayo_06_M_S26_L002_R1_001_fastqc.html, rawQC/Mayo_06_P_S12_L002_R1_001_fastqc.html, rawQC/Mayo_07_M_S79_L002_R1_001_fastqc.html, rawQC/Mayo_07_P_S80_L002_R1_001_fastqc.html, rawQC/Mayo_08_M_S57_L002_R1_001_fastqc.html, rawQC/Mayo_08_P_S63_L002_R1_001_fastqc.html, rawQC/Mayo_09_M_S52_L002_R1_001_fastqc.html, rawQC/Mayo_09_P_S65_L002_R1_001_fastqc.html, rawQC/Mayo_10_M_S58_L002_R1_001_fastqc.html, rawQC/Mayo_10_P_S11_L002_R1_001_fastqc.html, rawQC/Mayo_11_M_S42_L002_R1_001_fastqc.html, rawQC/Mayo_11_P_S21_L002_R1_001_fastqc.html, rawQC/Mayo_12_M_S33_L002_R1_001_fastqc.html, rawQC/Mayo_12_P_S20_L002_R1_001_fastqc.html, rawQC/Mayo_13_M_S24_L002_R1_001_fastqc.html, rawQC/Mayo_13_P_S48_L002_R1_001_fastqc.html, rawQC/Mayo_14_M_S49_L002_R1_001_fastqc.html, rawQC/Mayo_14_P_S19_L002_R1_001_fastqc.html, rawQC/Mayo_15_M_S7_L002_R1_001_fastqc.html, rawQC/Mayo_15_P_S39_L002_R1_001_fastqc.html, rawQC/Mayo_16_M_S40_L002_R1_001_fastqc.html, rawQC/Mayo_16_P_S4_L002_R1_001_fastqc.html, rawQC/Mayo_17_M_S46_L002_R1_001_fastqc.html, rawQC/Mayo_17_P_S81_L002_R1_001_fastqc.html, rawQC/Mayo_18_M_S47_L002_R1_001_fastqc.html, rawQC/Mayo_18_P_S32_L002_R1_001_fastqc.html, rawQC/Mayo_19_M_S74_L002_R1_001_fastqc.html, rawQC/Mayo_19_P_S35_L002_R1_001_fastqc.html, rawQC/Mayo_20_M_S23_L002_R1_001_fastqc.html, rawQC/Mayo_20_P_S9_L002_R1_001_fastqc.html, rawQC/Mayo_21_M_S76_L002_R1_001_fastqc.html, rawQC/Mayo_21_P_S54_L002_R1_001_fastqc.html, rawQC/Mayo_22_M_S10_L002_R1_001_fastqc.html, rawQC/Mayo_22_P_S29_L002_R1_001_fastqc.html, rawQC/Mayo_23_M_S62_L002_R1_001_fastqc.html, rawQC/Mayo_23_P_S68_L002_R1_001_fastqc.html, rawQC/Mayo_24_M_S73_L002_R1_001_fastqc.html, rawQC/Mayo_24_P_S64_L002_R1_001_fastqc.html, rawQC/Mayo_25_M_S34_L002_R1_001_fastqc.html, rawQC/Mayo_25_P_S78_L002_R1_001_fastqc.html, rawQC/Mayo_26_M_S82_L002_R1_001_fastqc.html, rawQC/Mayo_26_P_S83_L002_R1_001_fastqc.html, rawQC/Mayo_27_M_S71_L002_R1_001_fastqc.html, rawQC/Mayo_27_P_S38_L002_R1_001_fastqc.html, rawQC/Mayo_28_M_S13_L002_R1_001_fastqc.html, rawQC/Mayo_28_P_S56_L002_R1_001_fastqc.html, rawQC/Mayo_29_M_S61_L002_R1_001_fastqc.html, rawQC/Mayo_29_P_S45_L002_R1_001_fastqc.html, rawQC/Mayo_30_M_S28_L002_R1_001_fastqc.html, rawQC/Mayo_30_P_S27_L002_R1_001_fastqc.html, rawQC/Mayo_31_M_S72_L002_R1_001_fastqc.html, rawQC/Mayo_31_P_S37_L002_R1_001_fastqc.html, rawQC/Mayo_33_M_S22_L002_R1_001_fastqc.html, rawQC/Mayo_33_P_S16_L002_R1_001_fastqc.html, rawQC/Mayo_34_M_S69_L002_R1_001_fastqc.html, rawQC/Mayo_34_P_S25_L002_R1_001_fastqc.html, rawQC/Mayo_35_M_S59_L002_R1_001_fastqc.html, rawQC/Mayo_35_P_S14_L002_R1_001_fastqc.html, rawQC/Mayo_36_M_S15_L002_R1_001_fastqc.html, rawQC/Mayo_36_P_S50_L002_R1_001_fastqc.html, rawQC/Mayo_37_M_S51_L002_R1_001_fastqc.html, rawQC/Mayo_37_P_S67_L002_R1_001_fastqc.html, rawQC/Mayo_38_M_S75_L002_R1_001_fastqc.html, rawQC/Mayo_38_P_S53_L002_R1_001_fastqc.html, rawQC/Mayo_39_M_S8_L002_R1_001_fastqc.html, rawQC/Mayo_39_P_S3_L002_R1_001_fastqc.html, rawQC/Mayo_40_M_S18_L002_R1_001_fastqc.html, rawQC/Mayo_40_P_S66_L002_R1_001_fastqc.html, rawQC/Mayo_41_M_S1_L002_R1_001_fastqc.html, rawQC/Mayo_41_P_S44_L002_R1_001_fastqc.html, rawQC/Mayo_42_M_S70_L002_R1_001_fastqc.html, rawQC/Mayo_42_P_S77_L002_R1_001_fastqc.html, rawQC/Mayo_43_M_S31_L002_R1_001_fastqc.html, rawQC/Mayo_43_P_S17_L002_R1_001_fastqc.html, rawQC/Mayo_01_M_S36_L002_R2_001_fastqc.html, rawQC/Mayo_01_P_S55_L002_R2_001_fastqc.html, rawQC/Mayo_02_M_S43_L002_R2_001_fastqc.html, rawQC/Mayo_02_P_S84_L002_R2_001_fastqc.html, rawQC/Mayo_03_M_S5_L002_R2_001_fastqc.html, rawQC/Mayo_03_P_S2_L002_R2_001_fastqc.html, rawQC/Mayo_04_M_S41_L002_R2_001_fastqc.html, rawQC/Mayo_04_P_S30_L002_R2_001_fastqc.html, rawQC/Mayo_05_M_S60_L002_R2_001_fastqc.html, rawQC/Mayo_05_P_S6_L002_R2_001_fastqc.html, rawQC/Mayo_06_M_S26_L002_R2_001_fastqc.html, rawQC/Mayo_06_P_S12_L002_R2_001_fastqc.html, rawQC/Mayo_07_M_S79_L002_R2_001_fastqc.html, rawQC/Mayo_07_P_S80_L002_R2_001_fastqc.html, rawQC/Mayo_08_M_S57_L002_R2_001_fastqc.html, rawQC/Mayo_08_P_S63_L002_R2_001_fastqc.html, rawQC/Mayo_09_M_S52_L002_R2_001_fastqc.html, rawQC/Mayo_09_P_S65_L002_R2_001_fastqc.html, rawQC/Mayo_10_M_S58_L002_R2_001_fastqc.html, rawQC/Mayo_10_P_S11_L002_R2_001_fastqc.html, rawQC/Mayo_11_M_S42_L002_R2_001_fastqc.html, rawQC/Mayo_11_P_S21_L002_R2_001_fastqc.html, rawQC/Mayo_12_M_S33_L002_R2_001_fastqc.html, rawQC/Mayo_12_P_S20_L002_R2_001_fastqc.html, rawQC/Mayo_13_M_S24_L002_R2_001_fastqc.html, rawQC/Mayo_13_P_S48_L002_R2_001_fastqc.html, rawQC/Mayo_14_M_S49_L002_R2_001_fastqc.html, rawQC/Mayo_14_P_S19_L002_R2_001_fastqc.html, rawQC/Mayo_15_M_S7_L002_R2_001_fastqc.html, rawQC/Mayo_15_P_S39_L002_R2_001_fastqc.html, rawQC/Mayo_16_M_S40_L002_R2_001_fastqc.html, rawQC/Mayo_16_P_S4_L002_R2_001_fastqc.html, rawQC/Mayo_17_M_S46_L002_R2_001_fastqc.html, rawQC/Mayo_17_P_S81_L002_R2_001_fastqc.html, rawQC/Mayo_18_M_S47_L002_R2_001_fastqc.html, rawQC/Mayo_18_P_S32_L002_R2_001_fastqc.html, rawQC/Mayo_19_M_S74_L002_R2_001_fastqc.html, rawQC/Mayo_19_P_S35_L002_R2_001_fastqc.html, rawQC/Mayo_20_M_S23_L002_R2_001_fastqc.html, rawQC/Mayo_20_P_S9_L002_R2_001_fastqc.html, rawQC/Mayo_21_M_S76_L002_R2_001_fastqc.html, rawQC/Mayo_21_P_S54_L002_R2_001_fastqc.html, rawQC/Mayo_22_M_S10_L002_R2_001_fastqc.html, rawQC/Mayo_22_P_S29_L002_R2_001_fastqc.html, rawQC/Mayo_23_M_S62_L002_R2_001_fastqc.html, rawQC/Mayo_23_P_S68_L002_R2_001_fastqc.html, rawQC/Mayo_24_M_S73_L002_R2_001_fastqc.html, rawQC/Mayo_24_P_S64_L002_R2_001_fastqc.html, rawQC/Mayo_25_M_S34_L002_R2_001_fastqc.html, rawQC/Mayo_25_P_S78_L002_R2_001_fastqc.html, rawQC/Mayo_26_M_S82_L002_R2_001_fastqc.html, rawQC/Mayo_26_P_S83_L002_R2_001_fastqc.html, rawQC/Mayo_27_M_S71_L002_R2_001_fastqc.html, rawQC/Mayo_27_P_S38_L002_R2_001_fastqc.html, rawQC/Mayo_28_M_S13_L002_R2_001_fastqc.html, rawQC/Mayo_28_P_S56_L002_R2_001_fastqc.html, rawQC/Mayo_29_M_S61_L002_R2_001_fastqc.html, rawQC/Mayo_29_P_S45_L002_R2_001_fastqc.html, rawQC/Mayo_30_M_S28_L002_R2_001_fastqc.html, rawQC/Mayo_30_P_S27_L002_R2_001_fastqc.html, rawQC/Mayo_31_M_S72_L002_R2_001_fastqc.html, rawQC/Mayo_31_P_S37_L002_R2_001_fastqc.html, rawQC/Mayo_33_M_S22_L002_R2_001_fastqc.html, rawQC/Mayo_33_P_S16_L002_R2_001_fastqc.html, rawQC/Mayo_34_M_S69_L002_R2_001_fastqc.html, rawQC/Mayo_34_P_S25_L002_R2_001_fastqc.html, rawQC/Mayo_35_M_S59_L002_R2_001_fastqc.html, rawQC/Mayo_35_P_S14_L002_R2_001_fastqc.html, rawQC/Mayo_36_M_S15_L002_R2_001_fastqc.html, rawQC/Mayo_36_P_S50_L002_R2_001_fastqc.html, rawQC/Mayo_37_M_S51_L002_R2_001_fastqc.html, rawQC/Mayo_37_P_S67_L002_R2_001_fastqc.html, rawQC/Mayo_38_M_S75_L002_R2_001_fastqc.html, rawQC/Mayo_38_P_S53_L002_R2_001_fastqc.html, rawQC/Mayo_39_M_S8_L002_R2_001_fastqc.html, rawQC/Mayo_39_P_S3_L002_R2_001_fastqc.html, rawQC/Mayo_40_M_S18_L002_R2_001_fastqc.html, rawQC/Mayo_40_P_S66_L002_R2_001_fastqc.html, rawQC/Mayo_41_M_S1_L002_R2_001_fastqc.html, rawQC/Mayo_41_P_S44_L002_R2_001_fastqc.html, rawQC/Mayo_42_M_S70_L002_R2_001_fastqc.html, rawQC/Mayo_42_P_S77_L002_R2_001_fastqc.html, rawQC/Mayo_43_M_S31_L002_R2_001_fastqc.html, rawQC/Mayo_43_P_S17_L002_R2_001_fastqc.html, rawQC/Mayo_01_M_S36_L001_R1_001_fastqc.zip, rawQC/Mayo_01_P_S55_L001_R1_001_fastqc.zip, rawQC/Mayo_02_M_S43_L001_R1_001_fastqc.zip, rawQC/Mayo_02_P_S84_L001_R1_001_fastqc.zip, rawQC/Mayo_03_M_S5_L001_R1_001_fastqc.zip, rawQC/Mayo_03_P_S2_L001_R1_001_fastqc.zip, rawQC/Mayo_04_M_S41_L001_R1_001_fastqc.zip, rawQC/Mayo_04_P_S30_L001_R1_001_fastqc.zip, rawQC/Mayo_05_M_S60_L001_R1_001_fastqc.zip, rawQC/Mayo_05_P_S6_L001_R1_001_fastqc.zip, rawQC/Mayo_06_M_S26_L001_R1_001_fastqc.zip, rawQC/Mayo_06_P_S12_L001_R1_001_fastqc.zip, rawQC/Mayo_07_M_S79_L001_R1_001_fastqc.zip, rawQC/Mayo_07_P_S80_L001_R1_001_fastqc.zip, rawQC/Mayo_08_M_S57_L001_R1_001_fastqc.zip, rawQC/Mayo_08_P_S63_L001_R1_001_fastqc.zip, rawQC/Mayo_09_M_S52_L001_R1_001_fastqc.zip, rawQC/Mayo_09_P_S65_L001_R1_001_fastqc.zip, rawQC/Mayo_10_M_S58_L001_R1_001_fastqc.zip, rawQC/Mayo_10_P_S11_L001_R1_001_fastqc.zip, rawQC/Mayo_11_M_S42_L001_R1_001_fastqc.zip, rawQC/Mayo_11_P_S21_L001_R1_001_fastqc.zip, rawQC/Mayo_12_M_S33_L001_R1_001_fastqc.zip, rawQC/Mayo_12_P_S20_L001_R1_001_fastqc.zip, rawQC/Mayo_13_M_S24_L001_R1_001_fastqc.zip, rawQC/Mayo_13_P_S48_L001_R1_001_fastqc.zip, rawQC/Mayo_14_M_S49_L001_R1_001_fastqc.zip, rawQC/Mayo_14_P_S19_L001_R1_001_fastqc.zip, rawQC/Mayo_15_M_S7_L001_R1_001_fastqc.zip, rawQC/Mayo_15_P_S39_L001_R1_001_fastqc.zip, rawQC/Mayo_16_M_S40_L001_R1_001_fastqc.zip, rawQC/Mayo_16_P_S4_L001_R1_001_fastqc.zip, rawQC/Mayo_17_M_S46_L001_R1_001_fastqc.zip, rawQC/Mayo_17_P_S81_L001_R1_001_fastqc.zip, rawQC/Mayo_18_M_S47_L001_R1_001_fastqc.zip, rawQC/Mayo_18_P_S32_L001_R1_001_fastqc.zip, rawQC/Mayo_19_M_S74_L001_R1_001_fastqc.zip, rawQC/Mayo_19_P_S35_L001_R1_001_fastqc.zip, rawQC/Mayo_20_M_S23_L001_R1_001_fastqc.zip, rawQC/Mayo_20_P_S9_L001_R1_001_fastqc.zip, rawQC/Mayo_21_M_S76_L001_R1_001_fastqc.zip, rawQC/Mayo_21_P_S54_L001_R1_001_fastqc.zip, rawQC/Mayo_22_M_S10_L001_R1_001_fastqc.zip, rawQC/Mayo_22_P_S29_L001_R1_001_fastqc.zip, rawQC/Mayo_23_M_S62_L001_R1_001_fastqc.zip, rawQC/Mayo_23_P_S68_L001_R1_001_fastqc.zip, rawQC/Mayo_24_M_S73_L001_R1_001_fastqc.zip, rawQC/Mayo_24_P_S64_L001_R1_001_fastqc.zip, rawQC/Mayo_25_M_S34_L001_R1_001_fastqc.zip, rawQC/Mayo_25_P_S78_L001_R1_001_fastqc.zip, rawQC/Mayo_26_M_S82_L001_R1_001_fastqc.zip, rawQC/Mayo_26_P_S83_L001_R1_001_fastqc.zip, rawQC/Mayo_27_M_S71_L001_R1_001_fastqc.zip, rawQC/Mayo_27_P_S38_L001_R1_001_fastqc.zip, rawQC/Mayo_28_M_S13_L001_R1_001_fastqc.zip, rawQC/Mayo_28_P_S56_L001_R1_001_fastqc.zip, rawQC/Mayo_29_M_S61_L001_R1_001_fastqc.zip, rawQC/Mayo_29_P_S45_L001_R1_001_fastqc.zip, rawQC/Mayo_30_M_S28_L001_R1_001_fastqc.zip, rawQC/Mayo_30_P_S27_L001_R1_001_fastqc.zip, rawQC/Mayo_31_M_S72_L001_R1_001_fastqc.zip, rawQC/Mayo_31_P_S37_L001_R1_001_fastqc.zip, rawQC/Mayo_33_M_S22_L001_R1_001_fastqc.zip, rawQC/Mayo_33_P_S16_L001_R1_001_fastqc.zip, rawQC/Mayo_34_M_S69_L001_R1_001_fastqc.zip, rawQC/Mayo_34_P_S25_L001_R1_001_fastqc.zip, rawQC/Mayo_35_M_S59_L001_R1_001_fastqc.zip, rawQC/Mayo_35_P_S14_L001_R1_001_fastqc.zip, rawQC/Mayo_36_M_S15_L001_R1_001_fastqc.zip, rawQC/Mayo_36_P_S50_L001_R1_001_fastqc.zip, rawQC/Mayo_37_M_S51_L001_R1_001_fastqc.zip, rawQC/Mayo_37_P_S67_L001_R1_001_fastqc.zip, rawQC/Mayo_38_M_S75_L001_R1_001_fastqc.zip, rawQC/Mayo_38_P_S53_L001_R1_001_fastqc.zip, rawQC/Mayo_39_M_S8_L001_R1_001_fastqc.zip, rawQC/Mayo_39_P_S3_L001_R1_001_fastqc.zip, rawQC/Mayo_40_M_S18_L001_R1_001_fastqc.zip, rawQC/Mayo_40_P_S66_L001_R1_001_fastqc.zip, rawQC/Mayo_41_M_S1_L001_R1_001_fastqc.zip, rawQC/Mayo_41_P_S44_L001_R1_001_fastqc.zip, rawQC/Mayo_42_M_S70_L001_R1_001_fastqc.zip, rawQC/Mayo_42_P_S77_L001_R1_001_fastqc.zip, rawQC/Mayo_43_M_S31_L001_R1_001_fastqc.zip, rawQC/Mayo_43_P_S17_L001_R1_001_fastqc.zip, rawQC/Mayo_01_M_S36_L001_R2_001_fastqc.zip, rawQC/Mayo_01_P_S55_L001_R2_001_fastqc.zip, rawQC/Mayo_02_M_S43_L001_R2_001_fastqc.zip, rawQC/Mayo_02_P_S84_L001_R2_001_fastqc.zip, rawQC/Mayo_03_M_S5_L001_R2_001_fastqc.zip, rawQC/Mayo_03_P_S2_L001_R2_001_fastqc.zip, rawQC/Mayo_04_M_S41_L001_R2_001_fastqc.zip, rawQC/Mayo_04_P_S30_L001_R2_001_fastqc.zip, rawQC/Mayo_05_M_S60_L001_R2_001_fastqc.zip, rawQC/Mayo_05_P_S6_L001_R2_001_fastqc.zip, rawQC/Mayo_06_M_S26_L001_R2_001_fastqc.zip, rawQC/Mayo_06_P_S12_L001_R2_001_fastqc.zip, rawQC/Mayo_07_M_S79_L001_R2_001_fastqc.zip, rawQC/Mayo_07_P_S80_L001_R2_001_fastqc.zip, rawQC/Mayo_08_M_S57_L001_R2_001_fastqc.zip, rawQC/Mayo_08_P_S63_L001_R2_001_fastqc.zip, rawQC/Mayo_09_M_S52_L001_R2_001_fastqc.zip, rawQC/Mayo_09_P_S65_L001_R2_001_fastqc.zip, rawQC/Mayo_10_M_S58_L001_R2_001_fastqc.zip, rawQC/Mayo_10_P_S11_L001_R2_001_fastqc.zip, rawQC/Mayo_11_M_S42_L001_R2_001_fastqc.zip, rawQC/Mayo_11_P_S21_L001_R2_001_fastqc.zip, rawQC/Mayo_12_M_S33_L001_R2_001_fastqc.zip, rawQC/Mayo_12_P_S20_L001_R2_001_fastqc.zip, rawQC/Mayo_13_M_S24_L001_R2_001_fastqc.zip, rawQC/Mayo_13_P_S48_L001_R2_001_fastqc.zip, rawQC/Mayo_14_M_S49_L001_R2_001_fastqc.zip, rawQC/Mayo_14_P_S19_L001_R2_001_fastqc.zip, rawQC/Mayo_15_M_S7_L001_R2_001_fastqc.zip, rawQC/Mayo_15_P_S39_L001_R2_001_fastqc.zip, rawQC/Mayo_16_M_S40_L001_R2_001_fastqc.zip, rawQC/Mayo_16_P_S4_L001_R2_001_fastqc.zip, rawQC/Mayo_17_M_S46_L001_R2_001_fastqc.zip, rawQC/Mayo_17_P_S81_L001_R2_001_fastqc.zip, rawQC/Mayo_18_M_S47_L001_R2_001_fastqc.zip, rawQC/Mayo_18_P_S32_L001_R2_001_fastqc.zip, rawQC/Mayo_19_M_S74_L001_R2_001_fastqc.zip, rawQC/Mayo_19_P_S35_L001_R2_001_fastqc.zip, rawQC/Mayo_20_M_S23_L001_R2_001_fastqc.zip, rawQC/Mayo_20_P_S9_L001_R2_001_fastqc.zip, rawQC/Mayo_21_M_S76_L001_R2_001_fastqc.zip, rawQC/Mayo_21_P_S54_L001_R2_001_fastqc.zip, rawQC/Mayo_22_M_S10_L001_R2_001_fastqc.zip, rawQC/Mayo_22_P_S29_L001_R2_001_fastqc.zip, rawQC/Mayo_23_M_S62_L001_R2_001_fastqc.zip, rawQC/Mayo_23_P_S68_L001_R2_001_fastqc.zip, rawQC/Mayo_24_M_S73_L001_R2_001_fastqc.zip, rawQC/Mayo_24_P_S64_L001_R2_001_fastqc.zip, rawQC/Mayo_25_M_S34_L001_R2_001_fastqc.zip, rawQC/Mayo_25_P_S78_L001_R2_001_fastqc.zip, rawQC/Mayo_26_M_S82_L001_R2_001_fastqc.zip, rawQC/Mayo_26_P_S83_L001_R2_001_fastqc.zip, rawQC/Mayo_27_M_S71_L001_R2_001_fastqc.zip, rawQC/Mayo_27_P_S38_L001_R2_001_fastqc.zip, rawQC/Mayo_28_M_S13_L001_R2_001_fastqc.zip, rawQC/Mayo_28_P_S56_L001_R2_001_fastqc.zip, rawQC/Mayo_29_M_S61_L001_R2_001_fastqc.zip, rawQC/Mayo_29_P_S45_L001_R2_001_fastqc.zip, rawQC/Mayo_30_M_S28_L001_R2_001_fastqc.zip, rawQC/Mayo_30_P_S27_L001_R2_001_fastqc.zip, rawQC/Mayo_31_M_S72_L001_R2_001_fastqc.zip, rawQC/Mayo_31_P_S37_L001_R2_001_fastqc.zip, rawQC/Mayo_33_M_S22_L001_R2_001_fastqc.zip, rawQC/Mayo_33_P_S16_L001_R2_001_fastqc.zip, rawQC/Mayo_34_M_S69_L001_R2_001_fastqc.zip, rawQC/Mayo_34_P_S25_L001_R2_001_fastqc.zip, rawQC/Mayo_35_M_S59_L001_R2_001_fastqc.zip, rawQC/Mayo_35_P_S14_L001_R2_001_fastqc.zip, rawQC/Mayo_36_M_S15_L001_R2_001_fastqc.zip, rawQC/Mayo_36_P_S50_L001_R2_001_fastqc.zip, rawQC/Mayo_37_M_S51_L001_R2_001_fastqc.zip, rawQC/Mayo_37_P_S67_L001_R2_001_fastqc.zip, rawQC/Mayo_38_M_S75_L001_R2_001_fastqc.zip, rawQC/Mayo_38_P_S53_L001_R2_001_fastqc.zip, rawQC/Mayo_39_M_S8_L001_R2_001_fastqc.zip, rawQC/Mayo_39_P_S3_L001_R2_001_fastqc.zip, rawQC/Mayo_40_M_S18_L001_R2_001_fastqc.zip, rawQC/Mayo_40_P_S66_L001_R2_001_fastqc.zip, rawQC/Mayo_41_M_S1_L001_R2_001_fastqc.zip, rawQC/Mayo_41_P_S44_L001_R2_001_fastqc.zip, rawQC/Mayo_42_M_S70_L001_R2_001_fastqc.zip, rawQC/Mayo_42_P_S77_L001_R2_001_fastqc.zip, rawQC/Mayo_43_M_S31_L001_R2_001_fastqc.zip, rawQC/Mayo_43_P_S17_L001_R2_001_fastqc.zip, rawQC/Mayo_01_M_S36_L002_R1_001_fastqc.zip, rawQC/Mayo_01_P_S55_L002_R1_001_fastqc.zip, rawQC/Mayo_02_M_S43_L002_R1_001_fastqc.zip, rawQC/Mayo_02_P_S84_L002_R1_001_fastqc.zip, rawQC/Mayo_03_M_S5_L002_R1_001_fastqc.zip, rawQC/Mayo_03_P_S2_L002_R1_001_fastqc.zip, rawQC/Mayo_04_M_S41_L002_R1_001_fastqc.zip, rawQC/Mayo_04_P_S30_L002_R1_001_fastqc.zip, rawQC/Mayo_05_M_S60_L002_R1_001_fastqc.zip, rawQC/Mayo_05_P_S6_L002_R1_001_fastqc.zip, rawQC/Mayo_06_M_S26_L002_R1_001_fastqc.zip, rawQC/Mayo_06_P_S12_L002_R1_001_fastqc.zip, rawQC/Mayo_07_M_S79_L002_R1_001_fastqc.zip, rawQC/Mayo_07_P_S80_L002_R1_001_fastqc.zip, rawQC/Mayo_08_M_S57_L002_R1_001_fastqc.zip, rawQC/Mayo_08_P_S63_L002_R1_001_fastqc.zip, rawQC/Mayo_09_M_S52_L002_R1_001_fastqc.zip, rawQC/Mayo_09_P_S65_L002_R1_001_fastqc.zip, rawQC/Mayo_10_M_S58_L002_R1_001_fastqc.zip, rawQC/Mayo_10_P_S11_L002_R1_001_fastqc.zip, rawQC/Mayo_11_M_S42_L002_R1_001_fastqc.zip, rawQC/Mayo_11_P_S21_L002_R1_001_fastqc.zip, rawQC/Mayo_12_M_S33_L002_R1_001_fastqc.zip, rawQC/Mayo_12_P_S20_L002_R1_001_fastqc.zip, rawQC/Mayo_13_M_S24_L002_R1_001_fastqc.zip, rawQC/Mayo_13_P_S48_L002_R1_001_fastqc.zip, rawQC/Mayo_14_M_S49_L002_R1_001_fastqc.zip, rawQC/Mayo_14_P_S19_L002_R1_001_fastqc.zip, rawQC/Mayo_15_M_S7_L002_R1_001_fastqc.zip, rawQC/Mayo_15_P_S39_L002_R1_001_fastqc.zip, rawQC/Mayo_16_M_S40_L002_R1_001_fastqc.zip, rawQC/Mayo_16_P_S4_L002_R1_001_fastqc.zip, rawQC/Mayo_17_M_S46_L002_R1_001_fastqc.zip, rawQC/Mayo_17_P_S81_L002_R1_001_fastqc.zip, rawQC/Mayo_18_M_S47_L002_R1_001_fastqc.zip, rawQC/Mayo_18_P_S32_L002_R1_001_fastqc.zip, rawQC/Mayo_19_M_S74_L002_R1_001_fastqc.zip, rawQC/Mayo_19_P_S35_L002_R1_001_fastqc.zip, rawQC/Mayo_20_M_S23_L002_R1_001_fastqc.zip, rawQC/Mayo_20_P_S9_L002_R1_001_fastqc.zip, rawQC/Mayo_21_M_S76_L002_R1_001_fastqc.zip, rawQC/Mayo_21_P_S54_L002_R1_001_fastqc.zip, rawQC/Mayo_22_M_S10_L002_R1_001_fastqc.zip, rawQC/Mayo_22_P_S29_L002_R1_001_fastqc.zip, rawQC/Mayo_23_M_S62_L002_R1_001_fastqc.zip, rawQC/Mayo_23_P_S68_L002_R1_001_fastqc.zip, rawQC/Mayo_24_M_S73_L002_R1_001_fastqc.zip, rawQC/Mayo_24_P_S64_L002_R1_001_fastqc.zip, rawQC/Mayo_25_M_S34_L002_R1_001_fastqc.zip, rawQC/Mayo_25_P_S78_L002_R1_001_fastqc.zip, rawQC/Mayo_26_M_S82_L002_R1_001_fastqc.zip, rawQC/Mayo_26_P_S83_L002_R1_001_fastqc.zip, rawQC/Mayo_27_M_S71_L002_R1_001_fastqc.zip, rawQC/Mayo_27_P_S38_L002_R1_001_fastqc.zip, rawQC/Mayo_28_M_S13_L002_R1_001_fastqc.zip, rawQC/Mayo_28_P_S56_L002_R1_001_fastqc.zip, rawQC/Mayo_29_M_S61_L002_R1_001_fastqc.zip, rawQC/Mayo_29_P_S45_L002_R1_001_fastqc.zip, rawQC/Mayo_30_M_S28_L002_R1_001_fastqc.zip, rawQC/Mayo_30_P_S27_L002_R1_001_fastqc.zip, rawQC/Mayo_31_M_S72_L002_R1_001_fastqc.zip, rawQC/Mayo_31_P_S37_L002_R1_001_fastqc.zip, rawQC/Mayo_33_M_S22_L002_R1_001_fastqc.zip, rawQC/Mayo_33_P_S16_L002_R1_001_fastqc.zip, rawQC/Mayo_34_M_S69_L002_R1_001_fastqc.zip, rawQC/Mayo_34_P_S25_L002_R1_001_fastqc.zip, rawQC/Mayo_35_M_S59_L002_R1_001_fastqc.zip, rawQC/Mayo_35_P_S14_L002_R1_001_fastqc.zip, rawQC/Mayo_36_M_S15_L002_R1_001_fastqc.zip, rawQC/Mayo_36_P_S50_L002_R1_001_fastqc.zip, rawQC/Mayo_37_M_S51_L002_R1_001_fastqc.zip, rawQC/Mayo_37_P_S67_L002_R1_001_fastqc.zip, rawQC/Mayo_38_M_S75_L002_R1_001_fastqc.zip, rawQC/Mayo_38_P_S53_L002_R1_001_fastqc.zip, rawQC/Mayo_39_M_S8_L002_R1_001_fastqc.zip, rawQC/Mayo_39_P_S3_L002_R1_001_fastqc.zip, rawQC/Mayo_40_M_S18_L002_R1_001_fastqc.zip, rawQC/Mayo_40_P_S66_L002_R1_001_fastqc.zip, rawQC/Mayo_41_M_S1_L002_R1_001_fastqc.zip, rawQC/Mayo_41_P_S44_L002_R1_001_fastqc.zip, rawQC/Mayo_42_M_S70_L002_R1_001_fastqc.zip, rawQC/Mayo_42_P_S77_L002_R1_001_fastqc.zip, rawQC/Mayo_43_M_S31_L002_R1_001_fastqc.zip, rawQC/Mayo_43_P_S17_L002_R1_001_fastqc.zip, rawQC/Mayo_01_M_S36_L002_R2_001_fastqc.zip, rawQC/Mayo_01_P_S55_L002_R2_001_fastqc.zip, rawQC/Mayo_02_M_S43_L002_R2_001_fastqc.zip, rawQC/Mayo_02_P_S84_L002_R2_001_fastqc.zip, rawQC/Mayo_03_M_S5_L002_R2_001_fastqc.zip, rawQC/Mayo_03_P_S2_L002_R2_001_fastqc.zip, rawQC/Mayo_04_M_S41_L002_R2_001_fastqc.zip, rawQC/Mayo_04_P_S30_L002_R2_001_fastqc.zip, rawQC/Mayo_05_M_S60_L002_R2_001_fastqc.zip, rawQC/Mayo_05_P_S6_L002_R2_001_fastqc.zip, rawQC/Mayo_06_M_S26_L002_R2_001_fastqc.zip, rawQC/Mayo_06_P_S12_L002_R2_001_fastqc.zip, rawQC/Mayo_07_M_S79_L002_R2_001_fastqc.zip, rawQC/Mayo_07_P_S80_L002_R2_001_fastqc.zip, rawQC/Mayo_08_M_S57_L002_R2_001_fastqc.zip, rawQC/Mayo_08_P_S63_L002_R2_001_fastqc.zip, rawQC/Mayo_09_M_S52_L002_R2_001_fastqc.zip, rawQC/Mayo_09_P_S65_L002_R2_001_fastqc.zip, rawQC/Mayo_10_M_S58_L002_R2_001_fastqc.zip, rawQC/Mayo_10_P_S11_L002_R2_001_fastqc.zip, rawQC/Mayo_11_M_S42_L002_R2_001_fastqc.zip, rawQC/Mayo_11_P_S21_L002_R2_001_fastqc.zip, rawQC/Mayo_12_M_S33_L002_R2_001_fastqc.zip, rawQC/Mayo_12_P_S20_L002_R2_001_fastqc.zip, rawQC/Mayo_13_M_S24_L002_R2_001_fastqc.zip, rawQC/Mayo_13_P_S48_L002_R2_001_fastqc.zip, rawQC/Mayo_14_M_S49_L002_R2_001_fastqc.zip, rawQC/Mayo_14_P_S19_L002_R2_001_fastqc.zip, rawQC/Mayo_15_M_S7_L002_R2_001_fastqc.zip, rawQC/Mayo_15_P_S39_L002_R2_001_fastqc.zip, rawQC/Mayo_16_M_S40_L002_R2_001_fastqc.zip, rawQC/Mayo_16_P_S4_L002_R2_001_fastqc.zip, rawQC/Mayo_17_M_S46_L002_R2_001_fastqc.zip, rawQC/Mayo_17_P_S81_L002_R2_001_fastqc.zip, rawQC/Mayo_18_M_S47_L002_R2_001_fastqc.zip, rawQC/Mayo_18_P_S32_L002_R2_001_fastqc.zip, rawQC/Mayo_19_M_S74_L002_R2_001_fastqc.zip, rawQC/Mayo_19_P_S35_L002_R2_001_fastqc.zip, rawQC/Mayo_20_M_S23_L002_R2_001_fastqc.zip, rawQC/Mayo_20_P_S9_L002_R2_001_fastqc.zip, rawQC/Mayo_21_M_S76_L002_R2_001_fastqc.zip, rawQC/Mayo_21_P_S54_L002_R2_001_fastqc.zip, rawQC/Mayo_22_M_S10_L002_R2_001_fastqc.zip, rawQC/Mayo_22_P_S29_L002_R2_001_fastqc.zip, rawQC/Mayo_23_M_S62_L002_R2_001_fastqc.zip, rawQC/Mayo_23_P_S68_L002_R2_001_fastqc.zip, rawQC/Mayo_24_M_S73_L002_R2_001_fastqc.zip, rawQC/Mayo_24_P_S64_L002_R2_001_fastqc.zip, rawQC/Mayo_25_M_S34_L002_R2_001_fastqc.zip, rawQC/Mayo_25_P_S78_L002_R2_001_fastqc.zip, rawQC/Mayo_26_M_S82_L002_R2_001_fastqc.zip, rawQC/Mayo_26_P_S83_L002_R2_001_fastqc.zip, rawQC/Mayo_27_M_S71_L002_R2_001_fastqc.zip, rawQC/Mayo_27_P_S38_L002_R2_001_fastqc.zip, rawQC/Mayo_28_M_S13_L002_R2_001_fastqc.zip, rawQC/Mayo_28_P_S56_L002_R2_001_fastqc.zip, rawQC/Mayo_29_M_S61_L002_R2_001_fastqc.zip, rawQC/Mayo_29_P_S45_L002_R2_001_fastqc.zip, rawQC/Mayo_30_M_S28_L002_R2_001_fastqc.zip, rawQC/Mayo_30_P_S27_L002_R2_001_fastqc.zip, rawQC/Mayo_31_M_S72_L002_R2_001_fastqc.zip, rawQC/Mayo_31_P_S37_L002_R2_001_fastqc.zip, rawQC/Mayo_33_M_S22_L002_R2_001_fastqc.zip, rawQC/Mayo_33_P_S16_L002_R2_001_fastqc.zip, rawQC/Mayo_34_M_S69_L002_R2_001_fastqc.zip, rawQC/Mayo_34_P_S25_L002_R2_001_fastqc.zip, rawQC/Mayo_35_M_S59_L002_R2_001_fastqc.zip, rawQC/Mayo_35_P_S14_L002_R2_001_fastqc.zip, rawQC/Mayo_36_M_S15_L002_R2_001_fastqc.zip, rawQC/Mayo_36_P_S50_L002_R2_001_fastqc.zip, rawQC/Mayo_37_M_S51_L002_R2_001_fastqc.zip, rawQC/Mayo_37_P_S67_L002_R2_001_fastqc.zip, rawQC/Mayo_38_M_S75_L002_R2_001_fastqc.zip, rawQC/Mayo_38_P_S53_L002_R2_001_fastqc.zip, rawQC/Mayo_39_M_S8_L002_R2_001_fastqc.zip, rawQC/Mayo_39_P_S3_L002_R2_001_fastqc.zip, rawQC/Mayo_40_M_S18_L002_R2_001_fastqc.zip, rawQC/Mayo_40_P_S66_L002_R2_001_fastqc.zip, rawQC/Mayo_41_M_S1_L002_R2_001_fastqc.zip, rawQC/Mayo_41_P_S44_L002_R2_001_fastqc.zip, rawQC/Mayo_42_M_S70_L002_R2_001_fastqc.zip, rawQC/Mayo_42_P_S77_L002_R2_001_fastqc.zip, rawQC/Mayo_43_M_S31_L002_R2_001_fastqc.zip, rawQC/Mayo_43_P_S17_L002_R2_001_fastqc.zip, trimmedReads/Mayo_01_M_S36_L1_R1_trim.fastq.gz, trimmedReads/Mayo_01_P_S55_L1_R1_trim.fastq.gz, trimmedReads/Mayo_02_M_S43_L1_R1_trim.fastq.gz, trimmedReads/Mayo_02_P_S84_L1_R1_trim.fastq.gz, trimmedReads/Mayo_03_M_S5_L1_R1_trim.fastq.gz, trimmedReads/Mayo_03_P_S2_L1_R1_trim.fastq.gz, trimmedReads/Mayo_04_M_S41_L1_R1_trim.fastq.gz, trimmedReads/Mayo_04_P_S30_L1_R1_trim.fastq.gz, trimmedReads/Mayo_05_M_S60_L1_R1_trim.fastq.gz, trimmedReads/Mayo_05_P_S6_L1_R1_trim.fastq.gz, trimmedReads/Mayo_06_M_S26_L1_R1_trim.fastq.gz, trimmedReads/Mayo_06_P_S12_L1_R1_trim.fastq.gz, trimmedReads/Mayo_07_M_S79_L1_R1_trim.fastq.gz, trimmedReads/Mayo_07_P_S80_L1_R1_trim.fastq.gz, trimmedReads/Mayo_08_M_S57_L1_R1_trim.fastq.gz, trimmedReads/Mayo_08_P_S63_L1_R1_trim.fastq.gz, trimmedReads/Mayo_09_M_S52_L1_R1_trim.fastq.gz, trimmedReads/Mayo_09_P_S65_L1_R1_trim.fastq.gz, trimmedReads/Mayo_10_M_S58_L1_R1_trim.fastq.gz, trimmedReads/Mayo_10_P_S11_L1_R1_trim.fastq.gz, trimmedReads/Mayo_11_M_S42_L1_R1_trim.fastq.gz, trimmedReads/Mayo_11_P_S21_L1_R1_trim.fastq.gz, trimmedReads/Mayo_12_M_S33_L1_R1_trim.fastq.gz, trimmedReads/Mayo_12_P_S20_L1_R1_trim.fastq.gz, trimmedReads/Mayo_13_M_S24_L1_R1_trim.fastq.gz, trimmedReads/Mayo_13_P_S48_L1_R1_trim.fastq.gz, trimmedReads/Mayo_14_M_S49_L1_R1_trim.fastq.gz, trimmedReads/Mayo_14_P_S19_L1_R1_trim.fastq.gz, trimmedReads/Mayo_15_M_S7_L1_R1_trim.fastq.gz, trimmedReads/Mayo_15_P_S39_L1_R1_trim.fastq.gz, trimmedReads/Mayo_16_M_S40_L1_R1_trim.fastq.gz, trimmedReads/Mayo_16_P_S4_L1_R1_trim.fastq.gz, trimmedReads/Mayo_17_M_S46_L1_R1_trim.fastq.gz, trimmedReads/Mayo_17_P_S81_L1_R1_trim.fastq.gz, trimmedReads/Mayo_18_M_S47_L1_R1_trim.fastq.gz, trimmedReads/Mayo_18_P_S32_L1_R1_trim.fastq.gz, trimmedReads/Mayo_19_M_S74_L1_R1_trim.fastq.gz, trimmedReads/Mayo_19_P_S35_L1_R1_trim.fastq.gz, trimmedReads/Mayo_20_M_S23_L1_R1_trim.fastq.gz, trimmedReads/Mayo_20_P_S9_L1_R1_trim.fastq.gz, trimmedReads/Mayo_21_M_S76_L1_R1_trim.fastq.gz, trimmedReads/Mayo_21_P_S54_L1_R1_trim.fastq.gz, trimmedReads/Mayo_22_M_S10_L1_R1_trim.fastq.gz, trimmedReads/Mayo_22_P_S29_L1_R1_trim.fastq.gz, trimmedReads/Mayo_23_M_S62_L1_R1_trim.fastq.gz, trimmedReads/Mayo_23_P_S68_L1_R1_trim.fastq.gz, trimmedReads/Mayo_24_M_S73_L1_R1_trim.fastq.gz, trimmedReads/Mayo_24_P_S64_L1_R1_trim.fastq.gz, trimmedReads/Mayo_25_M_S34_L1_R1_trim.fastq.gz, trimmedReads/Mayo_25_P_S78_L1_R1_trim.fastq.gz, trimmedReads/Mayo_26_M_S82_L1_R1_trim.fastq.gz, trimmedReads/Mayo_26_P_S83_L1_R1_trim.fastq.gz, trimmedReads/Mayo_27_M_S71_L1_R1_trim.fastq.gz, trimmedReads/Mayo_27_P_S38_L1_R1_trim.fastq.gz, trimmedReads/Mayo_28_M_S13_L1_R1_trim.fastq.gz, trimmedReads/Mayo_28_P_S56_L1_R1_trim.fastq.gz, trimmedReads/Mayo_29_M_S61_L1_R1_trim.fastq.gz, trimmedReads/Mayo_29_P_S45_L1_R1_trim.fastq.gz, trimmedReads/Mayo_30_M_S28_L1_R1_trim.fastq.gz, trimmedReads/Mayo_30_P_S27_L1_R1_trim.fastq.gz, trimmedReads/Mayo_31_M_S72_L1_R1_trim.fastq.gz, trimmedReads/Mayo_31_P_S37_L1_R1_trim.fastq.gz, trimmedReads/Mayo_33_M_S22_L1_R1_trim.fastq.gz, trimmedReads/Mayo_33_P_S16_L1_R1_trim.fastq.gz, trimmedReads/Mayo_34_M_S69_L1_R1_trim.fastq.gz, trimmedReads/Mayo_34_P_S25_L1_R1_trim.fastq.gz, trimmedReads/Mayo_35_M_S59_L1_R1_trim.fastq.gz, trimmedReads/Mayo_35_P_S14_L1_R1_trim.fastq.gz, trimmedReads/Mayo_36_M_S15_L1_R1_trim.fastq.gz, trimmedReads/Mayo_36_P_S50_L1_R1_trim.fastq.gz, trimmedReads/Mayo_37_M_S51_L1_R1_trim.fastq.gz, trimmedReads/Mayo_37_P_S67_L1_R1_trim.fastq.gz, trimmedReads/Mayo_38_M_S75_L1_R1_trim.fastq.gz, trimmedReads/Mayo_38_P_S53_L1_R1_trim.fastq.gz, trimmedReads/Mayo_39_M_S8_L1_R1_trim.fastq.gz, trimmedReads/Mayo_39_P_S3_L1_R1_trim.fastq.gz, trimmedReads/Mayo_40_M_S18_L1_R1_trim.fastq.gz, trimmedReads/Mayo_40_P_S66_L1_R1_trim.fastq.gz, trimmedReads/Mayo_41_M_S1_L1_R1_trim.fastq.gz, trimmedReads/Mayo_41_P_S44_L1_R1_trim.fastq.gz, trimmedReads/Mayo_42_M_S70_L1_R1_trim.fastq.gz, trimmedReads/Mayo_42_P_S77_L1_R1_trim.fastq.gz, trimmedReads/Mayo_43_M_S31_L1_R1_trim.fastq.gz, trimmedReads/Mayo_43_P_S17_L1_R1_trim.fastq.gz, trimmedReads/Mayo_01_M_S36_L1_R2_trim.fastq.gz, trimmedReads/Mayo_01_P_S55_L1_R2_trim.fastq.gz, trimmedReads/Mayo_02_M_S43_L1_R2_trim.fastq.gz, trimmedReads/Mayo_02_P_S84_L1_R2_trim.fastq.gz, trimmedReads/Mayo_03_M_S5_L1_R2_trim.fastq.gz, trimmedReads/Mayo_03_P_S2_L1_R2_trim.fastq.gz, trimmedReads/Mayo_04_M_S41_L1_R2_trim.fastq.gz, trimmedReads/Mayo_04_P_S30_L1_R2_trim.fastq.gz, trimmedReads/Mayo_05_M_S60_L1_R2_trim.fastq.gz, trimmedReads/Mayo_05_P_S6_L1_R2_trim.fastq.gz, trimmedReads/Mayo_06_M_S26_L1_R2_trim.fastq.gz, trimmedReads/Mayo_06_P_S12_L1_R2_trim.fastq.gz, trimmedReads/Mayo_07_M_S79_L1_R2_trim.fastq.gz, trimmedReads/Mayo_07_P_S80_L1_R2_trim.fastq.gz, trimmedReads/Mayo_08_M_S57_L1_R2_trim.fastq.gz, trimmedReads/Mayo_08_P_S63_L1_R2_trim.fastq.gz, trimmedReads/Mayo_09_M_S52_L1_R2_trim.fastq.gz, trimmedReads/Mayo_09_P_S65_L1_R2_trim.fastq.gz, trimmedReads/Mayo_10_M_S58_L1_R2_trim.fastq.gz, trimmedReads/Mayo_10_P_S11_L1_R2_trim.fastq.gz, trimmedReads/Mayo_11_M_S42_L1_R2_trim.fastq.gz, trimmedReads/Mayo_11_P_S21_L1_R2_trim.fastq.gz, trimmedReads/Mayo_12_M_S33_L1_R2_trim.fastq.gz, trimmedReads/Mayo_12_P_S20_L1_R2_trim.fastq.gz, trimmedReads/Mayo_13_M_S24_L1_R2_trim.fastq.gz, trimmedReads/Mayo_13_P_S48_L1_R2_trim.fastq.gz, trimmedReads/Mayo_14_M_S49_L1_R2_trim.fastq.gz, trimmedReads/Mayo_14_P_S19_L1_R2_trim.fastq.gz, trimmedReads/Mayo_15_M_S7_L1_R2_trim.fastq.gz, trimmedReads/Mayo_15_P_S39_L1_R2_trim.fastq.gz, trimmedReads/Mayo_16_M_S40_L1_R2_trim.fastq.gz, trimmedReads/Mayo_16_P_S4_L1_R2_trim.fastq.gz, trimmedReads/Mayo_17_M_S46_L1_R2_trim.fastq.gz, trimmedReads/Mayo_17_P_S81_L1_R2_trim.fastq.gz, trimmedReads/Mayo_18_M_S47_L1_R2_trim.fastq.gz, trimmedReads/Mayo_18_P_S32_L1_R2_trim.fastq.gz, trimmedReads/Mayo_19_M_S74_L1_R2_trim.fastq.gz, trimmedReads/Mayo_19_P_S35_L1_R2_trim.fastq.gz, trimmedReads/Mayo_20_M_S23_L1_R2_trim.fastq.gz, trimmedReads/Mayo_20_P_S9_L1_R2_trim.fastq.gz, trimmedReads/Mayo_21_M_S76_L1_R2_trim.fastq.gz, trimmedReads/Mayo_21_P_S54_L1_R2_trim.fastq.gz, trimmedReads/Mayo_22_M_S10_L1_R2_trim.fastq.gz, trimmedReads/Mayo_22_P_S29_L1_R2_trim.fastq.gz, trimmedReads/Mayo_23_M_S62_L1_R2_trim.fastq.gz, trimmedReads/Mayo_23_P_S68_L1_R2_trim.fastq.gz, trimmedReads/Mayo_24_M_S73_L1_R2_trim.fastq.gz, trimmedReads/Mayo_24_P_S64_L1_R2_trim.fastq.gz, trimmedReads/Mayo_25_M_S34_L1_R2_trim.fastq.gz, trimmedReads/Mayo_25_P_S78_L1_R2_trim.fastq.gz, trimmedReads/Mayo_26_M_S82_L1_R2_trim.fastq.gz, trimmedReads/Mayo_26_P_S83_L1_R2_trim.fastq.gz, trimmedReads/Mayo_27_M_S71_L1_R2_trim.fastq.gz, trimmedReads/Mayo_27_P_S38_L1_R2_trim.fastq.gz, trimmedReads/Mayo_28_M_S13_L1_R2_trim.fastq.gz, trimmedReads/Mayo_28_P_S56_L1_R2_trim.fastq.gz, trimmedReads/Mayo_29_M_S61_L1_R2_trim.fastq.gz, trimmedReads/Mayo_29_P_S45_L1_R2_trim.fastq.gz, trimmedReads/Mayo_30_M_S28_L1_R2_trim.fastq.gz, trimmedReads/Mayo_30_P_S27_L1_R2_trim.fastq.gz, trimmedReads/Mayo_31_M_S72_L1_R2_trim.fastq.gz, trimmedReads/Mayo_31_P_S37_L1_R2_trim.fastq.gz, trimmedReads/Mayo_33_M_S22_L1_R2_trim.fastq.gz, trimmedReads/Mayo_33_P_S16_L1_R2_trim.fastq.gz, trimmedReads/Mayo_34_M_S69_L1_R2_trim.fastq.gz, trimmedReads/Mayo_34_P_S25_L1_R2_trim.fastq.gz, trimmedReads/Mayo_35_M_S59_L1_R2_trim.fastq.gz, trimmedReads/Mayo_35_P_S14_L1_R2_trim.fastq.gz, trimmedReads/Mayo_36_M_S15_L1_R2_trim.fastq.gz, trimmedReads/Mayo_36_P_S50_L1_R2_trim.fastq.gz, trimmedReads/Mayo_37_M_S51_L1_R2_trim.fastq.gz, trimmedReads/Mayo_37_P_S67_L1_R2_trim.fastq.gz, trimmedReads/Mayo_38_M_S75_L1_R2_trim.fastq.gz, trimmedReads/Mayo_38_P_S53_L1_R2_trim.fastq.gz, trimmedReads/Mayo_39_M_S8_L1_R2_trim.fastq.gz, trimmedReads/Mayo_39_P_S3_L1_R2_trim.fastq.gz, trimmedReads/Mayo_40_M_S18_L1_R2_trim.fastq.gz, trimmedReads/Mayo_40_P_S66_L1_R2_trim.fastq.gz, trimmedReads/Mayo_41_M_S1_L1_R2_trim.fastq.gz, trimmedReads/Mayo_41_P_S44_L1_R2_trim.fastq.gz, trimmedReads/Mayo_42_M_S70_L1_R2_trim.fastq.gz, trimmedReads/Mayo_42_P_S77_L1_R2_trim.fastq.gz, trimmedReads/Mayo_43_M_S31_L1_R2_trim.fastq.gz, trimmedReads/Mayo_43_P_S17_L1_R2_trim.fastq.gz, trimmedReads/Mayo_01_M_S36_L2_R1_trim.fastq.gz, trimmedReads/Mayo_01_P_S55_L2_R1_trim.fastq.gz, trimmedReads/Mayo_02_M_S43_L2_R1_trim.fastq.gz, trimmedReads/Mayo_02_P_S84_L2_R1_trim.fastq.gz, trimmedReads/Mayo_03_M_S5_L2_R1_trim.fastq.gz, trimmedReads/Mayo_03_P_S2_L2_R1_trim.fastq.gz, trimmedReads/Mayo_04_M_S41_L2_R1_trim.fastq.gz, trimmedReads/Mayo_04_P_S30_L2_R1_trim.fastq.gz, trimmedReads/Mayo_05_M_S60_L2_R1_trim.fastq.gz, trimmedReads/Mayo_05_P_S6_L2_R1_trim.fastq.gz, trimmedReads/Mayo_06_M_S26_L2_R1_trim.fastq.gz, trimmedReads/Mayo_06_P_S12_L2_R1_trim.fastq.gz, trimmedReads/Mayo_07_M_S79_L2_R1_trim.fastq.gz, trimmedReads/Mayo_07_P_S80_L2_R1_trim.fastq.gz, trimmedReads/Mayo_08_M_S57_L2_R1_trim.fastq.gz, trimmedReads/Mayo_08_P_S63_L2_R1_trim.fastq.gz, trimmedReads/Mayo_09_M_S52_L2_R1_trim.fastq.gz, trimmedReads/Mayo_09_P_S65_L2_R1_trim.fastq.gz, trimmedReads/Mayo_10_M_S58_L2_R1_trim.fastq.gz, trimmedReads/Mayo_10_P_S11_L2_R1_trim.fastq.gz, trimmedReads/Mayo_11_M_S42_L2_R1_trim.fastq.gz, trimmedReads/Mayo_11_P_S21_L2_R1_trim.fastq.gz, trimmedReads/Mayo_12_M_S33_L2_R1_trim.fastq.gz, trimmedReads/Mayo_12_P_S20_L2_R1_trim.fastq.gz, trimmedReads/Mayo_13_M_S24_L2_R1_trim.fastq.gz, trimmedReads/Mayo_13_P_S48_L2_R1_trim.fastq.gz, trimmedReads/Mayo_14_M_S49_L2_R1_trim.fastq.gz, trimmedReads/Mayo_14_P_S19_L2_R1_trim.fastq.gz, trimmedReads/Mayo_15_M_S7_L2_R1_trim.fastq.gz, trimmedReads/Mayo_15_P_S39_L2_R1_trim.fastq.gz, trimmedReads/Mayo_16_M_S40_L2_R1_trim.fastq.gz, trimmedReads/Mayo_16_P_S4_L2_R1_trim.fastq.gz, trimmedReads/Mayo_17_M_S46_L2_R1_trim.fastq.gz, trimmedReads/Mayo_17_P_S81_L2_R1_trim.fastq.gz, trimmedReads/Mayo_18_M_S47_L2_R1_trim.fastq.gz, trimmedReads/Mayo_18_P_S32_L2_R1_trim.fastq.gz, trimmedReads/Mayo_19_M_S74_L2_R1_trim.fastq.gz, trimmedReads/Mayo_19_P_S35_L2_R1_trim.fastq.gz, trimmedReads/Mayo_20_M_S23_L2_R1_trim.fastq.gz, trimmedReads/Mayo_20_P_S9_L2_R1_trim.fastq.gz, trimmedReads/Mayo_21_M_S76_L2_R1_trim.fastq.gz, trimmedReads/Mayo_21_P_S54_L2_R1_trim.fastq.gz, trimmedReads/Mayo_22_M_S10_L2_R1_trim.fastq.gz, trimmedReads/Mayo_22_P_S29_L2_R1_trim.fastq.gz, trimmedReads/Mayo_23_M_S62_L2_R1_trim.fastq.gz, trimmedReads/Mayo_23_P_S68_L2_R1_trim.fastq.gz, trimmedReads/Mayo_24_M_S73_L2_R1_trim.fastq.gz, trimmedReads/Mayo_24_P_S64_L2_R1_trim.fastq.gz, trimmedReads/Mayo_25_M_S34_L2_R1_trim.fastq.gz, trimmedReads/Mayo_25_P_S78_L2_R1_trim.fastq.gz, trimmedReads/Mayo_26_M_S82_L2_R1_trim.fastq.gz, trimmedReads/Mayo_26_P_S83_L2_R1_trim.fastq.gz, trimmedReads/Mayo_27_M_S71_L2_R1_trim.fastq.gz, trimmedReads/Mayo_27_P_S38_L2_R1_trim.fastq.gz, trimmedReads/Mayo_28_M_S13_L2_R1_trim.fastq.gz, trimmedReads/Mayo_28_P_S56_L2_R1_trim.fastq.gz, trimmedReads/Mayo_29_M_S61_L2_R1_trim.fastq.gz, trimmedReads/Mayo_29_P_S45_L2_R1_trim.fastq.gz, trimmedReads/Mayo_30_M_S28_L2_R1_trim.fastq.gz, trimmedReads/Mayo_30_P_S27_L2_R1_trim.fastq.gz, trimmedReads/Mayo_31_M_S72_L2_R1_trim.fastq.gz, trimmedReads/Mayo_31_P_S37_L2_R1_trim.fastq.gz, trimmedReads/Mayo_33_M_S22_L2_R1_trim.fastq.gz, trimmedReads/Mayo_33_P_S16_L2_R1_trim.fastq.gz, trimmedReads/Mayo_34_M_S69_L2_R1_trim.fastq.gz, trimmedReads/Mayo_34_P_S25_L2_R1_trim.fastq.gz, trimmedReads/Mayo_35_M_S59_L2_R1_trim.fastq.gz, trimmedReads/Mayo_35_P_S14_L2_R1_trim.fastq.gz, trimmedReads/Mayo_36_M_S15_L2_R1_trim.fastq.gz, trimmedReads/Mayo_36_P_S50_L2_R1_trim.fastq.gz, trimmedReads/Mayo_37_M_S51_L2_R1_trim.fastq.gz, trimmedReads/Mayo_37_P_S67_L2_R1_trim.fastq.gz, trimmedReads/Mayo_38_M_S75_L2_R1_trim.fastq.gz, trimmedReads/Mayo_38_P_S53_L2_R1_trim.fastq.gz, trimmedReads/Mayo_39_M_S8_L2_R1_trim.fastq.gz, trimmedReads/Mayo_39_P_S3_L2_R1_trim.fastq.gz, trimmedReads/Mayo_40_M_S18_L2_R1_trim.fastq.gz, trimmedReads/Mayo_40_P_S66_L2_R1_trim.fastq.gz, trimmedReads/Mayo_41_M_S1_L2_R1_trim.fastq.gz, trimmedReads/Mayo_41_P_S44_L2_R1_trim.fastq.gz, trimmedReads/Mayo_42_M_S70_L2_R1_trim.fastq.gz, trimmedReads/Mayo_42_P_S77_L2_R1_trim.fastq.gz, trimmedReads/Mayo_43_M_S31_L2_R1_trim.fastq.gz, trimmedReads/Mayo_43_P_S17_L2_R1_trim.fastq.gz, trimmedReads/Mayo_01_M_S36_L2_R2_trim.fastq.gz, trimmedReads/Mayo_01_P_S55_L2_R2_trim.fastq.gz, trimmedReads/Mayo_02_M_S43_L2_R2_trim.fastq.gz, trimmedReads/Mayo_02_P_S84_L2_R2_trim.fastq.gz, trimmedReads/Mayo_03_M_S5_L2_R2_trim.fastq.gz, trimmedReads/Mayo_03_P_S2_L2_R2_trim.fastq.gz, trimmedReads/Mayo_04_M_S41_L2_R2_trim.fastq.gz, trimmedReads/Mayo_04_P_S30_L2_R2_trim.fastq.gz, trimmedReads/Mayo_05_M_S60_L2_R2_trim.fastq.gz, trimmedReads/Mayo_05_P_S6_L2_R2_trim.fastq.gz, trimmedReads/Mayo_06_M_S26_L2_R2_trim.fastq.gz, trimmedReads/Mayo_06_P_S12_L2_R2_trim.fastq.gz, trimmedReads/Mayo_07_M_S79_L2_R2_trim.fastq.gz, trimmedReads/Mayo_07_P_S80_L2_R2_trim.fastq.gz, trimmedReads/Mayo_08_M_S57_L2_R2_trim.fastq.gz, trimmedReads/Mayo_08_P_S63_L2_R2_trim.fastq.gz, trimmedReads/Mayo_09_M_S52_L2_R2_trim.fastq.gz, trimmedReads/Mayo_09_P_S65_L2_R2_trim.fastq.gz, trimmedReads/Mayo_10_M_S58_L2_R2_trim.fastq.gz, trimmedReads/Mayo_10_P_S11_L2_R2_trim.fastq.gz, trimmedReads/Mayo_11_M_S42_L2_R2_trim.fastq.gz, trimmedReads/Mayo_11_P_S21_L2_R2_trim.fastq.gz, trimmedReads/Mayo_12_M_S33_L2_R2_trim.fastq.gz, trimmedReads/Mayo_12_P_S20_L2_R2_trim.fastq.gz, trimmedReads/Mayo_13_M_S24_L2_R2_trim.fastq.gz, trimmedReads/Mayo_13_P_S48_L2_R2_trim.fastq.gz, trimmedReads/Mayo_14_M_S49_L2_R2_trim.fastq.gz, trimmedReads/Mayo_14_P_S19_L2_R2_trim.fastq.gz, trimmedReads/Mayo_15_M_S7_L2_R2_trim.fastq.gz, trimmedReads/Mayo_15_P_S39_L2_R2_trim.fastq.gz, trimmedReads/Mayo_16_M_S40_L2_R2_trim.fastq.gz, trimmedReads/Mayo_16_P_S4_L2_R2_trim.fastq.gz, trimmedReads/Mayo_17_M_S46_L2_R2_trim.fastq.gz, trimmedReads/Mayo_17_P_S81_L2_R2_trim.fastq.gz, trimmedReads/Mayo_18_M_S47_L2_R2_trim.fastq.gz, trimmedReads/Mayo_18_P_S32_L2_R2_trim.fastq.gz, trimmedReads/Mayo_19_M_S74_L2_R2_trim.fastq.gz, trimmedReads/Mayo_19_P_S35_L2_R2_trim.fastq.gz, trimmedReads/Mayo_20_M_S23_L2_R2_trim.fastq.gz, trimmedReads/Mayo_20_P_S9_L2_R2_trim.fastq.gz, trimmedReads/Mayo_21_M_S76_L2_R2_trim.fastq.gz, trimmedReads/Mayo_21_P_S54_L2_R2_trim.fastq.gz, trimmedReads/Mayo_22_M_S10_L2_R2_trim.fastq.gz, trimmedReads/Mayo_22_P_S29_L2_R2_trim.fastq.gz, trimmedReads/Mayo_23_M_S62_L2_R2_trim.fastq.gz, trimmedReads/Mayo_23_P_S68_L2_R2_trim.fastq.gz, trimmedReads/Mayo_24_M_S73_L2_R2_trim.fastq.gz, trimmedReads/Mayo_24_P_S64_L2_R2_trim.fastq.gz, trimmedReads/Mayo_25_M_S34_L2_R2_trim.fastq.gz, trimmedReads/Mayo_25_P_S78_L2_R2_trim.fastq.gz, trimmedReads/Mayo_26_M_S82_L2_R2_trim.fastq.gz, trimmedReads/Mayo_26_P_S83_L2_R2_trim.fastq.gz, trimmedReads/Mayo_27_M_S71_L2_R2_trim.fastq.gz, trimmedReads/Mayo_27_P_S38_L2_R2_trim.fastq.gz, trimmedReads/Mayo_28_M_S13_L2_R2_trim.fastq.gz, trimmedReads/Mayo_28_P_S56_L2_R2_trim.fastq.gz, trimmedReads/Mayo_29_M_S61_L2_R2_trim.fastq.gz, trimmedReads/Mayo_29_P_S45_L2_R2_trim.fastq.gz, trimmedReads/Mayo_30_M_S28_L2_R2_trim.fastq.gz, trimmedReads/Mayo_30_P_S27_L2_R2_trim.fastq.gz, trimmedReads/Mayo_31_M_S72_L2_R2_trim.fastq.gz, trimmedReads/Mayo_31_P_S37_L2_R2_trim.fastq.gz, trimmedReads/Mayo_33_M_S22_L2_R2_trim.fastq.gz, trimmedReads/Mayo_33_P_S16_L2_R2_trim.fastq.gz, trimmedReads/Mayo_34_M_S69_L2_R2_trim.fastq.gz, trimmedReads/Mayo_34_P_S25_L2_R2_trim.fastq.gz, trimmedReads/Mayo_35_M_S59_L2_R2_trim.fastq.gz, trimmedReads/Mayo_35_P_S14_L2_R2_trim.fastq.gz, trimmedReads/Mayo_36_M_S15_L2_R2_trim.fastq.gz, trimmedReads/Mayo_36_P_S50_L2_R2_trim.fastq.gz, trimmedReads/Mayo_37_M_S51_L2_R2_trim.fastq.gz, trimmedReads/Mayo_37_P_S67_L2_R2_trim.fastq.gz, trimmedReads/Mayo_38_M_S75_L2_R2_trim.fastq.gz, trimmedReads/Mayo_38_P_S53_L2_R2_trim.fastq.gz, trimmedReads/Mayo_39_M_S8_L2_R2_trim.fastq.gz, trimmedReads/Mayo_39_P_S3_L2_R2_trim.fastq.gz, trimmedReads/Mayo_40_M_S18_L2_R2_trim.fastq.gz, trimmedReads/Mayo_40_P_S66_L2_R2_trim.fastq.gz, trimmedReads/Mayo_41_M_S1_L2_R2_trim.fastq.gz, trimmedReads/Mayo_41_P_S44_L2_R2_trim.fastq.gz, trimmedReads/Mayo_42_M_S70_L2_R2_trim.fastq.gz, trimmedReads/Mayo_42_P_S77_L2_R2_trim.fastq.gz, trimmedReads/Mayo_43_M_S31_L2_R2_trim.fastq.gz, trimmedReads/Mayo_43_P_S17_L2_R2_trim.fastq.gz, trimmedQC/Mayo_01_M_S36_L1_R1_trim_fastqc.html, trimmedQC/Mayo_01_P_S55_L1_R1_trim_fastqc.html, trimmedQC/Mayo_02_M_S43_L1_R1_trim_fastqc.html, trimmedQC/Mayo_02_P_S84_L1_R1_trim_fastqc.html, trimmedQC/Mayo_03_M_S5_L1_R1_trim_fastqc.html, trimmedQC/Mayo_03_P_S2_L1_R1_trim_fastqc.html, trimmedQC/Mayo_04_M_S41_L1_R1_trim_fastqc.html, trimmedQC/Mayo_04_P_S30_L1_R1_trim_fastqc.html, trimmedQC/Mayo_05_M_S60_L1_R1_trim_fastqc.html, trimmedQC/Mayo_05_P_S6_L1_R1_trim_fastqc.html, trimmedQC/Mayo_06_M_S26_L1_R1_trim_fastqc.html, trimmedQC/Mayo_06_P_S12_L1_R1_trim_fastqc.html, trimmedQC/Mayo_07_M_S79_L1_R1_trim_fastqc.html, trimmedQC/Mayo_07_P_S80_L1_R1_trim_fastqc.html, trimmedQC/Mayo_08_M_S57_L1_R1_trim_fastqc.html, trimmedQC/Mayo_08_P_S63_L1_R1_trim_fastqc.html, trimmedQC/Mayo_09_M_S52_L1_R1_trim_fastqc.html, trimmedQC/Mayo_09_P_S65_L1_R1_trim_fastqc.html, trimmedQC/Mayo_10_M_S58_L1_R1_trim_fastqc.html, trimmedQC/Mayo_10_P_S11_L1_R1_trim_fastqc.html, trimmedQC/Mayo_11_M_S42_L1_R1_trim_fastqc.html, trimmedQC/Mayo_11_P_S21_L1_R1_trim_fastqc.html, trimmedQC/Mayo_12_M_S33_L1_R1_trim_fastqc.html, trimmedQC/Mayo_12_P_S20_L1_R1_trim_fastqc.html, trimmedQC/Mayo_13_M_S24_L1_R1_trim_fastqc.html, trimmedQC/Mayo_13_P_S48_L1_R1_trim_fastqc.html, trimmedQC/Mayo_14_M_S49_L1_R1_trim_fastqc.html, trimmedQC/Mayo_14_P_S19_L1_R1_trim_fastqc.html, trimmedQC/Mayo_15_M_S7_L1_R1_trim_fastqc.html, trimmedQC/Mayo_15_P_S39_L1_R1_trim_fastqc.html, trimmedQC/Mayo_16_M_S40_L1_R1_trim_fastqc.html, trimmedQC/Mayo_16_P_S4_L1_R1_trim_fastqc.html, trimmedQC/Mayo_17_M_S46_L1_R1_trim_fastqc.html, trimmedQC/Mayo_17_P_S81_L1_R1_trim_fastqc.html, trimmedQC/Mayo_18_M_S47_L1_R1_trim_fastqc.html, trimmedQC/Mayo_18_P_S32_L1_R1_trim_fastqc.html, trimmedQC/Mayo_19_M_S74_L1_R1_trim_fastqc.html, trimmedQC/Mayo_19_P_S35_L1_R1_trim_fastqc.html, trimmedQC/Mayo_20_M_S23_L1_R1_trim_fastqc.html, trimmedQC/Mayo_20_P_S9_L1_R1_trim_fastqc.html, trimmedQC/Mayo_21_M_S76_L1_R1_trim_fastqc.html, trimmedQC/Mayo_21_P_S54_L1_R1_trim_fastqc.html, trimmedQC/Mayo_22_M_S10_L1_R1_trim_fastqc.html, trimmedQC/Mayo_22_P_S29_L1_R1_trim_fastqc.html, trimmedQC/Mayo_23_M_S62_L1_R1_trim_fastqc.html, trimmedQC/Mayo_23_P_S68_L1_R1_trim_fastqc.html, trimmedQC/Mayo_24_M_S73_L1_R1_trim_fastqc.html, trimmedQC/Mayo_24_P_S64_L1_R1_trim_fastqc.html, trimmedQC/Mayo_25_M_S34_L1_R1_trim_fastqc.html, trimmedQC/Mayo_25_P_S78_L1_R1_trim_fastqc.html, trimmedQC/Mayo_26_M_S82_L1_R1_trim_fastqc.html, trimmedQC/Mayo_26_P_S83_L1_R1_trim_fastqc.html, trimmedQC/Mayo_27_M_S71_L1_R1_trim_fastqc.html, trimmedQC/Mayo_27_P_S38_L1_R1_trim_fastqc.html, trimmedQC/Mayo_28_M_S13_L1_R1_trim_fastqc.html, trimmedQC/Mayo_28_P_S56_L1_R1_trim_fastqc.html, trimmedQC/Mayo_29_M_S61_L1_R1_trim_fastqc.html, trimmedQC/Mayo_29_P_S45_L1_R1_trim_fastqc.html, trimmedQC/Mayo_30_M_S28_L1_R1_trim_fastqc.html, trimmedQC/Mayo_30_P_S27_L1_R1_trim_fastqc.html, trimmedQC/Mayo_31_M_S72_L1_R1_trim_fastqc.html, trimmedQC/Mayo_31_P_S37_L1_R1_trim_fastqc.html, trimmedQC/Mayo_33_M_S22_L1_R1_trim_fastqc.html, trimmedQC/Mayo_33_P_S16_L1_R1_trim_fastqc.html, trimmedQC/Mayo_34_M_S69_L1_R1_trim_fastqc.html, trimmedQC/Mayo_34_P_S25_L1_R1_trim_fastqc.html, trimmedQC/Mayo_35_M_S59_L1_R1_trim_fastqc.html, trimmedQC/Mayo_35_P_S14_L1_R1_trim_fastqc.html, trimmedQC/Mayo_36_M_S15_L1_R1_trim_fastqc.html, trimmedQC/Mayo_36_P_S50_L1_R1_trim_fastqc.html, trimmedQC/Mayo_37_M_S51_L1_R1_trim_fastqc.html, trimmedQC/Mayo_37_P_S67_L1_R1_trim_fastqc.html, trimmedQC/Mayo_38_M_S75_L1_R1_trim_fastqc.html, trimmedQC/Mayo_38_P_S53_L1_R1_trim_fastqc.html, trimmedQC/Mayo_39_M_S8_L1_R1_trim_fastqc.html, trimmedQC/Mayo_39_P_S3_L1_R1_trim_fastqc.html, trimmedQC/Mayo_40_M_S18_L1_R1_trim_fastqc.html, trimmedQC/Mayo_40_P_S66_L1_R1_trim_fastqc.html, trimmedQC/Mayo_41_M_S1_L1_R1_trim_fastqc.html, trimmedQC/Mayo_41_P_S44_L1_R1_trim_fastqc.html, trimmedQC/Mayo_42_M_S70_L1_R1_trim_fastqc.html, trimmedQC/Mayo_42_P_S77_L1_R1_trim_fastqc.html, trimmedQC/Mayo_43_M_S31_L1_R1_trim_fastqc.html, trimmedQC/Mayo_43_P_S17_L1_R1_trim_fastqc.html, trimmedQC/Mayo_01_M_S36_L1_R2_trim_fastqc.html, trimmedQC/Mayo_01_P_S55_L1_R2_trim_fastqc.html, trimmedQC/Mayo_02_M_S43_L1_R2_trim_fastqc.html, trimmedQC/Mayo_02_P_S84_L1_R2_trim_fastqc.html, trimmedQC/Mayo_03_M_S5_L1_R2_trim_fastqc.html, trimmedQC/Mayo_03_P_S2_L1_R2_trim_fastqc.html, trimmedQC/Mayo_04_M_S41_L1_R2_trim_fastqc.html, trimmedQC/Mayo_04_P_S30_L1_R2_trim_fastqc.html, trimmedQC/Mayo_05_M_S60_L1_R2_trim_fastqc.html, trimmedQC/Mayo_05_P_S6_L1_R2_trim_fastqc.html, trimmedQC/Mayo_06_M_S26_L1_R2_trim_fastqc.html, trimmedQC/Mayo_06_P_S12_L1_R2_trim_fastqc.html, trimmedQC/Mayo_07_M_S79_L1_R2_trim_fastqc.html, trimmedQC/Mayo_07_P_S80_L1_R2_trim_fastqc.html, trimmedQC/Mayo_08_M_S57_L1_R2_trim_fastqc.html, trimmedQC/Mayo_08_P_S63_L1_R2_trim_fastqc.html, trimmedQC/Mayo_09_M_S52_L1_R2_trim_fastqc.html, trimmedQC/Mayo_09_P_S65_L1_R2_trim_fastqc.html, trimmedQC/Mayo_10_M_S58_L1_R2_trim_fastqc.html, trimmedQC/Mayo_10_P_S11_L1_R2_trim_fastqc.html, trimmedQC/Mayo_11_M_S42_L1_R2_trim_fastqc.html, trimmedQC/Mayo_11_P_S21_L1_R2_trim_fastqc.html, trimmedQC/Mayo_12_M_S33_L1_R2_trim_fastqc.html, trimmedQC/Mayo_12_P_S20_L1_R2_trim_fastqc.html, trimmedQC/Mayo_13_M_S24_L1_R2_trim_fastqc.html, trimmedQC/Mayo_13_P_S48_L1_R2_trim_fastqc.html, trimmedQC/Mayo_14_M_S49_L1_R2_trim_fastqc.html, trimmedQC/Mayo_14_P_S19_L1_R2_trim_fastqc.html, trimmedQC/Mayo_15_M_S7_L1_R2_trim_fastqc.html, trimmedQC/Mayo_15_P_S39_L1_R2_trim_fastqc.html, trimmedQC/Mayo_16_M_S40_L1_R2_trim_fastqc.html, trimmedQC/Mayo_16_P_S4_L1_R2_trim_fastqc.html, trimmedQC/Mayo_17_M_S46_L1_R2_trim_fastqc.html, trimmedQC/Mayo_17_P_S81_L1_R2_trim_fastqc.html, trimmedQC/Mayo_18_M_S47_L1_R2_trim_fastqc.html, trimmedQC/Mayo_18_P_S32_L1_R2_trim_fastqc.html, trimmedQC/Mayo_19_M_S74_L1_R2_trim_fastqc.html, trimmedQC/Mayo_19_P_S35_L1_R2_trim_fastqc.html, trimmedQC/Mayo_20_M_S23_L1_R2_trim_fastqc.html, trimmedQC/Mayo_20_P_S9_L1_R2_trim_fastqc.html, trimmedQC/Mayo_21_M_S76_L1_R2_trim_fastqc.html, trimmedQC/Mayo_21_P_S54_L1_R2_trim_fastqc.html, trimmedQC/Mayo_22_M_S10_L1_R2_trim_fastqc.html, trimmedQC/Mayo_22_P_S29_L1_R2_trim_fastqc.html, trimmedQC/Mayo_23_M_S62_L1_R2_trim_fastqc.html, trimmedQC/Mayo_23_P_S68_L1_R2_trim_fastqc.html, trimmedQC/Mayo_24_M_S73_L1_R2_trim_fastqc.html, trimmedQC/Mayo_24_P_S64_L1_R2_trim_fastqc.html, trimmedQC/Mayo_25_M_S34_L1_R2_trim_fastqc.html, trimmedQC/Mayo_25_P_S78_L1_R2_trim_fastqc.html, trimmedQC/Mayo_26_M_S82_L1_R2_trim_fastqc.html, trimmedQC/Mayo_26_P_S83_L1_R2_trim_fastqc.html, trimmedQC/Mayo_27_M_S71_L1_R2_trim_fastqc.html, trimmedQC/Mayo_27_P_S38_L1_R2_trim_fastqc.html, trimmedQC/Mayo_28_M_S13_L1_R2_trim_fastqc.html, trimmedQC/Mayo_28_P_S56_L1_R2_trim_fastqc.html, trimmedQC/Mayo_29_M_S61_L1_R2_trim_fastqc.html, trimmedQC/Mayo_29_P_S45_L1_R2_trim_fastqc.html, trimmedQC/Mayo_30_M_S28_L1_R2_trim_fastqc.html, trimmedQC/Mayo_30_P_S27_L1_R2_trim_fastqc.html, trimmedQC/Mayo_31_M_S72_L1_R2_trim_fastqc.html, trimmedQC/Mayo_31_P_S37_L1_R2_trim_fastqc.html, trimmedQC/Mayo_33_M_S22_L1_R2_trim_fastqc.html, trimmedQC/Mayo_33_P_S16_L1_R2_trim_fastqc.html, trimmedQC/Mayo_34_M_S69_L1_R2_trim_fastqc.html, trimmedQC/Mayo_34_P_S25_L1_R2_trim_fastqc.html, trimmedQC/Mayo_35_M_S59_L1_R2_trim_fastqc.html, trimmedQC/Mayo_35_P_S14_L1_R2_trim_fastqc.html, trimmedQC/Mayo_36_M_S15_L1_R2_trim_fastqc.html, trimmedQC/Mayo_36_P_S50_L1_R2_trim_fastqc.html, trimmedQC/Mayo_37_M_S51_L1_R2_trim_fastqc.html, trimmedQC/Mayo_37_P_S67_L1_R2_trim_fastqc.html, trimmedQC/Mayo_38_M_S75_L1_R2_trim_fastqc.html, trimmedQC/Mayo_38_P_S53_L1_R2_trim_fastqc.html, trimmedQC/Mayo_39_M_S8_L1_R2_trim_fastqc.html, trimmedQC/Mayo_39_P_S3_L1_R2_trim_fastqc.html, trimmedQC/Mayo_40_M_S18_L1_R2_trim_fastqc.html, trimmedQC/Mayo_40_P_S66_L1_R2_trim_fastqc.html, trimmedQC/Mayo_41_M_S1_L1_R2_trim_fastqc.html, trimmedQC/Mayo_41_P_S44_L1_R2_trim_fastqc.html, trimmedQC/Mayo_42_M_S70_L1_R2_trim_fastqc.html, trimmedQC/Mayo_42_P_S77_L1_R2_trim_fastqc.html, trimmedQC/Mayo_43_M_S31_L1_R2_trim_fastqc.html, trimmedQC/Mayo_43_P_S17_L1_R2_trim_fastqc.html, trimmedQC/Mayo_01_M_S36_L2_R1_trim_fastqc.html, trimmedQC/Mayo_01_P_S55_L2_R1_trim_fastqc.html, trimmedQC/Mayo_02_M_S43_L2_R1_trim_fastqc.html, trimmedQC/Mayo_02_P_S84_L2_R1_trim_fastqc.html, trimmedQC/Mayo_03_M_S5_L2_R1_trim_fastqc.html, trimmedQC/Mayo_03_P_S2_L2_R1_trim_fastqc.html, trimmedQC/Mayo_04_M_S41_L2_R1_trim_fastqc.html, trimmedQC/Mayo_04_P_S30_L2_R1_trim_fastqc.html, trimmedQC/Mayo_05_M_S60_L2_R1_trim_fastqc.html, trimmedQC/Mayo_05_P_S6_L2_R1_trim_fastqc.html, trimmedQC/Mayo_06_M_S26_L2_R1_trim_fastqc.html, trimmedQC/Mayo_06_P_S12_L2_R1_trim_fastqc.html, trimmedQC/Mayo_07_M_S79_L2_R1_trim_fastqc.html, trimmedQC/Mayo_07_P_S80_L2_R1_trim_fastqc.html, trimmedQC/Mayo_08_M_S57_L2_R1_trim_fastqc.html, trimmedQC/Mayo_08_P_S63_L2_R1_trim_fastqc.html, trimmedQC/Mayo_09_M_S52_L2_R1_trim_fastqc.html, trimmedQC/Mayo_09_P_S65_L2_R1_trim_fastqc.html, trimmedQC/Mayo_10_M_S58_L2_R1_trim_fastqc.html, trimmedQC/Mayo_10_P_S11_L2_R1_trim_fastqc.html, trimmedQC/Mayo_11_M_S42_L2_R1_trim_fastqc.html, trimmedQC/Mayo_11_P_S21_L2_R1_trim_fastqc.html, trimmedQC/Mayo_12_M_S33_L2_R1_trim_fastqc.html, trimmedQC/Mayo_12_P_S20_L2_R1_trim_fastqc.html, trimmedQC/Mayo_13_M_S24_L2_R1_trim_fastqc.html, trimmedQC/Mayo_13_P_S48_L2_R1_trim_fastqc.html, trimmedQC/Mayo_14_M_S49_L2_R1_trim_fastqc.html, trimmedQC/Mayo_14_P_S19_L2_R1_trim_fastqc.html, trimmedQC/Mayo_15_M_S7_L2_R1_trim_fastqc.html, trimmedQC/Mayo_15_P_S39_L2_R1_trim_fastqc.html, trimmedQC/Mayo_16_M_S40_L2_R1_trim_fastqc.html, trimmedQC/Mayo_16_P_S4_L2_R1_trim_fastqc.html, trimmedQC/Mayo_17_M_S46_L2_R1_trim_fastqc.html, trimmedQC/Mayo_17_P_S81_L2_R1_trim_fastqc.html, trimmedQC/Mayo_18_M_S47_L2_R1_trim_fastqc.html, trimmedQC/Mayo_18_P_S32_L2_R1_trim_fastqc.html, trimmedQC/Mayo_19_M_S74_L2_R1_trim_fastqc.html, trimmedQC/Mayo_19_P_S35_L2_R1_trim_fastqc.html, trimmedQC/Mayo_20_M_S23_L2_R1_trim_fastqc.html, trimmedQC/Mayo_20_P_S9_L2_R1_trim_fastqc.html, trimmedQC/Mayo_21_M_S76_L2_R1_trim_fastqc.html, trimmedQC/Mayo_21_P_S54_L2_R1_trim_fastqc.html, trimmedQC/Mayo_22_M_S10_L2_R1_trim_fastqc.html, trimmedQC/Mayo_22_P_S29_L2_R1_trim_fastqc.html, trimmedQC/Mayo_23_M_S62_L2_R1_trim_fastqc.html, trimmedQC/Mayo_23_P_S68_L2_R1_trim_fastqc.html, trimmedQC/Mayo_24_M_S73_L2_R1_trim_fastqc.html, trimmedQC/Mayo_24_P_S64_L2_R1_trim_fastqc.html, trimmedQC/Mayo_25_M_S34_L2_R1_trim_fastqc.html, trimmedQC/Mayo_25_P_S78_L2_R1_trim_fastqc.html, trimmedQC/Mayo_26_M_S82_L2_R1_trim_fastqc.html, trimmedQC/Mayo_26_P_S83_L2_R1_trim_fastqc.html, trimmedQC/Mayo_27_M_S71_L2_R1_trim_fastqc.html, trimmedQC/Mayo_27_P_S38_L2_R1_trim_fastqc.html, trimmedQC/Mayo_28_M_S13_L2_R1_trim_fastqc.html, trimmedQC/Mayo_28_P_S56_L2_R1_trim_fastqc.html, trimmedQC/Mayo_29_M_S61_L2_R1_trim_fastqc.html, trimmedQC/Mayo_29_P_S45_L2_R1_trim_fastqc.html, trimmedQC/Mayo_30_M_S28_L2_R1_trim_fastqc.html, trimmedQC/Mayo_30_P_S27_L2_R1_trim_fastqc.html, trimmedQC/Mayo_31_M_S72_L2_R1_trim_fastqc.html, trimmedQC/Mayo_31_P_S37_L2_R1_trim_fastqc.html, trimmedQC/Mayo_33_M_S22_L2_R1_trim_fastqc.html, trimmedQC/Mayo_33_P_S16_L2_R1_trim_fastqc.html, trimmedQC/Mayo_34_M_S69_L2_R1_trim_fastqc.html, trimmedQC/Mayo_34_P_S25_L2_R1_trim_fastqc.html, trimmedQC/Mayo_35_M_S59_L2_R1_trim_fastqc.html, trimmedQC/Mayo_35_P_S14_L2_R1_trim_fastqc.html, trimmedQC/Mayo_36_M_S15_L2_R1_trim_fastqc.html, trimmedQC/Mayo_36_P_S50_L2_R1_trim_fastqc.html, trimmedQC/Mayo_37_M_S51_L2_R1_trim_fastqc.html, trimmedQC/Mayo_37_P_S67_L2_R1_trim_fastqc.html, trimmedQC/Mayo_38_M_S75_L2_R1_trim_fastqc.html, trimmedQC/Mayo_38_P_S53_L2_R1_trim_fastqc.html, trimmedQC/Mayo_39_M_S8_L2_R1_trim_fastqc.html, trimmedQC/Mayo_39_P_S3_L2_R1_trim_fastqc.html, trimmedQC/Mayo_40_M_S18_L2_R1_trim_fastqc.html, trimmedQC/Mayo_40_P_S66_L2_R1_trim_fastqc.html, trimmedQC/Mayo_41_M_S1_L2_R1_trim_fastqc.html, trimmedQC/Mayo_41_P_S44_L2_R1_trim_fastqc.html, trimmedQC/Mayo_42_M_S70_L2_R1_trim_fastqc.html, trimmedQC/Mayo_42_P_S77_L2_R1_trim_fastqc.html, trimmedQC/Mayo_43_M_S31_L2_R1_trim_fastqc.html, trimmedQC/Mayo_43_P_S17_L2_R1_trim_fastqc.html, trimmedQC/Mayo_01_M_S36_L2_R2_trim_fastqc.html, trimmedQC/Mayo_01_P_S55_L2_R2_trim_fastqc.html, trimmedQC/Mayo_02_M_S43_L2_R2_trim_fastqc.html, trimmedQC/Mayo_02_P_S84_L2_R2_trim_fastqc.html, trimmedQC/Mayo_03_M_S5_L2_R2_trim_fastqc.html, trimmedQC/Mayo_03_P_S2_L2_R2_trim_fastqc.html, trimmedQC/Mayo_04_M_S41_L2_R2_trim_fastqc.html, trimmedQC/Mayo_04_P_S30_L2_R2_trim_fastqc.html, trimmedQC/Mayo_05_M_S60_L2_R2_trim_fastqc.html, trimmedQC/Mayo_05_P_S6_L2_R2_trim_fastqc.html, trimmedQC/Mayo_06_M_S26_L2_R2_trim_fastqc.html, trimmedQC/Mayo_06_P_S12_L2_R2_trim_fastqc.html, trimmedQC/Mayo_07_M_S79_L2_R2_trim_fastqc.html, trimmedQC/Mayo_07_P_S80_L2_R2_trim_fastqc.html, trimmedQC/Mayo_08_M_S57_L2_R2_trim_fastqc.html, trimmedQC/Mayo_08_P_S63_L2_R2_trim_fastqc.html, trimmedQC/Mayo_09_M_S52_L2_R2_trim_fastqc.html, trimmedQC/Mayo_09_P_S65_L2_R2_trim_fastqc.html, trimmedQC/Mayo_10_M_S58_L2_R2_trim_fastqc.html, trimmedQC/Mayo_10_P_S11_L2_R2_trim_fastqc.html, trimmedQC/Mayo_11_M_S42_L2_R2_trim_fastqc.html, trimmedQC/Mayo_11_P_S21_L2_R2_trim_fastqc.html, trimmedQC/Mayo_12_M_S33_L2_R2_trim_fastqc.html, trimmedQC/Mayo_12_P_S20_L2_R2_trim_fastqc.html, trimmedQC/Mayo_13_M_S24_L2_R2_trim_fastqc.html, trimmedQC/Mayo_13_P_S48_L2_R2_trim_fastqc.html, trimmedQC/Mayo_14_M_S49_L2_R2_trim_fastqc.html, trimmedQC/Mayo_14_P_S19_L2_R2_trim_fastqc.html, trimmedQC/Mayo_15_M_S7_L2_R2_trim_fastqc.html, trimmedQC/Mayo_15_P_S39_L2_R2_trim_fastqc.html, trimmedQC/Mayo_16_M_S40_L2_R2_trim_fastqc.html, trimmedQC/Mayo_16_P_S4_L2_R2_trim_fastqc.html, trimmedQC/Mayo_17_M_S46_L2_R2_trim_fastqc.html, trimmedQC/Mayo_17_P_S81_L2_R2_trim_fastqc.html, trimmedQC/Mayo_18_M_S47_L2_R2_trim_fastqc.html, trimmedQC/Mayo_18_P_S32_L2_R2_trim_fastqc.html, trimmedQC/Mayo_19_M_S74_L2_R2_trim_fastqc.html, trimmedQC/Mayo_19_P_S35_L2_R2_trim_fastqc.html, trimmedQC/Mayo_20_M_S23_L2_R2_trim_fastqc.html, trimmedQC/Mayo_20_P_S9_L2_R2_trim_fastqc.html, trimmedQC/Mayo_21_M_S76_L2_R2_trim_fastqc.html, trimmedQC/Mayo_21_P_S54_L2_R2_trim_fastqc.html, trimmedQC/Mayo_22_M_S10_L2_R2_trim_fastqc.html, trimmedQC/Mayo_22_P_S29_L2_R2_trim_fastqc.html, trimmedQC/Mayo_23_M_S62_L2_R2_trim_fastqc.html, trimmedQC/Mayo_23_P_S68_L2_R2_trim_fastqc.html, trimmedQC/Mayo_24_M_S73_L2_R2_trim_fastqc.html, trimmedQC/Mayo_24_P_S64_L2_R2_trim_fastqc.html, trimmedQC/Mayo_25_M_S34_L2_R2_trim_fastqc.html, trimmedQC/Mayo_25_P_S78_L2_R2_trim_fastqc.html, trimmedQC/Mayo_26_M_S82_L2_R2_trim_fastqc.html, trimmedQC/Mayo_26_P_S83_L2_R2_trim_fastqc.html, trimmedQC/Mayo_27_M_S71_L2_R2_trim_fastqc.html, trimmedQC/Mayo_27_P_S38_L2_R2_trim_fastqc.html, trimmedQC/Mayo_28_M_S13_L2_R2_trim_fastqc.html, trimmedQC/Mayo_28_P_S56_L2_R2_trim_fastqc.html, trimmedQC/Mayo_29_M_S61_L2_R2_trim_fastqc.html, trimmedQC/Mayo_29_P_S45_L2_R2_trim_fastqc.html, trimmedQC/Mayo_30_M_S28_L2_R2_trim_fastqc.html, trimmedQC/Mayo_30_P_S27_L2_R2_trim_fastqc.html, trimmedQC/Mayo_31_M_S72_L2_R2_trim_fastqc.html, trimmedQC/Mayo_31_P_S37_L2_R2_trim_fastqc.html, trimmedQC/Mayo_33_M_S22_L2_R2_trim_fastqc.html, trimmedQC/Mayo_33_P_S16_L2_R2_trim_fastqc.html, trimmedQC/Mayo_34_M_S69_L2_R2_trim_fastqc.html, trimmedQC/Mayo_34_P_S25_L2_R2_trim_fastqc.html, trimmedQC/Mayo_35_M_S59_L2_R2_trim_fastqc.html, trimmedQC/Mayo_35_P_S14_L2_R2_trim_fastqc.html, trimmedQC/Mayo_36_M_S15_L2_R2_trim_fastqc.html, trimmedQC/Mayo_36_P_S50_L2_R2_trim_fastqc.html, trimmedQC/Mayo_37_M_S51_L2_R2_trim_fastqc.html, trimmedQC/Mayo_37_P_S67_L2_R2_trim_fastqc.html, trimmedQC/Mayo_38_M_S75_L2_R2_trim_fastqc.html, trimmedQC/Mayo_38_P_S53_L2_R2_trim_fastqc.html, trimmedQC/Mayo_39_M_S8_L2_R2_trim_fastqc.html, trimmedQC/Mayo_39_P_S3_L2_R2_trim_fastqc.html, trimmedQC/Mayo_40_M_S18_L2_R2_trim_fastqc.html, trimmedQC/Mayo_40_P_S66_L2_R2_trim_fastqc.html, trimmedQC/Mayo_41_M_S1_L2_R2_trim_fastqc.html, trimmedQC/Mayo_41_P_S44_L2_R2_trim_fastqc.html, trimmedQC/Mayo_42_M_S70_L2_R2_trim_fastqc.html, trimmedQC/Mayo_42_P_S77_L2_R2_trim_fastqc.html, trimmedQC/Mayo_43_M_S31_L2_R2_trim_fastqc.html, trimmedQC/Mayo_43_P_S17_L2_R2_trim_fastqc.html, trimmedQC/Mayo_01_M_S36_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_01_P_S55_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_02_M_S43_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_02_P_S84_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_03_M_S5_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_03_P_S2_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_04_M_S41_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_04_P_S30_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_05_M_S60_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_05_P_S6_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_06_M_S26_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_06_P_S12_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_07_M_S79_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_07_P_S80_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_08_M_S57_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_08_P_S63_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_09_M_S52_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_09_P_S65_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_10_M_S58_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_10_P_S11_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_11_M_S42_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_11_P_S21_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_12_M_S33_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_12_P_S20_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_13_M_S24_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_13_P_S48_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_14_M_S49_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_14_P_S19_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_15_M_S7_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_15_P_S39_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_16_M_S40_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_16_P_S4_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_17_M_S46_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_17_P_S81_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_18_M_S47_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_18_P_S32_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_19_M_S74_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_19_P_S35_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_20_M_S23_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_20_P_S9_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_21_M_S76_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_21_P_S54_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_22_M_S10_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_22_P_S29_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_23_M_S62_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_23_P_S68_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_24_M_S73_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_24_P_S64_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_25_M_S34_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_25_P_S78_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_26_M_S82_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_26_P_S83_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_27_M_S71_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_27_P_S38_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_28_M_S13_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_28_P_S56_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_29_M_S61_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_29_P_S45_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_30_M_S28_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_30_P_S27_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_31_M_S72_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_31_P_S37_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_33_M_S22_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_33_P_S16_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_34_M_S69_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_34_P_S25_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_35_M_S59_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_35_P_S14_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_36_M_S15_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_36_P_S50_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_37_M_S51_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_37_P_S67_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_38_M_S75_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_38_P_S53_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_39_M_S8_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_39_P_S3_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_40_M_S18_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_40_P_S66_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_41_M_S1_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_41_P_S44_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_42_M_S70_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_42_P_S77_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_43_M_S31_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_43_P_S17_L1_R1_trim_fastqc.zip, trimmedQC/Mayo_01_M_S36_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_01_P_S55_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_02_M_S43_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_02_P_S84_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_03_M_S5_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_03_P_S2_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_04_M_S41_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_04_P_S30_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_05_M_S60_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_05_P_S6_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_06_M_S26_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_06_P_S12_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_07_M_S79_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_07_P_S80_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_08_M_S57_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_08_P_S63_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_09_M_S52_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_09_P_S65_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_10_M_S58_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_10_P_S11_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_11_M_S42_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_11_P_S21_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_12_M_S33_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_12_P_S20_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_13_M_S24_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_13_P_S48_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_14_M_S49_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_14_P_S19_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_15_M_S7_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_15_P_S39_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_16_M_S40_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_16_P_S4_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_17_M_S46_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_17_P_S81_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_18_M_S47_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_18_P_S32_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_19_M_S74_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_19_P_S35_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_20_M_S23_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_20_P_S9_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_21_M_S76_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_21_P_S54_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_22_M_S10_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_22_P_S29_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_23_M_S62_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_23_P_S68_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_24_M_S73_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_24_P_S64_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_25_M_S34_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_25_P_S78_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_26_M_S82_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_26_P_S83_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_27_M_S71_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_27_P_S38_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_28_M_S13_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_28_P_S56_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_29_M_S61_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_29_P_S45_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_30_M_S28_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_30_P_S27_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_31_M_S72_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_31_P_S37_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_33_M_S22_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_33_P_S16_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_34_M_S69_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_34_P_S25_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_35_M_S59_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_35_P_S14_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_36_M_S15_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_36_P_S50_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_37_M_S51_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_37_P_S67_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_38_M_S75_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_38_P_S53_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_39_M_S8_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_39_P_S3_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_40_M_S18_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_40_P_S66_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_41_M_S1_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_41_P_S44_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_42_M_S70_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_42_P_S77_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_43_M_S31_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_43_P_S17_L1_R2_trim_fastqc.zip, trimmedQC/Mayo_01_M_S36_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_01_P_S55_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_02_M_S43_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_02_P_S84_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_03_M_S5_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_03_P_S2_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_04_M_S41_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_04_P_S30_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_05_M_S60_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_05_P_S6_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_06_M_S26_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_06_P_S12_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_07_M_S79_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_07_P_S80_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_08_M_S57_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_08_P_S63_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_09_M_S52_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_09_P_S65_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_10_M_S58_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_10_P_S11_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_11_M_S42_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_11_P_S21_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_12_M_S33_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_12_P_S20_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_13_M_S24_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_13_P_S48_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_14_M_S49_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_14_P_S19_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_15_M_S7_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_15_P_S39_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_16_M_S40_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_16_P_S4_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_17_M_S46_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_17_P_S81_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_18_M_S47_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_18_P_S32_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_19_M_S74_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_19_P_S35_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_20_M_S23_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_20_P_S9_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_21_M_S76_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_21_P_S54_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_22_M_S10_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_22_P_S29_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_23_M_S62_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_23_P_S68_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_24_M_S73_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_24_P_S64_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_25_M_S34_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_25_P_S78_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_26_M_S82_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_26_P_S83_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_27_M_S71_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_27_P_S38_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_28_M_S13_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_28_P_S56_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_29_M_S61_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_29_P_S45_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_30_M_S28_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_30_P_S27_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_31_M_S72_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_31_P_S37_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_33_M_S22_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_33_P_S16_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_34_M_S69_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_34_P_S25_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_35_M_S59_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_35_P_S14_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_36_M_S15_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_36_P_S50_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_37_M_S51_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_37_P_S67_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_38_M_S75_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_38_P_S53_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_39_M_S8_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_39_P_S3_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_40_M_S18_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_40_P_S66_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_41_M_S1_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_41_P_S44_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_42_M_S70_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_42_P_S77_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_43_M_S31_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_43_P_S17_L2_R1_trim_fastqc.zip, trimmedQC/Mayo_01_M_S36_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_01_P_S55_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_02_M_S43_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_02_P_S84_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_03_M_S5_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_03_P_S2_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_04_M_S41_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_04_P_S30_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_05_M_S60_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_05_P_S6_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_06_M_S26_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_06_P_S12_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_07_M_S79_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_07_P_S80_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_08_M_S57_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_08_P_S63_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_09_M_S52_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_09_P_S65_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_10_M_S58_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_10_P_S11_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_11_M_S42_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_11_P_S21_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_12_M_S33_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_12_P_S20_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_13_M_S24_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_13_P_S48_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_14_M_S49_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_14_P_S19_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_15_M_S7_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_15_P_S39_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_16_M_S40_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_16_P_S4_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_17_M_S46_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_17_P_S81_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_18_M_S47_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_18_P_S32_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_19_M_S74_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_19_P_S35_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_20_M_S23_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_20_P_S9_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_21_M_S76_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_21_P_S54_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_22_M_S10_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_22_P_S29_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_23_M_S62_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_23_P_S68_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_24_M_S73_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_24_P_S64_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_25_M_S34_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_25_P_S78_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_26_M_S82_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_26_P_S83_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_27_M_S71_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_27_P_S38_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_28_M_S13_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_28_P_S56_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_29_M_S61_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_29_P_S45_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_30_M_S28_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_30_P_S27_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_31_M_S72_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_31_P_S37_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_33_M_S22_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_33_P_S16_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_34_M_S69_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_34_P_S25_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_35_M_S59_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_35_P_S14_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_36_M_S15_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_36_P_S50_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_37_M_S51_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_37_P_S67_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_38_M_S75_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_38_P_S53_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_39_M_S8_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_39_P_S3_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_40_M_S18_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_40_P_S66_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_41_M_S1_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_41_P_S44_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_42_M_S70_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_42_P_S77_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_43_M_S31_L2_R2_trim_fastqc.zip, trimmedQC/Mayo_43_P_S17_L2_R2_trim_fastqc.zip, starAligned/Mayo_01_M_S36_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_01_P_S55_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_02_M_S43_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_02_P_S84_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_03_M_S5_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_03_P_S2_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_04_M_S41_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_04_P_S30_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_05_M_S60_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_05_P_S6_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_06_M_S26_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_06_P_S12_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_07_M_S79_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_07_P_S80_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_08_M_S57_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_08_P_S63_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_09_M_S52_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_09_P_S65_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_10_M_S58_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_10_P_S11_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_11_M_S42_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_11_P_S21_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_12_M_S33_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_12_P_S20_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_13_M_S24_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_13_P_S48_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_14_M_S49_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_14_P_S19_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_15_M_S7_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_15_P_S39_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_16_M_S40_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_16_P_S4_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_17_M_S46_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_17_P_S81_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_18_M_S47_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_18_P_S32_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_19_M_S74_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_19_P_S35_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_20_M_S23_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_20_P_S9_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_21_M_S76_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_21_P_S54_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_22_M_S10_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_22_P_S29_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_23_M_S62_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_23_P_S68_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_24_M_S73_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_24_P_S64_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_25_M_S34_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_25_P_S78_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_26_M_S82_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_26_P_S83_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_27_M_S71_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_27_P_S38_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_28_M_S13_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_28_P_S56_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_29_M_S61_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_29_P_S45_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_30_M_S28_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_30_P_S27_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_31_M_S72_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_31_P_S37_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_33_M_S22_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_33_P_S16_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_34_M_S69_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_34_P_S25_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_35_M_S59_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_35_P_S14_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_36_M_S15_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_36_P_S50_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_37_M_S51_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_37_P_S67_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_38_M_S75_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_38_P_S53_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_39_M_S8_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_39_P_S3_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_40_M_S18_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_40_P_S66_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_41_M_S1_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_41_P_S44_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_42_M_S70_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_42_P_S77_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_43_M_S31_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_43_P_S17_default.Aligned.sortedByCoord.out.bam, starAligned/Mayo_11_P_S21_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_12_P_S20_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_14_P_S19_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_16_P_S4_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_17_P_S81_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_18_P_S32_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_19_P_S35_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_21_P_S54_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_27_P_S38_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_30_P_S27_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_33_P_S16_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_35_P_S14_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_42_P_S77_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_43_P_S17_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_01_P_S55_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_02_P_S84_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_03_P_S2_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_04_P_S30_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_05_P_S6_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_06_P_S12_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_07_P_S80_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_08_P_S63_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_09_P_S65_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_10_P_S11_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_13_P_S48_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_15_P_S39_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_20_P_S9_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_22_P_S29_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_23_P_S68_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_24_P_S64_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_25_P_S78_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_26_P_S83_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_28_P_S56_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_29_P_S45_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_31_P_S37_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_34_P_S25_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_36_P_S50_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_37_P_S67_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_38_P_S53_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_39_P_S3_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_40_P_S66_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_41_P_S44_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_01_M_S36_default_gene.counts, featureCounts/Mayo_01_P_S55_default_gene.counts, featureCounts/Mayo_02_M_S43_default_gene.counts, featureCounts/Mayo_02_P_S84_default_gene.counts, featureCounts/Mayo_03_M_S5_default_gene.counts, featureCounts/Mayo_03_P_S2_default_gene.counts, featureCounts/Mayo_04_M_S41_default_gene.counts, featureCounts/Mayo_04_P_S30_default_gene.counts, featureCounts/Mayo_05_M_S60_default_gene.counts, featureCounts/Mayo_05_P_S6_default_gene.counts, featureCounts/Mayo_06_M_S26_default_gene.counts, featureCounts/Mayo_06_P_S12_default_gene.counts, featureCounts/Mayo_07_M_S79_default_gene.counts, featureCounts/Mayo_07_P_S80_default_gene.counts, featureCounts/Mayo_08_M_S57_default_gene.counts, featureCounts/Mayo_08_P_S63_default_gene.counts, featureCounts/Mayo_09_M_S52_default_gene.counts, featureCounts/Mayo_09_P_S65_default_gene.counts, featureCounts/Mayo_10_M_S58_default_gene.counts, featureCounts/Mayo_10_P_S11_default_gene.counts, featureCounts/Mayo_11_M_S42_default_gene.counts, featureCounts/Mayo_11_P_S21_default_gene.counts, featureCounts/Mayo_12_M_S33_default_gene.counts, featureCounts/Mayo_12_P_S20_default_gene.counts, featureCounts/Mayo_13_M_S24_default_gene.counts, featureCounts/Mayo_13_P_S48_default_gene.counts, featureCounts/Mayo_14_M_S49_default_gene.counts, featureCounts/Mayo_14_P_S19_default_gene.counts, featureCounts/Mayo_15_M_S7_default_gene.counts, featureCounts/Mayo_15_P_S39_default_gene.counts, featureCounts/Mayo_16_M_S40_default_gene.counts, featureCounts/Mayo_16_P_S4_default_gene.counts, featureCounts/Mayo_17_M_S46_default_gene.counts, featureCounts/Mayo_17_P_S81_default_gene.counts, featureCounts/Mayo_18_M_S47_default_gene.counts, featureCounts/Mayo_18_P_S32_default_gene.counts, featureCounts/Mayo_19_M_S74_default_gene.counts, featureCounts/Mayo_19_P_S35_default_gene.counts, featureCounts/Mayo_20_M_S23_default_gene.counts, featureCounts/Mayo_20_P_S9_default_gene.counts, featureCounts/Mayo_21_M_S76_default_gene.counts, featureCounts/Mayo_21_P_S54_default_gene.counts, featureCounts/Mayo_22_M_S10_default_gene.counts, featureCounts/Mayo_22_P_S29_default_gene.counts, featureCounts/Mayo_23_M_S62_default_gene.counts, featureCounts/Mayo_23_P_S68_default_gene.counts, featureCounts/Mayo_24_M_S73_default_gene.counts, featureCounts/Mayo_24_P_S64_default_gene.counts, featureCounts/Mayo_25_M_S34_default_gene.counts, featureCounts/Mayo_25_P_S78_default_gene.counts, featureCounts/Mayo_26_M_S82_default_gene.counts, featureCounts/Mayo_26_P_S83_default_gene.counts, featureCounts/Mayo_27_M_S71_default_gene.counts, featureCounts/Mayo_27_P_S38_default_gene.counts, featureCounts/Mayo_28_M_S13_default_gene.counts, featureCounts/Mayo_28_P_S56_default_gene.counts, featureCounts/Mayo_29_M_S61_default_gene.counts, featureCounts/Mayo_29_P_S45_default_gene.counts, featureCounts/Mayo_30_M_S28_default_gene.counts, featureCounts/Mayo_30_P_S27_default_gene.counts, featureCounts/Mayo_31_M_S72_default_gene.counts, featureCounts/Mayo_31_P_S37_default_gene.counts, featureCounts/Mayo_33_M_S22_default_gene.counts, featureCounts/Mayo_33_P_S16_default_gene.counts, featureCounts/Mayo_34_M_S69_default_gene.counts, featureCounts/Mayo_34_P_S25_default_gene.counts, featureCounts/Mayo_35_M_S59_default_gene.counts, featureCounts/Mayo_35_P_S14_default_gene.counts, featureCounts/Mayo_36_M_S15_default_gene.counts, featureCounts/Mayo_36_P_S50_default_gene.counts, featureCounts/Mayo_37_M_S51_default_gene.counts, featureCounts/Mayo_37_P_S67_default_gene.counts, featureCounts/Mayo_38_M_S75_default_gene.counts, featureCounts/Mayo_38_P_S53_default_gene.counts, featureCounts/Mayo_39_M_S8_default_gene.counts, featureCounts/Mayo_39_P_S3_default_gene.counts, featureCounts/Mayo_40_M_S18_default_gene.counts, featureCounts/Mayo_40_P_S66_default_gene.counts, featureCounts/Mayo_41_M_S1_default_gene.counts, featureCounts/Mayo_41_P_S44_default_gene.counts, featureCounts/Mayo_42_M_S70_default_gene.counts, featureCounts/Mayo_42_P_S77_default_gene.counts, featureCounts/Mayo_43_M_S31_default_gene.counts, featureCounts/Mayo_43_P_S17_default_gene.counts, featureCounts/Mayo_11_P_S21_sex_specific_XX_gene.counts, featureCounts/Mayo_12_P_S20_sex_specific_XX_gene.counts, featureCounts/Mayo_14_P_S19_sex_specific_XX_gene.counts, featureCounts/Mayo_16_P_S4_sex_specific_XX_gene.counts, featureCounts/Mayo_17_P_S81_sex_specific_XX_gene.counts, featureCounts/Mayo_18_P_S32_sex_specific_XX_gene.counts, featureCounts/Mayo_19_P_S35_sex_specific_XX_gene.counts, featureCounts/Mayo_21_P_S54_sex_specific_XX_gene.counts, featureCounts/Mayo_27_P_S38_sex_specific_XX_gene.counts, featureCounts/Mayo_30_P_S27_sex_specific_XX_gene.counts, featureCounts/Mayo_33_P_S16_sex_specific_XX_gene.counts, featureCounts/Mayo_35_P_S14_sex_specific_XX_gene.counts, featureCounts/Mayo_42_P_S77_sex_specific_XX_gene.counts, featureCounts/Mayo_43_P_S17_sex_specific_XX_gene.counts, featureCounts/Mayo_01_P_S55_sex_specific_XY_gene.counts, featureCounts/Mayo_02_P_S84_sex_specific_XY_gene.counts, featureCounts/Mayo_03_P_S2_sex_specific_XY_gene.counts, featureCounts/Mayo_04_P_S30_sex_specific_XY_gene.counts, featureCounts/Mayo_05_P_S6_sex_specific_XY_gene.counts, featureCounts/Mayo_06_P_S12_sex_specific_XY_gene.counts, featureCounts/Mayo_07_P_S80_sex_specific_XY_gene.counts, featureCounts/Mayo_08_P_S63_sex_specific_XY_gene.counts, featureCounts/Mayo_09_P_S65_sex_specific_XY_gene.counts, featureCounts/Mayo_10_P_S11_sex_specific_XY_gene.counts, featureCounts/Mayo_13_P_S48_sex_specific_XY_gene.counts, featureCounts/Mayo_15_P_S39_sex_specific_XY_gene.counts, featureCounts/Mayo_20_P_S9_sex_specific_XY_gene.counts, featureCounts/Mayo_22_P_S29_sex_specific_XY_gene.counts, featureCounts/Mayo_23_P_S68_sex_specific_XY_gene.counts, featureCounts/Mayo_24_P_S64_sex_specific_XY_gene.counts, featureCounts/Mayo_25_P_S78_sex_specific_XY_gene.counts, featureCounts/Mayo_26_P_S83_sex_specific_XY_gene.counts, featureCounts/Mayo_28_P_S56_sex_specific_XY_gene.counts, featureCounts/Mayo_29_P_S45_sex_specific_XY_gene.counts, featureCounts/Mayo_31_P_S37_sex_specific_XY_gene.counts, featureCounts/Mayo_34_P_S25_sex_specific_XY_gene.counts, featureCounts/Mayo_36_P_S50_sex_specific_XY_gene.counts, featureCounts/Mayo_37_P_S67_sex_specific_XY_gene.counts, featureCounts/Mayo_38_P_S53_sex_specific_XY_gene.counts, featureCounts/Mayo_39_P_S3_sex_specific_XY_gene.counts, featureCounts/Mayo_40_P_S66_sex_specific_XY_gene.counts, featureCounts/Mayo_41_P_S44_sex_specific_XY_gene.counts
+    jobid: 0
+    reason: Input files updated by another job: featureCounts/Mayo_15_P_S39_sex_specific_XY_gene.counts, starAligned/Mayo_05_P_S6_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_34_P_S25_sex_specific_XY_gene.counts, featureCounts/Mayo_27_P_S38_sex_specific_XX_gene.counts, starAligned/Mayo_04_P_S30_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_41_P_S44_sex_specific_XY_gene.counts, featureCounts/Mayo_03_P_S2_sex_specific_XY_gene.counts, starAligned/Mayo_15_P_S39_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_11_P_S21_sex_specific_XX_gene.counts, featureCounts/Mayo_12_P_S20_sex_specific_XX_gene.counts, starAligned/Mayo_40_P_S66_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_43_P_S17_sex_specific_XX_gene.counts, starAligned/Mayo_11_P_S21_XX.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_18_P_S32_sex_specific_XX_gene.counts, featureCounts/Mayo_10_P_S11_sex_specific_XY_gene.counts, featureCounts/Mayo_23_P_S68_sex_specific_XY_gene.counts, featureCounts/Mayo_42_P_S77_sex_specific_XX_gene.counts, featureCounts/Mayo_22_P_S29_sex_specific_XY_gene.counts, starAligned/Mayo_22_P_S29_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_27_P_S38_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_20_P_S9_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_02_P_S84_sex_specific_XY_gene.counts, starAligned/Mayo_24_P_S64_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_28_P_S56_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_23_P_S68_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_25_P_S78_sex_specific_XY_gene.counts, featureCounts/Mayo_08_P_S63_sex_specific_XY_gene.counts, starAligned/Mayo_13_P_S48_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_36_P_S50_sex_specific_XY_gene.counts, featureCounts/Mayo_17_P_S81_sex_specific_XX_gene.counts, starAligned/Mayo_38_P_S53_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_26_P_S83_sex_specific_XY_gene.counts, featureCounts/Mayo_16_P_S4_sex_specific_XX_gene.counts, featureCounts/Mayo_06_P_S12_sex_specific_XY_gene.counts, featureCounts/Mayo_38_P_S53_sex_specific_XY_gene.counts, starAligned/Mayo_06_P_S12_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_42_P_S77_XX.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_14_P_S19_sex_specific_XX_gene.counts, featureCounts/Mayo_35_P_S14_sex_specific_XX_gene.counts, starAligned/Mayo_30_P_S27_XX.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_31_P_S37_sex_specific_XY_gene.counts, starAligned/Mayo_12_P_S20_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_25_P_S78_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_21_P_S54_sex_specific_XX_gene.counts, starAligned/Mayo_17_P_S81_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_19_P_S35_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_07_P_S80_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_13_P_S48_sex_specific_XY_gene.counts, featureCounts/Mayo_05_P_S6_sex_specific_XY_gene.counts, featureCounts/Mayo_19_P_S35_sex_specific_XX_gene.counts, starAligned/Mayo_18_P_S32_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_10_P_S11_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_03_P_S2_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_14_P_S19_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_08_P_S63_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_21_P_S54_XX.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_01_P_S55_sex_specific_XY_gene.counts, featureCounts/Mayo_04_P_S30_sex_specific_XY_gene.counts, starAligned/Mayo_33_P_S16_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_29_P_S45_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_35_P_S14_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_02_P_S84_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_40_P_S66_sex_specific_XY_gene.counts, featureCounts/Mayo_29_P_S45_sex_specific_XY_gene.counts, featureCounts/Mayo_33_P_S16_sex_specific_XX_gene.counts, starAligned/Mayo_09_P_S65_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_37_P_S67_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_24_P_S64_sex_specific_XY_gene.counts, starAligned/Mayo_41_P_S44_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_39_P_S3_sex_specific_XY_gene.counts, starAligned/Mayo_26_P_S83_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_37_P_S67_sex_specific_XY_gene.counts, starAligned/Mayo_01_P_S55_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_30_P_S27_sex_specific_XX_gene.counts, starAligned/Mayo_43_P_S17_XX.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_28_P_S56_sex_specific_XY_gene.counts, starAligned/Mayo_39_P_S3_XY.Aligned.sortedByCoord.out.bam, featureCounts/Mayo_20_P_S9_sex_specific_XY_gene.counts, featureCounts/Mayo_07_P_S80_sex_specific_XY_gene.counts, featureCounts/Mayo_09_P_S65_sex_specific_XY_gene.counts, starAligned/Mayo_34_P_S25_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_16_P_S4_XX.Aligned.sortedByCoord.out.bam, starAligned/Mayo_31_P_S37_XY.Aligned.sortedByCoord.out.bam, starAligned/Mayo_36_P_S50_XY.Aligned.sortedByCoord.out.bam
+    resources: mem_mb=2572851, mem_mib=2453662, disk_mb=2572851, disk_mib=2453662, tmpdir=/tmp
+
+[Tue Aug 29 13:12:34 2023]
+Finished job 0.
+85 of 85 steps (100%) done
+Complete log: .snakemake/log/2023-08-29T122945.382784.snakemake.log

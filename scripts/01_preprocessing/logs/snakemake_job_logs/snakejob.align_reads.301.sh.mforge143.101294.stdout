@@ -1,0 +1,8 @@
+	/research/labs/neurology/fryer/m214960/tools/miniconda3/envs/meningitis/bin/STAR-avx2 --genomeDir refs/T2T_CHM13v2.0_STAR --runThreadN 20 --readFilesCommand zcat --limitBAMsortRAM 31000000000 --readFilesIn trimmedReads/Mayo_24_P_S64_L1_R1_trim.fastq.gz,trimmedReads/Mayo_24_P_S64_L2_R1_trim.fastq.gz trimmedReads/Mayo_24_P_S64_L1_R2_trim.fastq.gz,trimmedReads/Mayo_24_P_S64_L2_R2_trim.fastq.gz --outFileNamePrefix starAligned/Mayo_24_P_S64_default. --outSAMtype BAM SortedByCoordinate
+	STAR version: 2.7.10b   compiled: 2023-05-25T06:56:23+0000 :/opt/conda/conda-bld/star_1684997536154/work/source
+Aug 18 00:59:07 ..... started STAR run
+Aug 18 00:59:07 ..... loading genome
+Aug 18 00:59:15 ..... started mapping
+Aug 18 01:00:52 ..... finished mapping
+Aug 18 01:00:53 ..... started sorting BAM
+Aug 18 01:01:01 ..... finished successfully

@@ -1,0 +1,22 @@
+
+rule exon_count:
+	input:
+		bam = rules.align_reads.output.aligned,
+		gtf = gtfFile
+	output:
+		feature = (countsDir + "{sample}_default_exon.counts")
+	params:
+	  threads = config["threads"]
+	shell:
+		"""
+		featureCounts -p --primary -t exon -T {params.threads} -s 2 -a {input.gtf} -o {output.feature} {input.bam}
+		
+		# KEY
+		# -p specify that input data contains paired-end reads
+		# --primary count primary alignments only, primary alignments are identified using bit 0x100 in SAM/BAM FLAG field
+		# -T number of the threads, 1 by default
+		# -s specify strandedness, 0 = unstranded, 1 = stranded, 2 = reversely stranded
+		# -a name of an annotation file. GTF/GFF format by default
+		# -o name of output file including read counts
+		"""
+

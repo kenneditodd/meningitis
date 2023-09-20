@@ -1,0 +1,116 @@
+---
+title: "Stats"
+author: "Kennedi Todd & Kimberly Olney"
+date: "September 03, 2023"
+output: 
+  pdf_document: default
+html_document:
+  df_print: paged
+---
+  
+# Setup
+```{r working_directory}
+knitr::opts_knit$set(root.dir = ".")
+```
+
+```{r libraries, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(ggpubr)
+library(purrr)
+library(car)
+library(reshape)
+library(ggforce)
+library(knitr)
+```
+
+# Read data  
+```{r read_data, cache=FALSE}
+# read data and subset by meninges
+# note: the variables we are testing are donor specific values, so tissue type doesn't matter
+metadata <- read.delim("../../refs/metadata.tsv", sep = "\t",  header = TRUE)
+metadata <- subset(metadata, tissue == "meninges")
+
+# subset var of interest
+# keep variables will all fields known
+variables <- c("group", "age_at_death", "brain_wt")
+metadata <- metadata %>% select(all_of(variables))
+
+# check and change classes
+sapply(metadata, class)
+metadata$group <- factor(metadata$group)
+sapply(metadata, class)
+```
+
+# Initialize dataframe
+```{r}
+variable_numbers <- c(2,3)
+variable_names <- colnames(metadata)[variable_numbers]
+variable_names
+
+tests <- c("control_mean","meningitis_mean","control_stdv","meningitis_stdv",
+           "control_shapiro_pval","meningitis_shapiro_pval","levene_na_omit",
+           "t_test_t","t_test_pval","wilcoxon_pval")
+
+stats <- matrix(0,
+                nrow = length(variable_numbers),
+                ncol = length(tests),
+                dimnames = list(variable_names, tests))
+stats <- as.data.frame(stats)
+```
+
+# Tests
+```{r}
+# Loop through variables
+for (i in 1:length(variable_names)) {
+  
+  # Subset values by group
+  values <- as.numeric(metadata[, variable_names[i]])
+  group <- factor(metadata$group)
+  control_values <- metadata[metadata$group == "control", variable_names[i]]
+  meningitis_values <- metadata[metadata$group == "meningitis", variable_names[i]]
+  
+  # Welch two sample t-test
+  t_test <- t.test(control_values, meningitis_values)
+  t_test_t <- t_test$statistic
+  t_test_pval <- t_test$p.value
+  
+  # Add to table
+  stats[i, "control_mean"] <- round(as.numeric(t_test$estimate[1]),4)
+  stats[i, "meningitis_mean"] <- round(as.numeric(t_test$estimate[2]),4)
+  stats[i, "t_test_t"] <- round(t_test_t,4)
+  stats[i, "t_test_pval"] <- round(t_test_pval,4)
+  
+  # Shapiro-Wilk test, normality test
+  control_shapiro <- shapiro.test(control_values)
+  meningitis_shapiro <- shapiro.test(meningitis_values)
+  
+  # Add to table
+  stats[i, "control_shapiro_pval"] <- round(control_shapiro$p.value,4)
+  stats[i, "meningitis_shapiro_pval"] <- round(meningitis_shapiro$p.value,4)
+  
+  # Variance and standard deviation
+  control_var <- var(control_values)
+  meningitis_var <- var(meningitis_values)
+  
+  # Add to table 
+  stats[i, "control_stdv"] <- round(sqrt(control_var),4)
+  stats[i, "meningitis_stdv"] <- round(sqrt(meningitis_var),4)
+  
+  # Two-sample Wilcoxon / Mann-Whitney
+  wil <- wilcox.test(control_values, meningitis_values)
+  
+  # Add to table
+  stats[i, "wilcoxon_pval"] <- round(wil$p.value, 4)
+  
+  # Levene's test
+  levTest <- leveneTest(values ~ group)
+  lev <- levTest$`Pr(>F)`
+  lev_naomit <- as.numeric(na.omit(lev))
+  
+  # Add to table
+  stats[i, "levene_na_omit"] <- round(lev_naomit, 4)
+}
+
+stats <- t(stats)
+```
+

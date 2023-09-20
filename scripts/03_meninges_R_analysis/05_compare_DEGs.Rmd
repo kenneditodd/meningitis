@@ -1,0 +1,134 @@
+---
+title: "Compare DEGs"
+author: "Kennedi Todd"
+date: "2023-08-30"
+output: html_document
+---
+
+# Setup
+```{r}
+library(ComplexUpset) # intersection_size()
+library(UpSetR)       # fromList()
+```
+
+# Model: group + sex + snap25
+## Read tables
+```{r}
+strict <- read.table(
+  "../../results/meninges_10CPM_in_17_samples/model_group_sex_SNAP25/meningitis_vs_control_FDRq_1.00.tsv",
+  sep = "\t", 
+  header = TRUE)
+
+lax <- read.table(
+  "../../results/meninges_1CPM_in_6_samples/model_group_sex_SNAP25/meningitis_vs_control_FDRq_1.00.tsv",
+  sep = "\t", 
+  header = TRUE)
+```
+
+## Filter by FDRq
+```{r}
+strict <- strict[strict$adj.P.Val < 0.05,]
+lax <- lax[lax$adj.P.Val < 0.05,]
+```
+
+## Up/down-regulated lists
+```{r}
+strict_up <- subset(strict$ID, strict$logFC > 0)
+strict_down <- subset(strict$ID, strict$logFC < 0)
+lax_up <- subset(lax$ID, lax$logFC > 0)
+lax_down <- subset(lax$ID, lax$logFC < 0)
+
+list_input <- list("Mgts vs Ctrl Strict Up-regulated" = strict_up,
+                   "Mgts vs Ctrl Lax Up-regulated" = lax_up,
+                   "Mgts vs Ctrl Strict Down-regulated" = strict_down,
+                   "Mgts vs Ctrl Lax Down-regulated" = lax_down)
+
+data <- fromList(list_input)
+```
+
+## Plot
+```{r}
+# store names
+names <- c("Mgts vs Ctrl Lax Down-regulated", "Mgts vs Ctrl Strict Down-regulated",
+           "Mgts vs Ctrl Lax Up-regulated", "Mgts vs Ctrl Strict Up-regulated")
+  
+# plot
+upset_gene <- ComplexUpset::upset(
+  data,
+  names,
+  set_sizes=(upset_set_size() 
+             + geom_text(aes(label=..count..), hjust=1.1, stat='count')
+             + expand_limits(y=800)),
+  queries = list(upset_query("Mgts vs Ctrl Strict Up-regulated", fill = "red"),
+                 upset_query("Mgts vs Ctrl Lax Up-regulated", fill = "red"),
+                 upset_query("Mgts vs Ctrl Strict Down-regulated", fill = "blue"),
+                 upset_query("Mgts vs Ctrl Lax Down-regulated", fill = "blue")),
+  base_annotations = list('Intersection size' = (
+    intersection_size(bar_number_threshold=1, width=0.5)
+    + scale_y_continuous(expand=expansion(mult=c(0, 0.05)),limits = c(0,400)) # space on top
+    + theme(# hide grid lines
+            panel.grid.major=element_blank(),
+            panel.grid.minor=element_blank(),
+            # show axis lines
+            axis.line=element_line(colour='black')))),
+  stripes = upset_stripes(
+    geom=geom_segment(size=12),  # make the stripes larger
+    colors=c('grey95', 'white')),
+  # to prevent connectors from getting the colorured
+  # use `fill` instead of `color`, together with `shape='circle filled'`
+  matrix = intersection_matrix(
+    geom=geom_point(
+      shape='circle filled',
+      size=3,
+      stroke=0.45)),
+  sort_sets=FALSE,
+  sort_intersections='descending'
+  )
+
+upset_gene <- upset_gene + ggtitle(paste0("Meningitis vs Control, ","adj_p_val < 0.05"))
+pdf("../../results/meninges_comparison/upset_plot.pdf", width = 8, height = 6)
+upset_gene
+```
+
+## Metascape input lists
+### Up-regulated
+```{r}
+both_up <- lax_up[lax_up %in% strict_up]
+length(both_up)
+write.table(as.data.frame(both_up), 
+            "../../results/meninges_comparison/group_sex_SNAP25_FDRq_0.05_shared_upreg.tsv",
+            quote = FALSE, row.names = FALSE, col.names = FALSE)
+
+lax_up_unique <- lax_up[!lax_up %in% strict_up]
+length(lax_up_unique)
+write.table(as.data.frame(lax_up_unique), 
+            "../../results/meninges_comparison/group_sex_SNAP25_FDRq_0.05_lax_unique_upreg.tsv",
+            quote = FALSE, row.names = FALSE, col.names = FALSE)
+
+strict_up_unique <- strict_up[!strict_up %in% lax_up]
+length(strict_up_unique)
+write.table(as.data.frame(strict_up_unique), 
+            "../../results/meninges_comparison/group_sex_SNAP25_FDRq_0.05_strict_unique_upreg.tsv",
+            quote = FALSE, row.names = FALSE, col.names = FALSE)
+```
+
+### Down-regulated
+```{r}
+both_down <- lax_down[lax_down %in% strict_down]
+length(both_down)
+write.table(as.data.frame(both_down), 
+            "../../results/meninges_comparison/group_sex_SNAP25_FDRq_0.05_shared_downreg.tsv",
+            quote = FALSE, row.names = FALSE, col.names = FALSE)
+
+lax_down_unique <- lax_down[!lax_down %in% strict_down]
+length(lax_down_unique)
+write.table(as.data.frame(lax_down_unique), 
+            "../../results/meninges_comparison/group_sex_SNAP25_FDRq_0.05_lax_unique_downreg.tsv",
+            quote = FALSE, row.names = FALSE, col.names = FALSE)
+
+strict_down_unique <- strict_down[!strict_down %in% lax_down]
+length(strict_down_unique)
+write.table(as.data.frame(strict_down_unique), 
+            "../../results/meninges_comparison/group_sex_SNAP25_FDRq_0.05_strict_unique_downreg.tsv",
+            quote = FALSE, row.names = FALSE, col.names = FALSE)
+```

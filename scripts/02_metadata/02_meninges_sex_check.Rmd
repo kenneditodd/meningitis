@@ -1,0 +1,440 @@
+---
+title: "Meningitis: Meninges Tissue"
+subtitle: "Sex Check"
+author: "Kennedi Todd"
+date: "08/29/2023"
+output:
+  html_document:
+    theme: cerulean
+    toc: true
+    toc_float: true
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Setup
+## Working directory
+```{r setup}
+knitr::opts_knit$set(root.dir = ".")
+```
+
+## Libraries
+```{r libraries, message=FALSE, warning=FALSE}
+library(caret)              # createDataPartition()
+library(dplyr)              # left_join()
+library(edgeR)              # DGEList()
+library(ggrepel)            # geom_text_repel()
+library(ggplot2)            # ggplot()
+library(glmnet)             # cv.glmnet()
+library(rtracklayer)        # import()
+library(stringr)            # str_match()
+```
+
+## User defined variables
+```{r set_variables}
+tissue <- "meninges"
+folder <- "../../results/sex_check/"
+groups <- c("control","meningitis")
+group_colors <- c("orange","cornflowerblue")
+ann <- paste0("/research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0/",
+              "chm13v2.0_RefSeq_Liftoff_v5.1.gff3")
+```
+
+## Save functions
+These functions with help simultaneously save plots as a png, pdf, and tiff 
+file.
+```{r save_functions}
+saveToPDF <- function(...) {
+    d = dev.copy(pdf,...)
+    dev.off(d)
+}
+```
+
+# DGE object
+## Read data
+```{r read_data}
+# read in counts data
+counts <- read.delim(
+  paste0("../../featureCounts/", tissue, "_default_counts_matrix.tsv"),
+  header = TRUE,
+  row.names = 1,
+  sep = "\t")
+counts <- counts[,-17] # remove sample Mayo_24
+
+# read metadata
+meta <- read.delim("../../refs/metadata.tsv",
+  header = TRUE,
+  sep = "\t")
+meta <- meta[meta$tissue == tissue,]
+
+# match counts columns to meta rows
+meta <- meta[paste0(meta$filename,"_default") %in% colnames(counts),]
+indices <- order(match(colnames(counts), paste0(meta$filename, "_default")))
+counts <- counts[,indices]
+all.equal(colnames(counts), paste0(meta$filename, "_default"))
+colnames(counts) <- meta$mayo_id
+
+# factor meta
+meta$sex <- factor(meta$sex, levels = c("female","male"))
+meta$group <- factor(meta$group, levels = c("control","meningitis"))
+meta$sex_group <- paste0(meta$sex,"_",meta$group)
+#factor_columns <- c(14,15)
+#dge$samples[factor_columns] <- lapply(dge$samples[factor_columns], factor)
+
+# read in annotation file
+if (file.exists("../../rObjects/annotation.rds")) {
+  genes <- readRDS("../../rObjects/annotation.rds")
+} else {
+  genes <- rtracklayer::import(ann)
+  genes <- as.data.frame(genes)
+  genes <- genes[genes$type == "gene",]
+  all.equal(rownames(counts), genes$ID) # check that rows match
+  saveRDS(genes, "../../rObjects/annotation.rds")
+}
+genes <- genes[,c(1:7,10:16)]
+
+# read exonic length information
+#exonic.length <- read.delim(
+#  "../../backup_featureCounts/summed_exons.tsv",
+#  header = TRUE,
+#  sep = "\t"
+#)
+
+# add exonic length to genes
+#all.equal(rownames(counts), genes$gene_id, exonic.length$gene_id)
+#genes <- left_join(genes, exonic.length, by = "gene_id")
+#remove(exonic.length)
+```
+
+## Create object
+```{r DGE_object}
+# create object
+dge <- DGEList(counts = counts,
+               genes = genes,
+               samples = meta)
+
+# cleanup 
+remove(counts, meta, genes)
+```
+
+# Sex check
+## Extract data
+- View the expression of sex-linked genes to determine if samples are correctly annotated as XX or XY. \
+```{r extract_sex_data}
+# extract counts info for sex genes 
+sex.genes <- c("XIST", "EIF1AY", "KDM5D", "UTY", "DDX3Y", "RPS4Y1")
+sex.info <- as.data.frame(dge$counts[sex.genes,])
+sex.info <- as.data.frame(t(sex.info))
+sex.info$mayo_id <- rownames(sex.info)
+sex.info <- dplyr::left_join(sex.info,
+                             dge$samples[,c("mayo_id","sex")],
+                             by = "mayo_id")
+
+# reformat
+sex.info[sex.genes] <- sapply(sex.info[sex.genes], as.integer)
+```
+
+## Inference model
+- Infer the genetic sex of the sample using GTEx data as a reference for typical sex-linked gene expression. 
+```{r}
+# Build model using GTEx data, load data and remove NAs
+train_data <- read.csv("../../refs/for_rna_sex_check.tsv", sep="\t")
+
+# Split the data into training and test set
+# We will use 80% to train the data and the other 20% to test our model 
+set.seed(123) 
+training.samples <- train_data$sex %>% createDataPartition(p = 0.8, list = FALSE) 
+train.data  <- train_data[training.samples, ]
+test.data <- train_data[-training.samples, ]
+
+# Dummy code categorical predictor variables
+x <- model.matrix(sex~., train.data)[,-1]
+# Convert the outcome (class) to a numerical variable
+y <- ifelse(train.data$sex == "female", 1, 0)
+
+cv.lasso <- cv.glmnet(x, y, alpha = 1, family = "binomial")
+plot(cv.lasso)
+cv.lasso$lambda.min
+
+coef(cv.lasso, cv.lasso$lambda.min)
+coef(cv.lasso, cv.lasso$lambda.1se)
+
+# Final model with lambda.min
+# Glmnet is a package that fits generalized linear and similar models via penalized maximum likelihood. 
+lasso.model <- glmnet(x, y, alpha = 1, family = "binomial",
+                      lambda = cv.lasso$lambda.min)
+
+# Make prediction on test data
+x.test <- model.matrix(sex ~., test.data)[,-1]
+probabilities <- lasso.model %>% predict(newx = x.test)
+predicted.classes <- ifelse(probabilities > 0.5, "female", "male")
+predicted.classes <- as.data.frame(predicted.classes)
+# Model accuracy
+observed.classes <- test.data$sex
+all.equal(predicted.classes$s0, observed.classes)
+mean(predicted.classes$s0 == observed.classes)
+```
+
+## Compare
+```{r}
+# ----------------------
+# Run on experiment data
+# ----------------------
+mayo_id <- sex.info$mayo_id # change to the individual ID column 
+sex.info$mayo_id <- NULL # clean up 
+# our model 
+test.experiment <- model.matrix(sex ~., sex.info)[,-1] 
+
+# Create probability that the sample is male or female 
+probabilities <- lasso.model %>% predict(newx = test.experiment)
+
+# may need to adjust the probabilities > value to be something smaller or higher since 
+# smaller RNAseq libraries will have smaller expression values and vice versa for higher libraries 
+predicted.classes <- ifelse(probabilities > 4, "female", "male") # what we predict the sex to be
+
+# Model accuracy
+observed.classes <- sex.info$sex
+mean(predicted.classes == observed.classes)
+sex_check <- data.frame(reported = as.character(predicted.classes),
+                        observed = sex.info$sex)
+
+# add back in sample IDs
+sex_check$mayo_id <- mayo_id
+
+# what doesn't match between reported and observed? 
+sex_check$sex_check <- ifelse(sex_check$reported == sex_check$observed, "Yes", "No")
+
+# output results 
+write.table(
+  sex_check,
+  paste0(folder, tissue, "_", "sex_check.tsv"),
+  sep = "\t",
+  row.names = FALSE,
+  quote = FALSE
+)
+
+# which samples didn't have matching sex? 
+check_samples <- subset(sex_check, sex_check == "No")
+samples_to_investigate <- subset(sex_check, mayo_id %in% check_samples$mayo_id)
+sex.info[1:6] <- sapply(sex.info[1:6], as.numeric)
+sapply(sex.info, class)
+
+# are the samples missed labelled becuse of low coverage?
+# may need to adjust the value of 5 to something else depending on the average gene expression value in the dataset 
+low_coverage_female_samples <- subset(sex.info, XIST < 5 & sex == "female")
+low_coverage_male_samples <- subset(sex.info, DDX3Y < 5 & sex == "male" | 
+                                      RPS4Y1 < 5 & sex == "male" | 
+                                      UTY < 5 & sex == "male" |
+                                      KDM5D < 5 & sex == "male" |
+                                      EIF1AY < 5 & sex == "male")
+
+sex.info$mayo_id <- sex_check$mayo_id
+low_coverage_samples_to_investigate <- subset(sex.info, mayo_id %in% low_coverage_female_samples$mayo_id)
+```
+
+## Reformat
+```{r}
+lcpm <- cpm(dge, log = TRUE)
+genes_and_counts <- as.data.frame(cbind(rownames(lcpm), lcpm))
+colnames(genes_and_counts)[1] <- "Geneid"
+rownames(genes_and_counts) <- NULL
+genes_counts <- reshape2::melt(genes_and_counts, id = "Geneid")
+colnames(genes_counts)[2] <- "mayo_id"
+
+df <- as.data.frame(dge$samples$mayo_id)
+df$sex <- dge$samples$sex
+colnames(df) <- c("mayo_id","sex")
+
+data <- merge(genes_counts, df, by = "mayo_id")
+
+sexGenes <- c("DDX3X, DDX3Y")
+SelectGenes_counts <-
+  subset(
+    data,
+    Geneid %in% c(
+      "DDX3X",
+      "DDX3Y",
+      "ZFX",
+      "ZFY",
+      "USP9X",
+      "USP9Y",
+      "KDM6A",
+      "UTY",
+      "PCDH11X",
+      "PCDH11Y",
+      "XIST",
+      "SRY"
+    )
+  )
+SelectGenes_counts[, "geneComb"] <- NA
+SelectGenes_counts[, "group"] <- NA
+
+
+SelectGenes_counts$geneComb <-
+  ifelse(
+    SelectGenes_counts$Geneid == "DDX3X",
+    "DDX3X:DDX3Y",
+    ifelse(
+      SelectGenes_counts$Geneid == "DDX3Y",
+      "DDX3X:DDX3Y",
+      ifelse(
+        SelectGenes_counts$Geneid == "ZFX",
+        "ZFX:ZFY",
+        ifelse(
+          SelectGenes_counts$Geneid == "ZFY",
+          "ZFX:ZFY",
+          ifelse(
+            SelectGenes_counts$Geneid == "USP9X",
+            "USP9X:USP9Y",
+            ifelse(
+              SelectGenes_counts$Geneid == "USP9Y",
+              "USP9X:USP9Y",
+              ifelse(
+                SelectGenes_counts$Geneid == "KDM6A",
+                "UTX:UTY",
+                ifelse(
+                  SelectGenes_counts$Geneid == "UTY",
+                  "UTX:UTY",
+                  ifelse(
+                    SelectGenes_counts$Geneid == "PCDH11X",
+                    "PCDH11X:PCDH11Y",
+                    ifelse(
+                      SelectGenes_counts$Geneid == "PCDH11Y",
+                      "PCDH11X:PCDH11Y",
+                      ifelse(
+                        SelectGenes_counts$Geneid == "XIST",
+                        "XIST",
+                        ifelse(SelectGenes_counts$Geneid == "SRY", "SRY", "NA")
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+
+SelectGenes_counts$group <-
+  ifelse(
+    SelectGenes_counts$geneComb == "DDX3X:DDX3Y",
+    1,
+    ifelse(
+      SelectGenes_counts$geneComb == "ZFX:ZFY",
+      4,
+      ifelse(
+        SelectGenes_counts$geneComb == "USP9X:USP9Y",
+        3,
+        ifelse(
+          SelectGenes_counts$geneComb == "UTX:UTY",
+          5,
+          ifelse(
+            SelectGenes_counts$geneComb == "PCDH11X:PCDH11Y",
+            2,
+            ifelse(
+              SelectGenes_counts$geneComb == "XIST",
+              6,
+              ifelse(SelectGenes_counts$geneComb == "SRY", 7, "NA")
+            )
+          )
+        )
+      )
+    )
+  )
+data <- SelectGenes_counts
+data$value <- as.numeric(data$value)
+```
+
+## Plot sex check
+```{r}
+wrong_sex_samples <-
+  data[data$mayo_id %in% samples_to_investigate$mayo, ]
+wrong_sex_samples <- unique(wrong_sex_samples)
+low_coverage_samples <-
+  data[data$mayo_id %in% low_coverage_samples_to_investigate$mayo_id, ]
+wrong_sex_samples <- unique(wrong_sex_samples)
+leg_lab <- "reported sex"
+cbPaletteJITTER <- c("orange","blue")
+
+#write.table(data, paste0("../../results/", tool, 
+#                         "/sex_check/sex_check_data.txt"), sep = "\t")
+
+#write.table(wrong_sex_samples, paste0("../../results/", tool, 
+#                                      "/sex_check/wrong_sex_samples.txt"), sep = "\t")
+
+data$sex <- factor(data$sex, levels = c("female","male"))
+
+geneticSEXgenes_plot <- ggplot(data, aes(x = Geneid, y = value)) +
+  geom_jitter(aes(color = sex, shape = sex), width = 0.25, size = 1) +
+  scale_color_manual(leg_lab, values = cbPaletteJITTER) + 
+  scale_shape_manual(leg_lab, values = c(19, 15)) +
+  labs(x = "", y = "lcpm", title = "") +
+  facet_grid(
+    . ~ group + geneComb,
+    switch = "x",
+    scales = "free_x",
+    space = "free_x"
+  ) +
+  theme_bw() +
+  theme(
+    strip.background = element_blank(),
+    strip.text.x = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.x = element_text(face = "italic"),
+    panel.border = element_rect(
+      colour = "black",
+      fill = NA
+    )
+  ) +
+  #scale_y_continuous(breaks = seq(-4, 9, by = 1), limits = c(-4, 9)) +
+  geom_text_repel(
+    data = wrong_sex_samples,
+    aes(x = Geneid,
+        y = value,
+        label = mayo_id),
+    color = "black",
+    size = 3,
+    nudge_x = .5,
+    min.segment.length = unit(0, 'lines'),
+    max.overlaps = getOption("ggrepel.max.overlaps", default = 10)
+  )
+
+geneticSEXgenes_plot
+path <-
+  paste0(folder, tissue, "_sex_check_samples_labeled")
+saveToPDF(paste0(path, ".pdf"), width = 11, height = 6)
+```
+
+## CPM
+Check sex genes.
+```{r}
+# choose genes and subset data
+sex.genes <- c("XIST", "EIF1AY", "KDM5D", "UTY", "DDX3Y", "RPS4Y1")
+
+# plot and save
+for (i in 1:length(sex.genes)) {
+  
+  # extract data
+  df <- as.data.frame(cpm(dge$counts)[sex.genes[i],])
+  colnames(df) <- "values"
+  df$sample <- dge$samples$mayo_id
+  df$group <- dge$samples$group
+  df$sex <- dge$samples$sex
+  
+  # plot
+  p <- ggplot(data = df, mapping = aes(x = sample, y = values, fill = sex)) +
+    geom_col() +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+    labs(title = paste("Raw:", sex.genes[i], "CPM"), x = "Sample", y = "CPM") +
+    scale_x_discrete(limits = df$sample)
+  print(p)
+  
+  # save
+  path <- paste0(folder, tissue, "_", sex.genes[i],"_CPM_bar_graph_raw")
+  saveToPDF(paste0(path, ".pdf"), width = 8, height = 4)
+  dev.off()
+}
+remove(df,p)
+```

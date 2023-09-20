@@ -1,0 +1,16 @@
+	/research/labs/neurology/fryer/m214960/tools/miniconda3/envs/meningitis/bin/STAR-avx2 --runMode genomeGenerate --runThreadN 20 --genomeFastaFiles refs/chm13v2.0.fa --sjdbGTFfile refs/chm13v2.0_RefSeq_Liftoff_v5.1.gff3 --genomeDir refs/T2T_CHM13v2.0_STAR/
+	STAR version: 2.7.10b   compiled: 2023-05-25T06:56:23+0000 :/opt/conda/conda-bld/star_1684997536154/work/source
+Aug 17 22:42:31 ..... started STAR run
+Aug 17 22:42:31 ... starting to generate Genome files
+Aug 17 22:43:14 ..... processing annotations GTF
+Aug 17 22:43:58 ... starting to sort Suffix Array. This may take a long time...
+Aug 17 22:44:09 ... sorting Suffix Array chunks and saving them to disk...
+Aug 17 23:08:33 ... loading chunks from disk, packing SA...
+Aug 17 23:09:36 ... finished generating suffix array
+Aug 17 23:09:36 ... generating Suffix Array index
+Aug 17 23:12:00 ... completed Suffix Array index
+Aug 17 23:12:00 ..... inserting junctions into the genome indices
+Aug 17 23:13:06 ... writing Genome to disk ...
+Aug 17 23:13:07 ... writing Suffix Array to disk ...
+Aug 17 23:13:12 ... writing SAindex to disk
+Aug 17 23:13:13 ..... finished successfully
