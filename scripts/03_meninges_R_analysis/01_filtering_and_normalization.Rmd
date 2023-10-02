@@ -38,10 +38,11 @@ library(stringr)            # str_match()
 ## User defined variables
 ```{r set_variables}
 tissue <- "meninges"
-folder <- paste0(tissue,"_10CPM_in_17_samples")
+folder <- paste0(tissue,"_1CPM_in_13_samples")
 groups <- c("control","meningitis")
 group_colors <- c("orange","cornflowerblue")
-ann <- "../../refs/chm13v2.0_RefSeq_Liftoff_v5.1.gff3"
+ann <- paste0("/research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0",
+              "/chm13v2.0_RefSeq_Liftoff_v5.1.gff3")
 ```
 
 ## Save functions
@@ -107,27 +108,11 @@ if (file.exists("../../rObjects/annotation.rds")) {
 genes <- genes[,c(1:7,10:16)]
 all.equal(rownames(counts), genes$ID)
 
-# remove all lncRNAs except for XIST
+# filter by biotype
 keep <- which(genes$gene_biotype == "protein_coding") # keep protein_coding
-keep <- c(keep, which(genes$gene_biotype == "C_region")) # keep C_region
-keep <- c(keep, which(genes$gene_biotype == "J_segment")) # keep J_segment
-keep <- c(keep, which(genes$gene_biotype == "V_segment")) # keep V_segment
 keep <- c(keep, which(genes$gene_name == "XIST")) # keep XIST
 genes <- genes[keep,]
 counts <- counts[keep,]
-
-
-# read exonic length information
-#exonic.length <- read.delim(
-#  "../../backup_featureCounts/summed_exons.tsv",
-#  header = TRUE,
-#  sep = "\t"
-#)
-
-# add exonic length to genes
-#all.equal(rownames(counts), genes$gene_id, exonic.length$gene_id)
-#genes <- left_join(genes, exonic.length, by = "gene_id")
-#remove(exonic.length)
 ```
 
 ## Create object
@@ -142,29 +127,12 @@ remove(counts, meta, genes)
 ```
 
 ## Remove specific samples
-- Mayo_24, a male control sample, is the only sample without brain weight or thal phase. Additionally, both the parietal and meninges tissue have the 2nd and 3rd lowest RIN out of all samples (parietal + meninges). 
-- Mayo_08, a male control sample, has the lowest RIN of the meninges samples (after removing Mayo_24). On MDS plots this control sample does not group well with the others.
+- Mayo_24, a male control sample, is the only sample without brain weight or thal phase. Additionally, this donor has the 2nd and 3rd lowest RIN for parietal and meninge tissue out of all samples. 
+- Mayo_08, a male control sample, has the lowest RIN of the meninges samples (after removing Mayo_24). On MDS plots this control sample does not group well with the others. This was a VaD case.
 ```{r}
 keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08")
 dge <- dge[,keep]
 dim(dge)
-```
-
-## Remove MT genes
-- Reference did not contain mitochondrial chromosome.
-```{r remove_MT_genes, eval=FALSE, echo=FALSE}
-#dim(dge)
-#removeMT <- dge$genes$seqnames != "MT"  # true when NOT MT
-#dge <- dge[removeMT,,keep.lib.sizes = FALSE]
-#dim(dge)
-```
-
-## Protein coding genes
-```{r keep_protein_coding}
-#dim(dge)
-#keep <- dge$genes$gene_biotype == "protein_coding"  # true when protein 
-#dge <- dge[keep,,keep.lib.sizes = FALSE]
-#dim(dge)
 ```
 
 # QC: Raw
@@ -177,24 +145,16 @@ cpm <- cpm(dge)
 
 path <- paste0("../../results/",folder,"/counts/CPM_before_filtering_and_normalization.tsv")
 write.table(cpm, path, quote = FALSE, sep = "\t")
-
-path <- paste0("../05_shiny/",folder,"/counts/CPM_before_filtering_and_normalization.tsv")
-write.table(cpm, path, quote = FALSE, sep = "\t")
 ```
 
 ## JSD heatmap
 This portion won't display in the R Markdown pdf; the margins are too large.
 The pdf and png file can only be saved one at a time.
-```{r jsd_heatmap, eval=FALSE}
+
+```{r JSD_heatmap}
 # save
 path <- paste0("../../results/",folder,"/prefiltering_QC/JSD_heatmap")
-pdf(paste0(path,".pdf"), width = 8, height = 8, pointsize = 8)
-
-# set heatmap colors and names
-colors <- c("blue","skyblue","white") # set heatmap color scale
-colors <- colorRampPalette(colors)(100) # make it a gradient
-sample_group_color <- group_colors[dge$samples$group]
-names <- dge$samples$mayo_id
+pdf(paste0(path,".pdf"), width = 11, height = 10)
 
 # find JSD
 data <- JSD(t(cpm(dge$counts)), est.prob = "empirical")
@@ -202,24 +162,23 @@ colnames(data) <- names
 rownames(data) <- names
 round.data <- round(data, digits = 2) # round 2 decimal places
 
-# plot heatmap
-heatmap <- heatmap.2(
-  round.data,
-  trace = "none",
-  colCol = sample_group_color,
-  colRow = sample_group_color,
-  symm = TRUE,
-  col = colors,
-  cellnote = round.data,
-  notecex = 0.6,
-  dendrogram = "none",
-  notecol = "black",
-  key.title = "Color Key",
-  srtCol = 65,
-  margins = c(12,12),
-  keysize = 0.2)
+# set heatmap colors and names
+meta <- dge$samples[,c("group","sex")]
+paletteLength <- 100
+myColor <- colorRampPalette(c("blue", "skyblue", "white"))(paletteLength)
+ann_colors = list(group = c(control="orange", meningitis="cornflowerblue"),
+                  sex = c(female="green", male="purple"))
 
-remove(heatmap,round.data,data)
+pheatmap::pheatmap(round.data,
+                   treeheight_row = 0,
+                   treeheight_col = 0,
+                   annotation_row = meta,
+                   annotation_col = meta,
+                   annotation_colors = ann_colors,
+                   color = myColor,
+                   display_numbers = TRUE,
+                   fontsize_number = 6,
+                   number_color = "black")
 ```
 
 ## MDS
@@ -279,10 +238,6 @@ for (dim in dims) {
 remove(data)
 ```
 
-```{r}
-#glMDSPlot(dge, labels = dge$samples$mayo_id, groups = dge$samples$group)
-```
-
 ### Group
 ```{r}
 # set colors and get data
@@ -333,32 +288,18 @@ for (dim in dims) {
 remove(data,dims)
 ```
 
-Sum technical replicates. We have none.
-```{r tech_reps}
-# sum technical replicates
-#dim(dge)
-#dge.tech <- sumTechReps(dge, dge$samples$simplified_name)
-#dim(dge.tech$counts)
-#colnames(dge.tech$counts) <- dge.tech$samples$simplified_name
-```
-
-Plot MDS of summed technical replicates.
-```{r mds_tech_reps}
-# no tech reps in this data set
-```
-
 # Filtering and normalization
 ## Lowly expressed genes
-
-The filterByExpr() function in the edgeR package determines which genes have a 
-great enough count value to keep.  We will filter by group.  This means at least 
-17 samples (17 is the smallest group sample size) must express a minimum count of 
-10 (in cpm, default value).
-
+Remove genes that don't have at least 1 CPM in 13 samples.
 ```{r filter}
-keep.expr <- filterByExpr(dge, group = dge$samples$group)
 start <- dim(dge)[1]
-dge.filtered <- dge[keep.expr, , keep.lib.sizes = FALSE]
+
+cpm <- as.data.frame(cpm(dge))
+cpm <- as.data.frame(cpm >= 1)
+cpm$rsums <- rowSums(cpm)
+keep <- cpm$rsums >= 13
+dge.filtered <- dge[keep,,keep.lib.sizes = FALSE]
+
 end <- dim(dge.filtered)[1]
 print(paste(start - end, "genes removed and", end, "genes leftover."))
 ```
@@ -378,14 +319,6 @@ summary(dge.filtered.norm$samples$norm.factors)
 ```
 
 # QC: After normalization
-## Batch
-```{r batch}
-#df <- dge.filtered.norm$samples %>%
-#  dplyr::count(group,lane) %>%
-#  tidyr::spread(group, n)
-#df
-```
-
 ## Density plot
 Density plots of log-intensity distribution of each library can be superposed 
 on a single graph for a better comparison between libraries and for 
@@ -483,7 +416,7 @@ axis(2)
 axis(1,at=1:nsamples,labels=colnames(log2cpm.norm),las=2,cex.axis=0.8)
 
 # save
-path <- paste0("../../results/",folder,"/postfiltering_QC/boxplot")
+path <- paste0("../../results/",folder,"/postfiltering_QC/counts_per_gene_per_sample_boxplot")
 saveToPDF(paste0(path, ".pdf"), width = 12, height = 4)
 #remove(log2cpm.raw, log2cpm.norm, log2cpm.filtered)
 ```
@@ -495,9 +428,6 @@ saveToPDF(paste0(path, ".pdf"), width = 12, height = 4)
 cpm <- cpm(dge.filtered.norm)
 
 path <- paste0("../../results/",folder,"/counts/CPM_after_filtering_and_normalization.tsv")
-write.table(cpm, path, quote = FALSE, sep = "\t")
-
-path <- paste0("../05_shiny/",folder,"/counts/CPM_after_filtering_and_normalization.tsv")
 write.table(cpm, path, quote = FALSE, sep = "\t")
 
 remove(cpm)
