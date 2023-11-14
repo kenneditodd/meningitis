@@ -2,7 +2,7 @@
 title: "Meningitis: Meninges Tissue"
 subtitle: "Filtering and Normalization"
 author: "Kennedi Todd"
-date: "09/08/2023"
+date: "11/08/2023"
 output:
   html_document:
     theme: cerulean
@@ -14,7 +14,7 @@ editor_options:
 
 # Setup
 ## Working directory
-```{r setup}
+```{r working_directory}
 knitr::opts_knit$set(root.dir = ".")
 ```
 
@@ -38,9 +38,10 @@ library(stringr)            # str_match()
 ## User defined variables
 ```{r set_variables}
 tissue <- "meninges"
-folder <- paste0(tissue,"_1CPM_in_13_samples")
+folder <- paste0(tissue,"_1CPM_in_12_samples")
 groups <- c("control","meningitis")
 group_colors <- c("orange","cornflowerblue")
+sex_colors <- c("green","purple")
 ann <- paste0("/research/labs/neurology/fryer/projects/references/human/T2T_CHM13v2.0",
               "/chm13v2.0_RefSeq_Liftoff_v5.1.gff3")
 ```
@@ -129,28 +130,57 @@ remove(counts, meta, genes)
 ## Remove specific samples
 - Mayo_24, a male control sample, is the only sample without brain weight or thal phase. Additionally, this donor has the 2nd and 3rd lowest RIN for parietal and meninge tissue out of all samples. 
 - Mayo_08, a male control sample, has the lowest RIN of the meninges samples (after removing Mayo_24). On MDS plots this control sample does not group well with the others. This was a VaD case.
-```{r}
-keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08")
+```{r remove_samples}
+keep <- NULL
+
+if(folder == "meninges_1CPM_in_13_samples") {
+  keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08")
+}
+
+if(folder == "meninges_1CPM_in_12_samples") {
+  keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08","Mayo_18","Mayo_40")
+}
+
+if(folder == "no_VaD") {
+  keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08","Mayo_16","Mayo_39")
+}
+
 dge <- dge[,keep]
 dim(dge)
+```
+
+## Add meta
+```{r add_informative_name}
+# create more informative name
+names <- paste(dge$samples$group,
+               dge$samples$sex,
+               dge$samples$mayo_id,
+               sep = ".")
+names <- gsub("meningitis","mngts",names)
+names <- gsub("control","cntrl",names)
+names <- gsub("female","F",names)
+names <- gsub("Mayo_","",names)
+names <- gsub("male","M",names)
+dge$samples$informative_name <- names
+colnames(dge) <- dge$samples$informative_name
 ```
 
 # QC: Raw
 ## CPM
 Output table can be used with shiny app.
-```{r cpm_raw}
+```{r cpm_prefiltering}
 # CPM, Counts Per Million
 # normalize by sequencing depth
 cpm <- cpm(dge)
-
-path <- paste0("../../results/",folder,"/counts/CPM_before_filtering_and_normalization.tsv")
+path <- paste0("../../results/",
+               folder,
+               "/counts/CPM_before_filtering_and_normalization.tsv")
 write.table(cpm, path, quote = FALSE, sep = "\t")
 ```
 
 ## JSD heatmap
 This portion won't display in the R Markdown pdf; the margins are too large.
 The pdf and png file can only be saved one at a time.
-
 ```{r JSD_heatmap}
 # save
 path <- paste0("../../results/",folder,"/prefiltering_QC/JSD_heatmap")
@@ -164,6 +194,7 @@ round.data <- round(data, digits = 2) # round 2 decimal places
 
 # set heatmap colors and names
 meta <- dge$samples[,c("group","sex")]
+rownames(meta) <- names
 paletteLength <- 100
 myColor <- colorRampPalette(c("blue", "skyblue", "white"))(paletteLength)
 ann_colors = list(group = c(control="orange", meningitis="cornflowerblue"),
@@ -189,11 +220,11 @@ pheatmap::pheatmap(round.data,
 - Distances on the plot represent the leading log2 fold-changes \
 - The leading log fold-change between a pair of samples is the root-mean-square average of the top largest log2 fold-changes between those two samples \
 ### Sex
-```{r mds_prefiltering, warning=FALSE}
+```{r mds_by_sex, warning=FALSE}
   # set colors and get data
 data <- cpm(dge$counts, log = TRUE)
-sex_color <- group_colors[dge$samples$sex]
-names <- dge$samples$sex
+sex_color <- sex_colors[dge$samples$sex]
+names <- dge$samples$informative_name
 
 # loop through dimensions and top genes
 dims <- list(c(1,2),c(2,3),c(3,4),c(4,5))
@@ -218,13 +249,13 @@ for (dim in dims) {
     
     title(paste0("Raw: Top ", numGenes, ", Log2(CPM)"))
     
-    legend(
-      "topleft",
-      legend = unique(names),
-      pch = 16,
-      col = unique(sex_color),
-      cex = 1
-    )
+    #legend(
+    #  "topleft",
+    #  legend = unique(dge$samples$sex),
+    #  pch = 16,
+    #  col = unique(sex_color),
+    #  cex = 1
+    #)
     
     # save
     dimTitle <- as.character(dim)
@@ -239,11 +270,11 @@ remove(data)
 ```
 
 ### Group
-```{r}
+```{r mds_by_group}
 # set colors and get data
 data <- cpm(dge$counts, log = TRUE)
 group_color <- group_colors[dge$samples$group]
-names <- dge$samples$mayo_id
+names <- dge$samples$informative_name
 
 # loop through dimensions and top genes
 dims <- list(c(1,2),c(2,3),c(3,4),c(4,5))
@@ -268,13 +299,13 @@ for (dim in dims) {
     
     title(paste0("Raw: Top ", numGenes, ", Log2(CPM)"))
     
-    legend(
-      "topleft",
-      legend = unique(dge$samples$group),
-      pch = 16,
-      col = unique(group_color),
-      cex = 1
-    )
+    #legend(
+    #  "topleft",
+    #  legend = unique(dge$samples$group),
+    #  pch = 16,
+    #  col = unique(group_color),
+    #  cex = 1
+    #)
     
     # save
     dimTitle <- as.character(dim)
@@ -290,14 +321,13 @@ remove(data,dims)
 
 # Filtering and normalization
 ## Lowly expressed genes
-Remove genes that don't have at least 1 CPM in 13 samples.
-```{r filter}
+```{r filter_genes}
 start <- dim(dge)[1]
 
 cpm <- as.data.frame(cpm(dge))
 cpm <- as.data.frame(cpm >= 1)
 cpm$rsums <- rowSums(cpm)
-keep <- cpm$rsums >= 13
+keep <- cpm$rsums >= 12
 dge.filtered <- dge[keep,,keep.lib.sizes = FALSE]
 
 end <- dim(dge.filtered)[1]
@@ -422,7 +452,7 @@ saveToPDF(paste0(path, ".pdf"), width = 12, height = 4)
 ```
 
 ## CPM
-```{r cpm_fpkm_tpm}
+```{r cpm_postfiltering}
 # CPM, Counts Per Million
 # normalize by sequencing depth
 cpm <- cpm(dge.filtered.norm)
@@ -434,7 +464,7 @@ remove(cpm)
 ```
 
 ## Top transcripts
-```{r}
+```{r top_transcripts}
 counts <- as.data.frame(dge.filtered.norm$counts)
 df <- as.data.frame(rowSums(counts))
 colnames(df) <- "rsum"
