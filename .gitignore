@@ -14,3 +14,4 @@ featureCounts/Mayo*
 refs/transcript_quant/*
 refs/original_binab_with_errors.R
 scripts/*/logs/*
+scripts/*/rsconnect/
