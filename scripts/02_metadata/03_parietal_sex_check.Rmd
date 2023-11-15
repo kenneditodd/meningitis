@@ -2,7 +2,7 @@
 title: "Meningitis: Parietal Tissue"
 subtitle: "Sex Check"
 author: "Kennedi Todd"
-date: "08/29/2023"
+date: "11/15/2023"
 output:
   html_document:
     theme: cerulean
@@ -26,6 +26,7 @@ library(edgeR)              # DGEList()
 library(ggrepel)            # geom_text_repel()
 library(ggplot2)            # ggplot()
 library(glmnet)             # cv.glmnet()
+library(ggplot2)            # ggplot2()
 library(rtracklayer)        # import()
 library(stringr)            # str_match()
 ```
@@ -117,6 +118,22 @@ dge <- DGEList(counts = counts,
 remove(counts, meta, genes)
 ```
 
+## Add meta
+```{r}
+# create more informative name
+names <- paste(dge$samples$group,
+               dge$samples$sex,
+               dge$samples$mayo_id,
+               sep = ".")
+names <- gsub("meningitis","mngts",names)
+names <- gsub("control","cntrl",names)
+names <- gsub("female","F",names)
+names <- gsub("Mayo_","",names)
+names <- gsub("male","M",names)
+dge$samples$informative_name <- names
+colnames(dge) <- dge$samples$informative_name
+```
+
 # Sex check
 ## Extract data
 - View the expression of sex-linked genes to determine if samples are correctly annotated as XX or XY. \
@@ -125,10 +142,10 @@ remove(counts, meta, genes)
 sex.genes <- c("XIST", "EIF1AY", "KDM5D", "UTY", "DDX3Y", "RPS4Y1")
 sex.info <- as.data.frame(dge$counts[sex.genes,])
 sex.info <- as.data.frame(t(sex.info))
-sex.info$mayo_id <- rownames(sex.info)
+sex.info$informative_name <- rownames(sex.info)
 sex.info <- dplyr::left_join(sex.info,
-                             dge$samples[,c("mayo_id","sex")],
-                             by = "mayo_id")
+                             dge$samples[,c("informative_name","sex")],
+                             by = "informative_name")
 
 # reformat
 sex.info[sex.genes] <- sapply(sex.info[sex.genes], as.integer)
@@ -180,8 +197,8 @@ mean(predicted.classes$s0 == observed.classes)
 # ----------------------
 # Run on experiment data
 # ----------------------
-mayo_id <- sex.info$mayo_id # change to the individual ID column 
-sex.info$mayo_id <- NULL # clean up 
+informative_name <- sex.info$informative_name # change to the individual ID column 
+sex.info$informative_name <- NULL # clean up 
 # our model 
 test.experiment <- model.matrix(sex ~., sex.info)[,-1] 
 
@@ -199,7 +216,7 @@ sex_check <- data.frame(reported = as.character(predicted.classes),
                         observed = sex.info$sex)
 
 # add back in sample IDs
-sex_check$mayo_id <- mayo_id
+sex_check$informative_name <- informative_name
 
 # what doesn't match between reported and observed? 
 sex_check$sex_check <- ifelse(sex_check$reported == sex_check$observed, "Yes", "No")
@@ -215,7 +232,7 @@ write.table(
 
 # which samples didn't have matching sex? 
 check_samples <- subset(sex_check, sex_check == "No")
-samples_to_investigate <- subset(sex_check, mayo_id %in% check_samples$mayo_id)
+samples_to_investigate <- subset(sex_check, informative_name %in% check_samples$informative_name)
 sex.info[1:6] <- sapply(sex.info[1:6], as.numeric)
 sapply(sex.info, class)
 
@@ -228,8 +245,9 @@ low_coverage_male_samples <- subset(sex.info, DDX3Y < 5 & sex == "male" |
                                       KDM5D < 5 & sex == "male" |
                                       EIF1AY < 5 & sex == "male")
 
-sex.info$mayo_id <- sex_check$mayo_id
-low_coverage_samples_to_investigate <- subset(sex.info, mayo_id %in% low_coverage_female_samples$mayo_id)
+sex.info$informative_name <- sex_check$informative_name
+low_coverage_samples_to_investigate <- 
+  subset(sex.info, informative_name %in% low_coverage_female_samples$informative_name)
 ```
 
 ## Reformat
@@ -239,13 +257,13 @@ genes_and_counts <- as.data.frame(cbind(rownames(lcpm), lcpm))
 colnames(genes_and_counts)[1] <- "Geneid"
 rownames(genes_and_counts) <- NULL
 genes_counts <- reshape2::melt(genes_and_counts, id = "Geneid")
-colnames(genes_counts)[2] <- "mayo_id"
+colnames(genes_counts)[2] <- "informative_name"
 
-df <- as.data.frame(dge$samples$mayo_id)
+df <- as.data.frame(dge$samples$informative_name)
 df$sex <- dge$samples$sex
-colnames(df) <- c("mayo_id","sex")
+colnames(df) <- c("informative_name","sex")
 
-data <- merge(genes_counts, df, by = "mayo_id")
+data <- merge(genes_counts, df, by = "informative_name")
 
 sexGenes <- c("DDX3X, DDX3Y")
 SelectGenes_counts <-
@@ -350,10 +368,10 @@ data$value <- as.numeric(data$value)
 ## Plot sex check
 ```{r}
 wrong_sex_samples <-
-  data[data$mayo_id %in% samples_to_investigate$mayo, ]
+  data[data$informative_name %in% samples_to_investigate$informative_name, ]
 wrong_sex_samples <- unique(wrong_sex_samples)
 low_coverage_samples <-
-  data[data$mayo_id %in% low_coverage_samples_to_investigate$mayo_id, ]
+  data[data$informative_name %in% low_coverage_samples_to_investigate$informative_name, ]
 wrong_sex_samples <- unique(wrong_sex_samples)
 leg_lab <- "reported sex"
 cbPaletteJITTER <- c("orange","blue")
@@ -393,7 +411,7 @@ geneticSEXgenes_plot <- ggplot(data, aes(x = Geneid, y = value)) +
     data = wrong_sex_samples,
     aes(x = Geneid,
         y = value,
-        label = mayo_id),
+        label = informative_name),
     color = "black",
     size = 3,
     nudge_x = .5,
@@ -408,10 +426,10 @@ saveToPDF(paste0(path, ".pdf"), width = 11, height = 6)
 ```
 
 ## CPM
-Check sex genes and MBP.
+Check sex genes.
 ```{r}
 # choose genes and subset data
-sex.genes <- c("XIST", "EIF1AY", "KDM5D", "UTY", "DDX3Y", "RPS4Y1","MBP")
+sex.genes <- c("XIST", "EIF1AY", "KDM5D", "UTY", "DDX3Y", "RPS4Y1")
 
 # plot and save
 for (i in 1:length(sex.genes)) {
@@ -419,7 +437,7 @@ for (i in 1:length(sex.genes)) {
   # extract data
   df <- as.data.frame(cpm(dge$counts)[sex.genes[i],])
   colnames(df) <- "values"
-  df$sample <- dge$samples$mayo_id
+  df$sample <- dge$samples$informative_name
   df$group <- dge$samples$group
   df$sex <- dge$samples$sex
   
@@ -437,4 +455,21 @@ for (i in 1:length(sex.genes)) {
   dev.off()
 }
 remove(df,p)
+```
+
+# Library size
+```{r}
+data <- data.frame(lib = (dge$samples$lib.size / 1000000),
+                   name = dge$samples$informative_name,
+                   id = dge$samples$mayo_id)
+data <- data[order(data$id),]
+
+ggplot(data, aes(x = name, y = lib)) +
+  geom_bar(stat = "identity") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(title = "Library size", x = "Sample", y = "Library Size (Millions)") +
+  scale_y_continuous(breaks = seq(0,300,100), minor_breaks = seq(0))
+
+
 ```
