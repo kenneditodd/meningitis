@@ -132,19 +132,7 @@ remove(counts, meta, genes)
 - Mayo_08, a male control sample, has the lowest RIN of the meninges samples (after removing Mayo_24). On MDS plots this control sample does not group well with the others. This was a VaD case.
 ```{r remove_samples}
 keep <- NULL
-
-if(folder == "meninges_1CPM_in_13_samples") {
-  keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08")
-}
-
-if(folder == "meninges_1CPM_in_12_samples") {
-  keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08","Mayo_18","Mayo_40")
-}
-
-if(folder == "no_VaD") {
-  keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08","Mayo_16","Mayo_39")
-}
-
+keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08","Mayo_18","Mayo_40")
 dge <- dge[,keep]
 dim(dge)
 ```
@@ -221,7 +209,7 @@ pheatmap::pheatmap(round.data,
 - The leading log fold-change between a pair of samples is the root-mean-square average of the top largest log2 fold-changes between those two samples \
 ### Sex
 ```{r mds_by_sex, warning=FALSE}
-  # set colors and get data
+# set colors and get data
 data <- cpm(dge$counts, log = TRUE)
 sex_color <- sex_colors[dge$samples$sex]
 names <- dge$samples$informative_name
