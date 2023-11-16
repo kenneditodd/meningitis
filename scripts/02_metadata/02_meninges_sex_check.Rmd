@@ -473,3 +473,18 @@ ggplot(data, aes(x = name, y = lib)) +
 
 
 ```
+
+
+# RIN
+```{r}
+data <- data.frame(rin = dge$samples$RIN,
+                   name = dge$samples$informative_name,
+                   id = dge$samples$mayo_id)
+data <- data[order(data$id),]
+
+ggplot(data, aes(x = name, y = rin)) +
+  geom_bar(stat = "identity") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+  labs(title = "Meninges RIN", x = "Sample", y = "RIN")
+```
