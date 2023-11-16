@@ -246,8 +246,7 @@ colnames(meta)
 
 # age is usually a continuous so model it as a fixed effect "age"
 # group is categorical, so model them as random effects "(1|group)"
-form <- ~ (1|group) + (1|sex) + log2.lib + (1|braak) + (1|thal) + age_at_death + 
-  brain_wt + RIN
+form <- ~ (1|group) + (1|sex) + (1|braak) + (1|thal) + age_at_death + brain_wt + RIN
 
 varPart <- fitExtractVarPartModel(geneExpr, form, meta)
 vp <- sortCols(varPart)
@@ -320,14 +319,11 @@ counts <- v$E
 base <- ~ (1 | group) + (1 | sex)
 
 # variable we wish to test
-variables <- c("log2.lib",
-               "(1|braak)",
+variables <- c("(1|braak)",
                "(1|thal)",
                "age_at_death",
                "brain_wt",
-               "RIN",
-               "MPZ","TNR","KIT","COL1A2","MRC1","HBB","CD3E","VWF","MYH11",
-               "ITGAX","GFAP","TTR","MBP","SNAP25")
+               "RIN")
 
 # multivariate forward stepwise regression evaluated by multivariate BIC
 bestModel <- mvForwardStepwise(exprObj = counts,
