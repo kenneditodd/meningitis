@@ -2,7 +2,7 @@
 title: "Meningitis: Parietal Tissue"
 subtitle: "Variance"
 author: "Kennedi Todd"
-date: "09/11/2023"
+date: "11/18/2023"
 output:
   html_document:
     theme: cerulean
@@ -33,10 +33,9 @@ library(variancePartition) # fitExtractVarPartModel()
 ## User defined variables
 ```{r set_variables}
 tissue <- "parietal"
-folder <- paste0(tissue,"_10CPM_in_11_samples")
+folder <- paste0(tissue,"_same_as_meninges")
 groups <- c("control","meningitis")
 group_colors <- c("orange","cornflowerblue")
-ann <- "../../refs/chm13v2.0_RefSeq_Liftoff_v5.1.gff3"
 ```
 
 ## Save functions
@@ -51,7 +50,9 @@ saveToPDF <- function(...) {
 
 ## Load data
 ```{r load_data}
-dge.filtered.norm <- readRDS(paste0("../../rObjects/",folder,"_DGEList_filtered_normalized.rds"))
+dge.filtered.norm <- readRDS(paste0("../../rObjects/",
+                                    folder,
+                                    "_DGEList_filtered_normalized.rds"))
 ```
 
 # Cell Markers
@@ -68,49 +69,47 @@ variables <- c("group",
                "thal",
                "age_at_death",
                "brain_wt",
-               "race",
                "RIN",
                "star_unique_mapped")
 meta <- meta %>% select(all_of(variables))
 
 # log2 transform lib.size
-meta$lib.size <- log2(meta$lib.size)
-colnames(meta)[3] <- "log2_library_size"
+meta$log2.lib <- log2(meta$lib.size)
+meta$lib.size <- NULL
 
 # check and change classes
 meta$braak <- factor(meta$braak)
 meta$thal <- factor(meta$thal)
-meta$race <- factor(meta$race)
 meta$RIN <- as.numeric(meta$RIN)
 meta$star_unique_mapped <- as.numeric(gsub("%","",meta$star_unique_mapped))
 sapply(meta, class)
 ```
 
-## Markers
-- Astrocytes: GFAP, GJA1, CLU, AQP4
-- B cells & Plasma Cells: CD19, MS4A1, CD79A, IGHA, SDC1
-- Choroid: TTR
+## Get markers
+- Astrocytes: GFAP, GJA1, CLU, AQP4 \
+- B cells & Plasma Cells: CD19, MS4A1, CD79A, IGHA, SDC1 \
+- Choroid: TTR \
 - Endothelial: FLT1, PECAM1, VWF \
 - Fibroblasts: COL1A1, COL1A2, LUM, DCN \
 - Macrophages/Microglia: MRC1, MKI67, C1QB \
 - Mast cells: KIT, FCER1A \
 - Monocytes/DCs/Neutrophils: ITGAX, CD14, CD209A, S100A9 \
-- Neurons: GAD1, GAD2, SNAP25, SYT1, MEG3
-- NPCs: SOX2, NES
-- NK cells: NKG7
-- Oligodendrocytes: MBP
-- OPCs: OLIG1, TNR
+- Neurons: GAD1, GAD2, SNAP25, SYT1, MEG3 \
+- NPCs: SOX2, NES \
+- NK cells: NKG7 \
+- Oligodendrocytes: MBP \
+- OPCs: OLIG1, TNR \
 - Pericytes & SMCs: MYH11, ACTA2, VTN \
 - RBCs - HBB, HBA1, HBA2 \
 - Schwann cells: MPZ \
 - T cells: CD3E, CD3D, CD8A \
 ```{r}
 # choose cell type markers
-markers <- c("GFAP", "TTR", "VWF", "COL1A2", "C1QB", "KIT", "ITGAX", "SNAP25",
-             "NES","MBP", "TNR", "ACTA2", "HBB", "MPZ","CD3E")
+markers <- c("GFAP", "CD3E", "TTR", "VWF", "COL1A2", "MRC1", "KIT", "ITGAX", 
+             "SNAP25", "NES", "NKG7", "MBP", "TNR", "MYH11", "HBB", "MPZ")
 length(markers)
 
-# check if all markers are in annotation (could have alternative name)
+# print markers not in annotation (could have alternative name)
 markers[!markers %in% rownames(dge.filtered.norm)]
 
 # get counts
@@ -127,6 +126,87 @@ all.equal(rownames(meta), rownames(cpm))
 meta <- cbind(meta, cpm)
 ```
 
+## Marker correlation
+```{r}
+# formula
+form <- ~0 + NES + MPZ + TNR + KIT + COL1A2 + MRC1 + HBB + VWF + MYH11 + ITGAX +
+  GFAP + MBP + SNAP25
+
+# correlation plot
+model.matrix(form, data = meta) %>% 
+  cor(method = "spearman") %>% 
+  ggcorrplot(show.diag = FALSE, type = "lower", lab = TRUE, lab_size = 2)
+```
+
+## Significance
+```{r stats}
+# initialize data frame
+variable_numbers <- c(5:22)
+variable_names <- colnames(meta)[variable_numbers]
+tests <- c("control_mean","meningitis_mean","control_stdv","meningitis_stdv",
+           "control_shapiro_pval","meningitis_shapiro_pval","levene_na_omit",
+           "t_test_t","t_test_pval","wilcoxon_pval")
+stats <- matrix(0,
+                nrow = length(variable_numbers),
+                ncol = length(tests),
+                dimnames = list(variable_names, tests))
+stats <- as.data.frame(stats)
+
+# Loop through variables
+for (i in 1:length(variable_names)) {
+  
+  # Subset values by group
+  values <- as.numeric(meta[, variable_names[i]])
+  group <- factor(meta$group)
+  control_values <- meta[meta$group == "control", variable_names[i]]
+  meningitis_values <- meta[meta$group == "meningitis", variable_names[i]]
+  
+  # Welch two sample t-test
+  t_test <- t.test(control_values, meningitis_values)
+  t_test_t <- t_test$statistic
+  t_test_pval <- t_test$p.value
+  
+  # Add to table
+  stats[i, "control_mean"] <- round(as.numeric(t_test$estimate[1]),4)
+  stats[i, "meningitis_mean"] <- round(as.numeric(t_test$estimate[2]),4)
+  stats[i, "t_test_t"] <- round(t_test_t,4)
+  stats[i, "t_test_pval"] <- round(t_test_pval,4)
+  
+  # Shapiro-Wilk test, normality test
+  control_shapiro <- shapiro.test(control_values)
+  meningitis_shapiro <- shapiro.test(meningitis_values)
+  
+  # Add to table
+  stats[i, "control_shapiro_pval"] <- round(control_shapiro$p.value,4)
+  stats[i, "meningitis_shapiro_pval"] <- round(meningitis_shapiro$p.value,4)
+  
+  # Variance and standard deviation
+  control_var <- var(control_values)
+  meningitis_var <- var(meningitis_values)
+  
+  # Add to table 
+  stats[i, "control_stdv"] <- round(sqrt(control_var),4)
+  stats[i, "meningitis_stdv"] <- round(sqrt(meningitis_var),4)
+  
+  # Two-sample Wilcoxon / Mann-Whitney
+  wil <- wilcox.test(control_values, meningitis_values)
+  
+  # Add to table
+  stats[i, "wilcoxon_pval"] <- round(wil$p.value, 4)
+  
+  # Levene's test
+  levTest <- car::leveneTest(values ~ group)
+  lev <- levTest$`Pr(>F)`
+  lev_naomit <- as.numeric(na.omit(lev))
+  
+  # Add to table
+  stats[i, "levene_na_omit"] <- round(lev_naomit, 4)
+}
+
+remove(control_shapiro,meningitis_shapiro,
+       t_test, wil, levTest,cpm)
+```
+
 # Correlation
 ## Spearman correlation
 - Spearman's correlation can be used to analyzed categorical data, as well as continuous data, because it uses ranks instead of assumptions of normality ().
@@ -134,9 +214,8 @@ plotCorrMatrix(cor(info))
 MRC1, MKI67, C1QB
 ```{r CCA_heatmap}
 # formula
-form <- ~0 + group + sex + braak + thal + age_at_death + brain_wt +
-  race + RIN + MPZ + TNR + KIT + C1QB + HBB +
-  CD3E + VWF + ACTA2 + ITGAX + GFAP + TTR + MBP + SNAP25
+form <- ~0 + group + sex + log2.lib + braak + thal + age_at_death + brain_wt +
+  RIN + star_unique_mapped
 
 # correlation plot
 model.matrix(form, data = meta) %>% 
@@ -145,7 +224,7 @@ model.matrix(form, data = meta) %>%
 
 # save
 path <- paste0("../../results/", folder, "/variance/spearman_correlation_heatmap")
-saveToPDF(paste0(path, ".pdf"), width = 12, height = 12)
+saveToPDF(paste0(path, ".pdf"), width = 8, height = 8)
 ```
 
 ## CCA heatmap
@@ -166,7 +245,7 @@ corrplot(c,
 
 # save
 path <- paste0("../../results/", folder, "/variance/canonical_correlation_analysis_heatmap")
-saveToPDF(paste0(path, ".pdf"), width = 12, height = 12)
+saveToPDF(paste0(path, ".pdf"), width = 8, height = 8)
 ```
 
 # Variance partition
@@ -174,12 +253,11 @@ saveToPDF(paste0(path, ".pdf"), width = 12, height = 12)
 ```{r variance_partition, message=FALSE, eval=FALSE}
 # variables to choose from
 geneExpr <- as.matrix(dge.filtered.norm$counts)
+colnames(meta)
 
 # age is usually a continuous so model it as a fixed effect "age"
 # group is categorical, so model them as random effects "(1|group)"
-form <- ~ (1|group) + (1|sex) + (1|thal) + 
-  age_at_death + brain_wt + RIN + C1QB + MPZ + TNR + KIT + ACTA2 + HBB +
-  GFAP + TTR + MBP + SNAP25
+form <- ~ (1|group) + (1|sex) + (1|braak) + (1|thal) + age_at_death + brain_wt + RIN
 
 varPart <- fitExtractVarPartModel(geneExpr, form, meta)
 vp <- sortCols(varPart)
@@ -221,11 +299,11 @@ order.varPart.df <- varPart.df[order(varPart.df$sex, decreasing = TRUE),]
 head(order.varPart.df["sex"], 10)
 ```
 
-## Rin size var
+## Lib size var
 ```{r variance_group}
 # sort genes based on variance explained by group
-order.varPart.df <- varPart.df[order(varPart.df$RIN, decreasing = TRUE),]
-head(order.varPart.df["RIN"], 10)
+order.varPart.df <- varPart.df[order(varPart.df$log2.lib, decreasing = TRUE),]
+head(order.varPart.df["log2.lib"], 10)
 ```
 
 ## Thal var
@@ -233,20 +311,6 @@ head(order.varPart.df["RIN"], 10)
 # sort genes based on variance explained by group
 order.varPart.df <- varPart.df[order(varPart.df$thal, decreasing = TRUE),]
 head(order.varPart.df["thal"], 10)
-```
-
-## ACTA2 var
-```{r variance_group}
-# sort genes based on variance explained by group
-order.varPart.df <- varPart.df[order(varPart.df$ACTA2, decreasing = TRUE),]
-head(order.varPart.df["ACTA2"], 10)
-```
-
-## SNAP25 var
-```{r variance_group}
-# sort genes based on variance explained by group
-order.varPart.df <- varPart.df[order(varPart.df$SNAP25, decreasing = TRUE),]
-head(order.varPart.df["SNAP25"], 10)
 ```
 
 # Finding best model
@@ -270,9 +334,7 @@ variables <- c("(1|braak)",
                "(1|thal)",
                "age_at_death",
                "brain_wt",
-               "RIN",
-               "MPZ","TNR","KIT","COL1A2","C1QB","HBB","CD3E","VWF","ACTA2",
-               "ITGAX","GFAP","TTR","MBP","SNAP25")
+               "RIN")
 
 # multivariate forward stepwise regression evaluated by multivariate BIC
 bestModel <- mvForwardStepwise(exprObj = counts,
@@ -283,6 +345,7 @@ bestModel <- mvForwardStepwise(exprObj = counts,
 
 # Save
 ```{r}
+meta <- meta[,10:22]
 all.equal(rownames(meta), rownames(dge.filtered.norm$samples))
 dge.filtered.norm$samples <- cbind(dge.filtered.norm$samples, meta)
 saveRDS(dge.filtered.norm, paste0("../../rObjects/",folder, "_DGEList_cell_markers.rds"))
