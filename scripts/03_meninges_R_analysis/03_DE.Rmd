@@ -117,7 +117,7 @@ saveToPDF(paste0(path, ".pdf"), width = 6, height = 4)
 ## Voom MDS Plot
 ### Sex
 ```{r mds_prefiltering, warning=FALSE}
-  # set colors and get data
+# set colors and get data
 sex_color <- sex_colors[v$targets$sex]
 names <- v$targets$informative_name
 
