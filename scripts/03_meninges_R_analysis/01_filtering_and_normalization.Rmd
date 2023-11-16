@@ -208,10 +208,9 @@ pheatmap::pheatmap(round.data,
 - Distances on the plot represent the leading log2 fold-changes \
 - The leading log fold-change between a pair of samples is the root-mean-square average of the top largest log2 fold-changes between those two samples \
 ### Sex
-```{r mds_by_sex, warning=FALSE}
+```{r MDS_colored_by_sex}
 # set colors and get data
 data <- cpm(dge$counts, log = TRUE)
-sex_color <- sex_colors[dge$samples$sex]
 names <- dge$samples$informative_name
 
 # loop through dimensions and top genes
@@ -222,34 +221,39 @@ for (dim in dims) {
   
   for (numGenes in topGenes) {
       
-    par(bg = 'white')
-  
-    # plot MDS
-    plotMDS(
-      data, 
-      top = numGenes, 
-      labels = names,
-      cex = 1, 
-      dim.plot = dim, 
-      plot = TRUE, 
-      col = sex_color
-    )
+    mds <- plotMDS(data, 
+                   labels = names, 
+                   top = numGenes,
+                   plot = FALSE,
+                   dim.plot = dim)
+
+    toplot <- data.frame(DimX = mds$x, 
+                         DimY = mds$y,
+                         Sample = rownames(mds$distance.matrix.squared),
+                         sex = dge$samples$sex)
     
-    title(paste0("Raw: Top ", numGenes, ", Log2(CPM)"))
+    x.lab <- paste0(mds$axislabel," ",mds$dim.plot[1]," (",
+                    round(mds$var.explained[mds$dim.plot[1]] * 100, digits = 2),
+                    "%)")
+    y.lab <- paste0(mds$axislabel," ",mds$dim.plot[2]," (",
+                    round(mds$var.explained[mds$dim.plot[2]] * 100, digits = 2),
+                    "%)")
     
-    #legend(
-    #  "topleft",
-    #  legend = unique(dge$samples$sex),
-    #  pch = 16,
-    #  col = unique(sex_color),
-    #  cex = 1
-    #)
+    p <- ggplot(toplot, aes(x = DimX, y = DimY, color = sex, label = Sample)) + 
+      geom_point(size = 3) +
+      scale_color_manual(values = sex_colors) +
+      theme_bw() +
+      geom_text(aes(label = Sample), size=4, vjust = -1) +
+      xlab(x.lab) + ylab(y.lab) + 
+      ggtitle(paste0("MDS Raw: Top ", numGenes, ", Log2(CPM)"))
+    print(p)
     
     # save
     dimTitle <- as.character(dim)
-    path <- paste0("../../results/",folder,"/prefiltering_QC/MDS_raw_", 
-                   "top_", numGenes, "_",
-                   "dim", as.character(dim)[1], "&", as.character(dim[2]), "_colored_by_sex")
+    path <- paste0("../../results/",folder,"/prefiltering_QC/MDS_top_",
+                   numGenes,"_genes/MDS_raw_top_", numGenes, "_",
+                   "dim", as.character(dim)[1], "&", as.character(dim[2]), 
+                   "_colored_by_sex")
     saveToPDF(paste0(path, ".pdf"), width = 8, height = 8)
   }
 }
@@ -257,11 +261,11 @@ for (dim in dims) {
 remove(data)
 ```
 
+
 ### Group
-```{r mds_by_group}
+```{r}
 # set colors and get data
 data <- cpm(dge$counts, log = TRUE)
-group_color <- group_colors[dge$samples$group]
 names <- dge$samples$informative_name
 
 # loop through dimensions and top genes
@@ -271,35 +275,94 @@ topGenes <- c(100,500)
 for (dim in dims) {
   
   for (numGenes in topGenes) {
+      
+    mds <- plotMDS(data, 
+                   labels = names, 
+                   top = numGenes,
+                   plot = FALSE,
+                   dim.plot = dim)
+
+    toplot <- data.frame(DimX = mds$x, 
+                         DimY = mds$y,
+                         Sample = rownames(mds$distance.matrix.squared),
+                         group = dge$samples$group)
     
-    par(bg = 'white')
+    x.lab <- paste0(mds$axislabel," ",mds$dim.plot[1]," (",
+                    round(mds$var.explained[mds$dim.plot[1]] * 100, digits = 2),
+                    "%)")
+    y.lab <- paste0(mds$axislabel," ",mds$dim.plot[2]," (",
+                    round(mds$var.explained[mds$dim.plot[2]] * 100, digits = 2),
+                    "%)")
     
-    # plot MDS
-    plotMDS(
-      data, 
-      top = numGenes, 
-      labels = names,
-      cex = 1, 
-      dim.plot = dim, 
-      plot = TRUE, 
-      col = group_color
-    )
-    
-    title(paste0("Raw: Top ", numGenes, ", Log2(CPM)"))
-    
-    #legend(
-    #  "topleft",
-    #  legend = unique(dge$samples$group),
-    #  pch = 16,
-    #  col = unique(group_color),
-    #  cex = 1
-    #)
+    p <- ggplot(toplot, aes(x = DimX, y = DimY, color = group, label = Sample)) + 
+      geom_point(size = 3) +
+      scale_color_manual(values = group_colors) +
+      theme_bw() +
+      geom_text(aes(label = Sample), size=4, vjust = -1) +
+      xlab(x.lab) + ylab(y.lab) + 
+      ggtitle(paste0("MDS Raw: Top ", numGenes, ", Log2(CPM)"))
+    print(p)
     
     # save
     dimTitle <- as.character(dim)
-    path <- paste0("../../results/",folder,"/prefiltering_QC/MDS_raw_", 
-                   "top_", numGenes, "_",
-                   "dim", as.character(dim)[1], "&", as.character(dim[2]), "_colored_by_group")
+    path <- paste0("../../results/",folder,"/prefiltering_QC/MDS_top_",
+                   numGenes,"_genes/MDS_raw_top_", numGenes, "_",
+                   "dim", as.character(dim)[1], "&", as.character(dim[2]), 
+                   "_colored_by_group")
+    saveToPDF(paste0(path, ".pdf"), width = 8, height = 8)
+  }
+}
+
+remove(data)
+```
+
+### RIN
+```{r}
+# set colors and get data
+data <- cpm(dge$counts, log = TRUE)
+names <- paste0(dge$samples$informative_name,"_",dge$samples$RIN)
+
+# loop through dimensions and top genes
+dims <- list(c(1,2),c(2,3),c(3,4),c(4,5))
+topGenes <- c(100,500)
+
+for (dim in dims) {
+  
+  for (numGenes in topGenes) {
+    
+    mds <- plotMDS(data, 
+                   labels = names, 
+                   top = numGenes,
+                   plot = FALSE,
+                   dim.plot = dim)
+    
+    x.lab <- paste0(mds$axislabel," ",mds$dim.plot[1]," (",
+                    round(mds$var.explained[mds$dim.plot[1]] * 100, digits = 2),
+                    "%)")
+    y.lab <- paste0(mds$axislabel," ",mds$dim.plot[2]," (",
+                    round(mds$var.explained[mds$dim.plot[2]] * 100, digits = 2),
+                    "%)")
+
+    toplot <- data.frame(DimX = mds$x, 
+                         DimY = mds$y,
+                         Sample = rownames(mds$distance.matrix.squared),
+                         RIN = dge$samples$RIN)
+    
+    p <- ggplot(toplot, aes(x = DimX, y = DimY, color = RIN, label = Sample)) + 
+      geom_point(size = 3) +
+      scale_color_gradientn(colors = c("red","yellow","lightblue","blue")) +
+      theme_bw() +
+      geom_text(aes(label = Sample), size=4, vjust = -1) +
+      xlab(x.lab) + ylab(y.lab) + 
+      ggtitle(paste0("Raw: Top ", numGenes, ", Log2(CPM)"))
+    print(p)
+    
+    # save
+    dimTitle <- as.character(dim)
+    path <- paste0("../../results/",folder,"/prefiltering_QC/MDS_top_",
+                   numGenes,"_genes/MDS_raw_top_", numGenes, "_",
+                   "dim", as.character(dim)[1], "&", as.character(dim[2]), 
+                   "_colored_by_RIN")
     saveToPDF(paste0(path, ".pdf"), width = 8, height = 8)
   }
 }
