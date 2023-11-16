@@ -1,8 +1,8 @@
 ---
 title: "Meningitis: Meninges Tissue"
-subtitle: "Brain in a Blender & Variance"
+subtitle: "Variance"
 author: "Kennedi Todd"
-date: "09/08/2023"
+date: "11/15/2023"
 output:
   html_document:
     theme: cerulean
