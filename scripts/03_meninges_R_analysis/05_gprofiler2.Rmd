@@ -1,0 +1,50 @@
+---
+title: "g:GOSt"
+author: "Kennedi Todd"
+date: "2023-12-05"
+output: html_document
+---
+
+# Background
+- g:GOSt \
+  + performs functional enrichment analysis on an input gene list. It maps genes to known functional information sources and detects statistically significantly enriched terms. Data is regularly retrieved from Ensembl database and fungi, plants or metazoa specific versions of Ensembl Genomes, and parasite specific data from WormBase ParaSite. In addition to Gene Ontology, pathways from KEGG Reactome and WikiPathways are included; miRNA targets from miRTarBase and regulatory motif matches from TRANSFAC; tissue specificity from Human Protein Atlas; protein complexes from CORUM and human disease phenotypes from Human Phenotype Ontology. g:GOSt supports close to 500 organisms and accepts hundreds of identifier types.
+- GO hierarchy \
+  + MF = molecular function \
+  + BP = biological process
+  + CC = celular component
+
+# Setup
+```{r}
+# load package
+library(gprofiler2)
+
+# read gene list
+up <- read.table("../../results/meninges_1CPM_in_12_samples/DEGs/metascape_input_upregulated_FDRq_0.05.tsv")
+up <- up$V1
+down <- read.table("../../results/meninges_1CPM_in_12_samples/DEGs/metascape_input_downregulated_FDRq_0.05.tsv")
+down <- down$V1
+```
+
+# Gene list functional enrichment
+## Up-regulated genes
+```{r}
+# query
+gost.up <- gost(query = up,
+                organism = "hsapiens",
+                ordered_query = TRUE)
+
+# plot
+gostplot(gostres = gost.up, capped = FALSE)
+
+# save results
+#publish_gosttable(gostres = gost.up)
+```
+
+## Down-regulated genes
+```{r}
+gost.down <- gost(query = down,
+                  organism = "hsapiens",
+                  ordered_query = TRUE)
+
+gostplot(gostres = gost.down, capped = FALSE)
+```
