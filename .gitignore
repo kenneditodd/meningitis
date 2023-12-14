@@ -15,3 +15,9 @@ refs/transcript_quant/*
 refs/original_binab_with_errors.R
 scripts/*/logs/*
 scripts/*/rsconnect/
+scripts/old/*
+scripts/*/*.html
+scripts/04_parietal_R_analysis/*
+scripts/06_meninges_shiny_CPM_expression/test.R
+scripts/06_meninges_shiny_CPM_expression/meninge_CPM.tsv
+scripts/06_meninges_shiny_CPM_expression/parietal_CPM.tsv
