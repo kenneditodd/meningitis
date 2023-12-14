@@ -21,17 +21,16 @@ plotBoxplot <- function(counts, gene) {
   
   # Visualize the distribution of genes detected per sample via boxplot
   sample_colors <- c("cornflowerblue","orange")
-  b <- ggplot(df, aes(x = group, y = value, fill = group)) +
+  ggplot(df, aes(x = group, y = value, fill = group)) +
     geom_boxplot(outlier.shape = NA) +
     geom_jitter() + 
-    #theme_classic() +
     theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
-    theme(plot.title = element_text(hjust = 0.5, face="bold")) +
+    theme(plot.title = element_text(hjust = 0)) +
     ggtitle(gene) +
     scale_color_manual(values = sample_colors) +
     scale_fill_manual(values = sample_colors) +
     ylab("CPM") + xlab("Group")
-  b
+  
 } # end boxplot function
 
 
@@ -52,7 +51,7 @@ plotBar <- function(counts, gene) {
   b <- ggplot(df, aes(x = names, y = value, fill = group)) +
     geom_bar(stat = "identity") +
     theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
-    theme(plot.title = element_text(hjust = 0.5, face="bold")) +
+    theme(plot.title = element_text(hjust = 0)) +
     ggtitle(gene) +
     scale_color_manual(values = sample_colors) +
     scale_fill_manual(values = sample_colors) +
@@ -74,8 +73,8 @@ ui <- fluidPage(
           # Select tissue
           selectInput(inputId = "tissue", 
                       label = "Select tissue",
-                      choices = "meninges",
-                      selected = "meninges"),
+                      choices = c("meninge","parietal"),
+                      selected = "meninge"),
           
           # Populate gene options based on selected tissue
           uiOutput(
@@ -87,6 +86,7 @@ ui <- fluidPage(
         # Show a plot of the generated distribution
         mainPanel(
            plotOutput("boxplot"),
+           br(),
            plotOutput("bar")
         )
         
@@ -99,7 +99,7 @@ server <- function(input, output) {
   # read CPM table
   cpm <- reactive({
     req(input$tissue)
-    read.table(paste0(input$tissue, "_CPM_before_filtering_and_normalization.tsv"))
+    read.table(paste0(input$tissue, "_CPM.tsv"))
   })
   
   # get gene options from input table
