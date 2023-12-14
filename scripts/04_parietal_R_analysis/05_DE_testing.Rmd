@@ -43,11 +43,11 @@ library(reshape)            # melt()
 ## User defined variables
 ```{r set_variables}
 tissue <- "parietal"
-folder <- paste0(tissue,"_10CPM_in_11_samples")
+folder <- paste0(tissue,"_1CPM_in_8_samples")
 groups <- c("control","meningitis")
 group_colors <- c("orange","cornflowerblue")
 ann <- "../../refs/chm13v2.0_RefSeq_Liftoff_v5.1.gff3"
-model <- "/model_group_sex_rin_c1qb_thal"
+model <- "/DEGs_group_sex"
 ```
 
 ## Save functions
@@ -74,7 +74,7 @@ thal <- factor(dge.filtered.norm$samples$thal)
 snap25 <- dge.filtered.norm$samples$SNAP25
 braak <- factor(dge.filtered.norm$samples$braak)
 
-design <- model.matrix(~ 0 + group + sex + rin + c1qb + thal)
+design <- model.matrix(~ 0 + group + sex + snap25)
 colnames(design)[c(1,2)] <- c("control","meningitis")
 design.names <- colnames(design)
 design
@@ -224,7 +224,7 @@ remove(dims)
 ## Number of DEGs
 Identify number of differentially expressed genes.
 ```{r decide_tests}
-pval <- 0.05
+pval <- 0.1
 
 sumTable <- 
   summary(decideTests(

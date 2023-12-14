@@ -38,7 +38,7 @@ library(stringr)            # str_match()
 ## User defined variables
 ```{r set_variables}
 tissue <- "parietal"
-folder <- paste0(tissue,"_same_as_meninges")
+folder <- paste0(tissue,"_immune_genes")
 groups <- c("control","meningitis")
 group_colors <- c("orange","cornflowerblue")
 sex_colors <- c("green","purple")
@@ -129,12 +129,11 @@ remove(counts, meta, genes)
 - Mayo_08, a male control sample, has the lowest RIN of the meninges samples (after removing Mayo_24). On MDS plots this control sample does not group well with the others. \
 - Mayo_18, a female control sample, does not cluster well on MDS and JSD plots
 ```{r}
-keep <- NULL
+keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08","Mayo_18","Mayo_40")
+dge <- dge[,keep]
+dim(dge)
 
-if(folder == "parietal_same_as_meninges") {
-  keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08","Mayo_18","Mayo_40")
-}
-
+keep <- dge$samples$RIN > 4
 dge <- dge[,keep]
 dim(dge)
 ```
@@ -153,6 +152,22 @@ names <- gsub("Mayo_","",names)
 names <- gsub("male","M",names)
 dge$samples$informative_name <- names
 colnames(dge) <- dge$samples$informative_name
+```
+
+## Keep immune genes
+```{r}
+# read table
+immune.df <- read.delim2("../../refs/InnateDB_genes.txt")
+# convert gene_name to enseml id
+immune.genes <- immune.df$name
+immune.avail <- rownames(dge) %in% immune.genes # investigate later
+# subset dge object
+start <- dim(dge)[1]
+keep <- rownames(dge) %in% immune.genes
+dge <- dge[keep,,keep.lib.sizes = FALSE]
+end <- dim(dge)[1]
+# print summary
+print(paste(start - end, "genes removed and", end, "genes leftover."))
 ```
 
 # QC: Raw
@@ -369,24 +384,6 @@ for (dim in dims) {
 }
 
 remove(data,dims)
-```
-
-
-```{r}
-data <- cpm(dge$counts, log = TRUE)
-names <- paste0(dge$samples$informative_name,"_",dge$samples$RIN)
-mds <- plotMDS(data, labels = names, col = rin_colors, top = 100)
-
-toplot <- data.frame(Dim1 = mds$x, 
-                     Dim2 = mds$y,
-                     Sample = rownames(mds$distance.matrix.squared),
-                     RIN = dge$samples$RIN)
-
-ggplot(toplot, aes(x = Dim1, y = Dim2, color = RIN, label = Sample)) + 
-  geom_point(size = 3) +
-  scale_color_gradientn(colors = c("red","yellow","lightblue","blue")) +
-  theme_bw() +
-  geom_text(aes(label = Sample), size=4, vjust = -1)
 ```
 
 

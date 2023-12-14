@@ -33,7 +33,7 @@ library(variancePartition) # fitExtractVarPartModel()
 ## User defined variables
 ```{r set_variables}
 tissue <- "parietal"
-folder <- paste0(tissue,"_same_as_meninges")
+folder <- paste0(tissue,"_immune_genes")
 groups <- c("control","meningitis")
 group_colors <- c("orange","cornflowerblue")
 ```
@@ -106,7 +106,8 @@ sapply(meta, class)
 ```{r}
 # choose cell type markers
 markers <- c("GFAP", "CD3E", "TTR", "VWF", "COL1A2", "MRC1", "KIT", "ITGAX", 
-             "SNAP25", "NES", "NKG7", "MBP", "TNR", "MYH11", "HBB", "MPZ")
+             "SNAP25", "NES", "NKG7", "MBP", "TNR", "MYH11", "HBB", "MPZ",
+             "RBFOX3", "MAP2","CUX2")
 length(markers)
 
 # print markers not in annotation (could have alternative name)
@@ -127,10 +128,10 @@ meta <- cbind(meta, cpm)
 ```
 
 ## Marker correlation
+
 ```{r}
 # formula
-form <- ~0 + NES + MPZ + TNR + KIT + COL1A2 + MRC1 + HBB + VWF + MYH11 + ITGAX +
-  GFAP + MBP + SNAP25
+form <- ~0 + TNR + KIT + COL1A2 + CD3E + VWF + ITGAX + SNAP25
 
 # correlation plot
 model.matrix(form, data = meta) %>% 
@@ -141,7 +142,7 @@ model.matrix(form, data = meta) %>%
 ## Significance
 ```{r stats}
 # initialize data frame
-variable_numbers <- c(5:22)
+variable_numbers <- c(5:16)
 variable_names <- colnames(meta)[variable_numbers]
 tests <- c("control_mean","meningitis_mean","control_stdv","meningitis_stdv",
            "control_shapiro_pval","meningitis_shapiro_pval","levene_na_omit",
@@ -345,7 +346,7 @@ bestModel <- mvForwardStepwise(exprObj = counts,
 
 # Save
 ```{r}
-meta <- meta[,10:22]
+meta <- meta[,10:16]
 all.equal(rownames(meta), rownames(dge.filtered.norm$samples))
 dge.filtered.norm$samples <- cbind(dge.filtered.norm$samples, meta)
 saveRDS(dge.filtered.norm, paste0("../../rObjects/",folder, "_DGEList_cell_markers.rds"))
