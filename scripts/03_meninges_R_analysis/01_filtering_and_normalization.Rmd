@@ -33,12 +33,13 @@ library(gridExtra)          # grid.arrange()
 library(philentropy)        # JSD()
 library(rtracklayer)        # import()
 library(stringr)            # str_match()
+library(tidyverse)          # pivot_wider()
 ```
 
 ## User defined variables
 ```{r set_variables}
-tissue <- "meninges"
-folder <- paste0(tissue,"_1CPM_in_12_samples")
+tissue <- "meninge"
+folder <- paste0(tissue,"_results")
 groups <- c("control","meningitis")
 group_colors <- c("orange","cornflowerblue")
 sex_colors <- c("green","purple")
@@ -93,8 +94,6 @@ colnames(counts) <- meta$mayo_id
 meta$sex <- factor(meta$sex, levels = c("female","male"))
 meta$group <- factor(meta$group, levels = c("control","meningitis"))
 meta$sex_group <- paste0(meta$sex,"_",meta$group)
-#factor_columns <- c(14,15)
-#dge$samples[factor_columns] <- lapply(dge$samples[factor_columns], factor)
 
 # read in annotation file
 if (file.exists("../../rObjects/annotation.rds")) {
@@ -128,8 +127,15 @@ remove(counts, meta, genes)
 ```
 
 ## Remove specific samples
-- Mayo_24, a male control sample, is the only sample without brain weight or thal phase. Additionally, this donor has the 2nd and 3rd lowest RIN for parietal and meninge tissue out of all samples. 
-- Mayo_08, a male control sample, has the lowest RIN of the meninges samples (after removing Mayo_24). On MDS plots this control sample does not group well with the others. This was a VaD case.
+- Mayo_08 \
+  + Male control, had poor RINs and did not cluster well on MDS, VaD sample, low library size \
+  + We assessed moving other VaD samples it was not beneficial. The poor RIN (1.5) or low number of reads is most likely the driving cause \
+- Mayo_18 \
+  + Female control, did not cluster well by sex on MDS, extremely low number of reads, low XIST expression \
+- Mayo_24 \
+  + missing basic metadata info for some fields, poor RIN \
+- Mayo_40 \
+  + Male meningitis, was not clustering by sex on MDS, purulent meningitis case \
 ```{r remove_samples}
 keep <- NULL
 keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08","Mayo_18","Mayo_40")
@@ -372,17 +378,33 @@ remove(data,dims)
 
 # Filtering and normalization
 ## Lowly expressed genes
-```{r filter_genes}
+```{r filter_genes_by_expr}
 start <- dim(dge)[1]
 
+# get dataframes
 cpm <- as.data.frame(cpm(dge))
-cpm <- as.data.frame(cpm >= 1)
-cpm$rsums <- rowSums(cpm)
-keep <- cpm$rsums >= 12
+meta <- dge$samples[,c("informative_name","group")]
+
+# find CPM avg per group
+mean.group <- cpm |>
+  mutate(gene = row.names(cpm)) |>
+  pivot_longer(-gene, names_to = "informative_name") |>
+  left_join(meta, by = "informative_name") |>
+  summarize(mean = mean(value), .by = c(gene, group)) |>
+  pivot_wider(names_from = group, values_from = mean)
+mean.group <- as.data.frame(mean.group)
+rownames(mean.group) <- mean.group$gene
+mean.group$gene <- NULL
+
+# keep genes if 1 CPM in at least 1 group
+mean.group <- as.data.frame(mean.group > 1) # true when CPM > 1
+mean.group$rsums <- Matrix::rowSums(mean.group) # num groups with CPM > 1
+keep <- mean.group$rsums >= 1 # genes with at least 1 CPM in 1 group
 dge.filtered <- dge[keep,,keep.lib.sizes = FALSE]
 
 end <- dim(dge.filtered)[1]
 print(paste(start - end, "genes removed and", end, "genes leftover."))
+remove(meta,mean.group,cpm,keep,start,end)
 ```
 
 ## TMM
@@ -499,7 +521,7 @@ axis(1,at=1:nsamples,labels=colnames(log2cpm.norm),las=2,cex.axis=0.8)
 # save
 path <- paste0("../../results/",folder,"/postfiltering_QC/counts_per_gene_per_sample_boxplot")
 saveToPDF(paste0(path, ".pdf"), width = 12, height = 4)
-#remove(log2cpm.raw, log2cpm.norm, log2cpm.filtered)
+remove(log2cpm.raw, log2cpm.norm, log2cpm.filtered)
 ```
 
 ## CPM
@@ -507,10 +529,9 @@ saveToPDF(paste0(path, ".pdf"), width = 12, height = 4)
 # CPM, Counts Per Million
 # normalize by sequencing depth
 cpm <- cpm(dge.filtered.norm)
-
-path <- paste0("../../results/",folder,"/counts/CPM_after_filtering_and_normalization.tsv")
+path <- paste0("../../results/",folder,
+               "/counts/CPM_after_filtering_and_normalization.tsv")
 write.table(cpm, path, quote = FALSE, sep = "\t")
-
 remove(cpm)
 ```
 
@@ -532,9 +553,9 @@ write.table(df, path, quote = FALSE, sep = "\t")
 # Save
 ```{r save_final_object, eval=FALSE}
 saveRDS(dge.filtered.norm, 
-        paste0("../../rObjects/",folder,"_DGEList_filtered_normalized.rds"))
+        paste0("../../rObjects/",tissue,"_DGEList_filtered_normalized.rds"))
 ```
 
 ```{r session_info}
-sessionInfo()
+devtools::session_info()
 ```
