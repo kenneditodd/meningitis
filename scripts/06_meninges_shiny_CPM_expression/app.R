@@ -4,7 +4,7 @@ library(stringr)
 library(ggplot2)
 
 # set global plot params
-theme_set(theme_classic())
+theme_set(theme_bw())
 theme_update(text = element_text(size=20))
 
 # function to plot boxplot
@@ -65,6 +65,9 @@ ui <- fluidPage(
 
     # Application title
     titlePanel("Meninges CPM"),
+    p("CPM postfiltering"),
+    p("8 samples removed"),
+    p("meninge and parietal tissue processed the same way"),
 
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
@@ -112,14 +115,14 @@ server <- function(input, output) {
                    options = list(maxOptions = 5))
   })
   
-  # boxplot
+  # box plot
   output$boxplot <- renderPlot({
     req(input$tissue)
     req(input$goi)
     plotBoxplot(counts = cpm(), gene = input$goi)
   })
   
-  # boxplot
+  # bar plot
   output$bar <- renderPlot({
     req(input$tissue)
     req(input$goi)
