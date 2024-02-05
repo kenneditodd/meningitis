@@ -2,7 +2,7 @@
 title: "Meningitis: Meninges Tissue"
 subtitle: "Filtering and Normalization"
 author: "Kennedi Todd"
-date: "11/08/2023"
+date: "'r Sys.Date()'"
 output:
   html_document:
     theme: cerulean
@@ -38,8 +38,8 @@ library(tidyverse)          # pivot_wider()
 
 ## User defined variables
 ```{r set_variables}
-tissue <- "meninge"
-folder <- paste0(tissue,"_results")
+tissue <- "meninges"
+folder <- paste0(tissue,"_no_VaD")
 groups <- c("control","meningitis")
 group_colors <- c("orange","cornflowerblue")
 sex_colors <- c("green","purple")
@@ -136,9 +136,12 @@ remove(counts, meta, genes)
   + missing basic metadata info for some fields, poor RIN \
 - Mayo_40 \
   + Male meningitis, was not clustering by sex on MDS, purulent meningitis case \
+- Mayo_16, Mayo_19, Mayo_35, Mayo_39 VaD
 ```{r remove_samples}
 keep <- NULL
-keep <- !colnames(dge) %in% c("Mayo_24","Mayo_08","Mayo_18","Mayo_40")
+samples <- c("Mayo_24","Mayo_08","Mayo_18","Mayo_40",
+             "Mayo_16","Mayo_19","Mayo_35","Mayo_39")
+keep <- !colnames(dge) %in% samples
 dge <- dge[,keep]
 dim(dge)
 ```
@@ -360,7 +363,7 @@ for (dim in dims) {
       theme_bw() +
       geom_text(aes(label = Sample), size=4, vjust = -1) +
       xlab(x.lab) + ylab(y.lab) + 
-      ggtitle(paste0("Raw: Top ", numGenes, ", Log2(CPM)"))
+      ggtitle(paste0("MDS Raw: Top ", numGenes, ", Log2(CPM)"))
     print(p)
     
     # save
@@ -553,7 +556,7 @@ write.table(df, path, quote = FALSE, sep = "\t")
 # Save
 ```{r save_final_object, eval=FALSE}
 saveRDS(dge.filtered.norm, 
-        paste0("../../rObjects/",tissue,"_DGEList_filtered_normalized.rds"))
+        paste0("../../rObjects/",folder,"_DGEList_filtered_normalized.rds"))
 ```
 
 ```{r session_info}
